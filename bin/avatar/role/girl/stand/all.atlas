@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 68,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 114,
+                "y": 24
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 69,
+                "x": 0,
+                "y": 114
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 114,
+                "y": 24
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 71,
+                "x": 69,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 113,
+                "y": 24
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 115,
+                "idx": 0,
+                "w": 70,
+                "x": 70,
+                "y": 114
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 113,
+                "y": 22
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/girl/stand/all/"
+    }
+}

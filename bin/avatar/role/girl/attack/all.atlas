@@ -1,0 +1,93 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 68,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 114,
+                "y": 24
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 106,
+                "idx": 0,
+                "w": 100,
+                "x": 69,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 75,
+                "y": 31
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 128,
+                "idx": 0,
+                "w": 203,
+                "x": 170,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 7,
+                "y": 19
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 122,
+                "idx": 0,
+                "w": 187,
+                "x": 0,
+                "y": 129
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 23,
+                "y": 25
+            }
+        },
+        "20004.png": {
+            "frame": {
+                "h": 119,
+                "idx": 0,
+                "w": 200,
+                "x": 188,
+                "y": 129
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 10,
+                "y": 28
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/girl/attack/all/"
+    }
+}

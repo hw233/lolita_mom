@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 65,
+                "idx": 0,
+                "w": 65,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 112,
+                "y": 71
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 64,
+                "idx": 0,
+                "w": 63,
+                "x": 0,
+                "y": 66
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 111,
+                "y": 71
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 65,
+                "idx": 0,
+                "w": 65,
+                "x": 64,
+                "y": 66
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 109,
+                "y": 70
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 65,
+                "idx": 0,
+                "w": 66,
+                "x": 66,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 110,
+                "y": 70
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/human/stand/all/"
+    }
+}

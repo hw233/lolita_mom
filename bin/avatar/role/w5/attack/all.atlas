@@ -1,0 +1,93 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 90,
+                "idx": 0,
+                "w": 85,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 87,
+                "y": 45
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 88,
+                "idx": 0,
+                "w": 96,
+                "x": 0,
+                "y": 91
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 78,
+                "y": 46
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 116,
+                "idx": 0,
+                "w": 78,
+                "x": 97,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 108,
+                "y": 19
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 88,
+                "idx": 0,
+                "w": 164,
+                "x": 97,
+                "y": 117
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 6,
+                "y": 46
+            }
+        },
+        "20004.png": {
+            "frame": {
+                "h": 98,
+                "idx": 0,
+                "w": 87,
+                "x": 176,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 79,
+                "y": 37
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/w5/attack/all/"
+    }
+}
