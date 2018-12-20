@@ -79,52 +79,54 @@ module game{
             this.m_render.addmapscrollbk("map/scrollmap/1001.png",1136,640);
             this.m_render.addmapscrollbk("map/scrollmap/1001.png",1136,640);
             this.m_render.addmapscrollbk("map/scrollmap/1001.png",1136,640);
-            this.m_render.setmapscrollbkpos(0,800);
+            this.m_render.setmapscrollbkpos(0,200);
             this.m_render.setmapscrollbkspd(200);
 
-            let uid:number = this.m_render.addunit("role1",2,200,1224);
+            let dx:number = 100;
+            let dy:number = 600;
+            let uid:number = this.m_render.addunit("role1",2,dx,dy);
             let ra:core.renderavatar = this.m_render.getunit(uid);
             ra.change_dir(6);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);
             ra.set_dx(-15);
             ra.set_dy(-60);
 
-            uid = this.m_render.addunit("enemy1",3,600,1224);
+            uid = this.m_render.addunit("enemy1",3,dx+100,dy);
             ra = this.m_render.getunit(uid);
             ra.change_dir(2);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);
             ra.set_dx(-15);
             ra.set_dy(-60);
 
-            uid = this.m_render.addunit("enemy2",4,700,1224);
+            uid = this.m_render.addunit("enemy2",4,dx+200,dy);
             ra = this.m_render.getunit(uid);
             ra.change_dir(2);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);
             ra.set_dx(-15);
             ra.set_dy(-60);
 
-            uid = this.m_render.addunit("enemy3",5,800,1224);
+            uid = this.m_render.addunit("enemy3",5,dx+300,dy);
             ra = this.m_render.getunit(uid);
             ra.change_dir(2);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);
             ra.set_dx(-15);
             ra.set_dy(-60);
 
-            uid = this.m_render.addunit("enemy4",6,900,1224);
+            uid = this.m_render.addunit("enemy4",6,dx+400,dy);
             ra = this.m_render.getunit(uid);
             ra.change_dir(2);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);
             ra.set_dx(-15);
             ra.set_dy(-60);
 
-            uid = this.m_render.addunit("enemy5",7,1000,1224);
+            uid = this.m_render.addunit("enemy5",7,dx+500,dy);
             ra = this.m_render.getunit(uid);
             ra.change_dir(2);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);
             ra.set_dx(-15);
             ra.set_dy(-60);
 
-            uid = this.m_render.addunit("enemy6",8,1100,1224);
+            uid = this.m_render.addunit("enemy6",8,dx+600,dy);
             ra = this.m_render.getunit(uid);
             ra.change_dir(2);
             ra.change_action(core.AVATAR_ACTON.ACTION_RUN);

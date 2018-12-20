@@ -48,7 +48,7 @@ class GameMain{
     private m_gamemain_ins:game.game_main = null;
     constructor()
     {
-        Laya.init(1440,2560,Laya.WebGL);
+        Laya.init(720,1280,Laya.WebGL);
         Laya.Stat.show(0,0);
 
         Laya.timer.frameLoop(1,this,this.onframeloop);
