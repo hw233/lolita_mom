@@ -190,7 +190,7 @@ module combat{
             }
             let src_pt:Laya.Point = this.m_mgr.m_scene.get_pos(src);
 
-            let srcud:{} = {"src":src,"x":0,"y":0};
+            let srcud:{} = {"src":src,"x":-1000,"y":-1000};
 
             this._add_node(tm,COMBATSCENE_WARRIORSETPOS,srcud);
 

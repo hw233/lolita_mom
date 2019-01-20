@@ -22,14 +22,22 @@ module core{
             this.m_pt_arr[idx].push(new Laya.Point(x,y));
         }
         public get_pt(pt_idx:number,idx:number):Laya.Point{
-            if(idx >= this.m_pt_arr[pt_idx].length){
-                if(this.m_pt_arr[pt_idx].length <= 0)
-                {
-                    return this.m_invalid_pt;
-                }
-                return this.m_pt_arr[pt_idx][idx%this.m_pt_arr[pt_idx].length];
+            if(this.m_pt_arr[pt_idx].length <= 0){
+                return this.m_invalid_pt;
             }
-            return this.m_pt_arr[pt_idx][idx];
+            let ret:Laya.Point = this.m_pt_arr[pt_idx][idx%this.m_pt_arr[pt_idx].length];
+            if(!ret){
+                ret = this.m_invalid_pt;
+            }
+            return ret;
+            //if(idx >= this.m_pt_arr[pt_idx].length){
+            //    if(this.m_pt_arr[pt_idx].length <= 0)
+            //    {
+            //        return this.m_invalid_pt;
+            //    }
+            //    return this.m_pt_arr[pt_idx][idx%this.m_pt_arr[pt_idx].length];
+            //}
+            //return this.m_pt_arr[pt_idx][idx];
         }
         public print_data():void{
             for(let i:number = 0;i < this.m_pt_max;++i){
