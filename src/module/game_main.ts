@@ -67,7 +67,7 @@ module game{
             timer.timer_ins().add_timer(1000,this,this.on_1s_tick);
 
             get_module(module_enum.MODULE_PLAYER).start();
-
+            get_module(module_enum.MODULE_CARD).start();
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI,true);
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINTOPUI,true);
 
