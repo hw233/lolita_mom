@@ -54,15 +54,46 @@ var widget;
         };
         main_ui.prototype.on_battle = function (ud) {
             if (ud === void 0) { ud = null; }
+            var card_m = game.get_module(module_enum.MODULE_CARD);
+            var tud = new Object();
+            var idlist = new Array();
+            tud["idlist"] = idlist;
+            var shapelist = new Array();
+            tud["shapelist"] = shapelist;
+            var hplist = new Array();
+            tud["hplist"] = hplist;
+            var atklist = new Array();
+            tud["atklist"] = atklist;
+            var durationlist = new Array();
+            tud["durationlist"] = durationlist;
+            for (var i = 0; i < 16; ++i) {
+                idlist.push(i + 1);
+                shapelist.push(1001);
+                hplist.push(i + 1);
+                atklist.push(i + 1);
+                durationlist.push(i + 1);
+            }
+            shapelist[1] = 3001;
+            shapelist[2] = 9999;
+            shapelist[3] = 3102;
+            shapelist[4] = 3301;
+            shapelist[5] = 0;
+            shapelist[6] = 0;
+            shapelist[7] = 0;
+            shapelist[8] = 0;
+            card_m.on_cards_arr(tud);
+            utils.widget_ins().show_widget(widget_enum.WIDGET_CARDUI, true);
         };
         main_ui.prototype.on_maincity = function (ud) {
             if (ud === void 0) { ud = null; }
             console.log("hahahaha");
-            this.fire_event_next_frame(game_event.EVENT_TEST);
+            helper.show_text_tips("hahahahah,this is a test");
+            //this.fire_event_next_frame(game_event.EVENT_TEST);
         };
         main_ui.prototype.on_mainequip = function (ud) {
             if (ud === void 0) { ud = null; }
-            this.fire_event_next_frame(game_event.EVENT_TEST1);
+            helper.show_msgbox("OK,let's go");
+            //this.fire_event_next_frame(game_event.EVENT_TEST1);
         };
         main_ui.prototype.on_add = function (ud) {
             if (ud === void 0) { ud = null; }

@@ -8,4 +8,9 @@ module game_event{
 
     export const EVENT_UI_MAINTOPUPDATE:string = "ui_maintop_update";
     export const EVENT_UI_MAINUPDATE:string = "ui_main_update";
+
+    export const EVENT_MSGBOX_CHOOSED:string = "msgbox_choosed";
+
+    export const EVENT_CARD_UPDATEHANDS:string = "card_updatehands";
+    export const EVENT_CARD_UPDATECARDS:string = "card_updatecards";
 }

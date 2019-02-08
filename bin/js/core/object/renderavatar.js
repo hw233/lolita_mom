@@ -1763,10 +1763,10 @@ var core;
                 this.m_mat_rt.height = tex.height;
             }
             if (this.m_dir >= 2 && this.m_dir <= 5) {
-                this.m_mat_wing_rt = this._draw_mat(this.m_mat_wing, 1, this.m_mat_wing_rt, dx + rdx + this.m_dx, dy + rdy + this.m_dy, b_body_mirrior, body_link_dir);
                 if (this.m_weapon_behind) {
                     this.m_mat_weapon_rt = this._draw_mat(this.m_mat_weapon, 3, this.m_mat_weapon_rt, dx + rdx + this.m_dx, dy + rdy + this.m_dy, b_body_mirrior, body_link_dir);
                 }
+                this.m_mat_wing_rt = this._draw_mat(this.m_mat_wing, 1, this.m_mat_wing_rt, dx + rdx + this.m_dx, dy + rdy + this.m_dy, b_body_mirrior, body_link_dir);
             }
             else {
                 if (!this.m_weapon_behind) {

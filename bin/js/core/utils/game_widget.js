@@ -156,6 +156,9 @@ var utils;
         };
         game_widget.prototype.on_show = function (flag) {
         };
+        game_widget.prototype.on_show_ud = function (flag, ud) {
+            if (ud === void 0) { ud = null; }
+        };
         game_widget.prototype.on_dispose = function () {
         };
         game_widget.prototype.show = function (flag) {
@@ -206,6 +209,7 @@ var utils;
                     this.m_ui.removeSelf();
                 }
                 this.on_show(this.m_b_show);
+                this.on_show_ud(this.m_b_show, this.m_ud);
                 if (this.m_b_show) {
                     utils.event_ins().fire_event(game_event.EVENT_WIDGET_ONSHOW, this);
                 }

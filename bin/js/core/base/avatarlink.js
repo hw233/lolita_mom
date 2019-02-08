@@ -22,13 +22,22 @@ var core;
             this.m_pt_arr[idx].push(new Laya.Point(x, y));
         };
         avatardirlink.prototype.get_pt = function (pt_idx, idx) {
-            if (idx >= this.m_pt_arr[pt_idx].length) {
-                if (this.m_pt_arr[pt_idx].length <= 0) {
-                    return this.m_invalid_pt;
-                }
-                return this.m_pt_arr[pt_idx][idx % this.m_pt_arr[pt_idx].length];
+            if (this.m_pt_arr[pt_idx].length <= 0) {
+                return this.m_invalid_pt;
             }
-            return this.m_pt_arr[pt_idx][idx];
+            var ret = this.m_pt_arr[pt_idx][idx % this.m_pt_arr[pt_idx].length];
+            if (!ret) {
+                ret = this.m_invalid_pt;
+            }
+            return ret;
+            //if(idx >= this.m_pt_arr[pt_idx].length){
+            //    if(this.m_pt_arr[pt_idx].length <= 0)
+            //    {
+            //        return this.m_invalid_pt;
+            //    }
+            //    return this.m_pt_arr[pt_idx][idx%this.m_pt_arr[pt_idx].length];
+            //}
+            //return this.m_pt_arr[pt_idx][idx];
         };
         avatardirlink.prototype.print_data = function () {
             for (var i = 0; i < this.m_pt_max; ++i) {

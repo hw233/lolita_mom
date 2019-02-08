@@ -76,6 +76,7 @@ var protocol_def;
         'cookbattle_result': [['result_idx', 'int8', ''], ['result', 'int8', ''], ['subject_style', 'int8', ''], ['recipe', 'int8', ''], ['rival_style', 'int8', ''], ['rival_level', 'int8', ''],],
         'cookbattle_recipe': [['style', 'int8', ''], ['recipe', 'int8', ''], ['amount', 'int16', ''],],
         'wulin_rank_info': [['rid', 'uint32', ''], ['score', 'uint32', ''], ['name', 'string8', ''], ['srvid', 'int32', ''],],
+        'cards_spell': [['dst', 'int32', ''], ['type', 'int8', ''], ['value', 'int32', ''],],
         'C2S_WEBSOCKET_HELLO': [['msg', 'string16', ''],],
         'S2C_WEBSOCKET_HELLO': [['msg', 'string16', ''],],
         'S2C_MERGE_PACKET': [['packets', 'list8', 'byte8'],],
@@ -198,6 +199,25 @@ var protocol_def;
         'S2C_WAR_BUFF_DEL': [['warid', 'int8', ''], ['bid', 'int16', ''],],
         'C2S_WAR_PLAYEND': [['id', 'int32', ''],],
         'S2C_WAR_DEFEAT': [['idx', 'int8', ''],],
+        'C2S_CARDS_START': [],
+        'C2S_CARDS_QUIT': [],
+        'C2S_CARDS_USE': [['srcid', 'int32', ''], ['dstid', 'int32', ''],],
+        'C2S_CARDS_CLICK': [['id', 'int32', ''],],
+        'C2S_CARDS_FLIP': [['id', 'int32', ''],],
+        'C2S_CARDS_DEL': [['id', 'int32', ''],],
+        'S2C_CARDS_START': [],
+        'S2C_CARDS_END': [],
+        'S2C_CARDS_ARR': [['idlist', 'list8', 'int32'], ['shapelist', 'list8', 'int16'], ['atklist', 'list8', 'int32'], ['hplist', 'list8', 'int32'], ['durationlist', 'list8', 'int32'],],
+        'S2C_CARDS_HANDS': [['idlist', 'list8', 'int32'], ['shapelist', 'list8', 'int16'], ['atklist', 'list8', 'int32'], ['hplist', 'list8', 'int32'], ['durationlist', 'list8', 'int32'],],
+        'S2C_CARDS_PLAYERINFO': [['hp', 'int32', ''], ['stamina', 'int32', ''], ['armor', 'int32', ''], ['atk', 'int32', ''], ['exp', 'int32', ''], ['dlv', 'int32', ''], ['clv', 'int32', ''], ['hpmax', 'int32', ''], ['staminamax', 'int32', ''],],
+        'S2C_CARDS_ATK': [['srcid', 'int32', ''], ['dstid', 'int32', ''], ['value', 'int32', ''],],
+        'S2C_CARDS_DEL': [['id', 'int32', ''],],
+        'S2C_CARDS_OPEN': [['id', 'int32', ''], ['shape', 'int32', ''],],
+        'S2C_CARDS_CHANGED': [['id', 'int32', ''], ['shape', 'int16', ''], ['atk', 'int32', ''], ['hp', 'int32', ''], ['duration', 'int32', ''],],
+        'S2C_CARDS_TURNSTART': [],
+        'S2C_CARDS_TURNEND': [],
+        'S2C_CARDS_ENTERDLV': [['lv', 'int32', ''],],
+        'S2C_CARDS_DELHAND': [['id', 'int32', ''],],
     };
     protocol_def.C2S_WEBSOCKET_HELLO = 0x100;
     protocol_def.S2C_WEBSOCKET_HELLO = 0x100;
@@ -321,6 +341,25 @@ var protocol_def;
     protocol_def.S2C_WAR_BUFF_DEL = 0x331;
     protocol_def.C2S_WAR_PLAYEND = 0x340;
     protocol_def.S2C_WAR_DEFEAT = 0x340;
+    protocol_def.C2S_CARDS_START = 0x501;
+    protocol_def.C2S_CARDS_QUIT = 0x502;
+    protocol_def.C2S_CARDS_USE = 0x503;
+    protocol_def.C2S_CARDS_CLICK = 0x504;
+    protocol_def.C2S_CARDS_FLIP = 0x505;
+    protocol_def.C2S_CARDS_DEL = 0x506;
+    protocol_def.S2C_CARDS_START = 0x501;
+    protocol_def.S2C_CARDS_END = 0x502;
+    protocol_def.S2C_CARDS_ARR = 0x503;
+    protocol_def.S2C_CARDS_HANDS = 0x504;
+    protocol_def.S2C_CARDS_PLAYERINFO = 0x505;
+    protocol_def.S2C_CARDS_ATK = 0x506;
+    protocol_def.S2C_CARDS_DEL = 0x507;
+    protocol_def.S2C_CARDS_OPEN = 0x508;
+    protocol_def.S2C_CARDS_CHANGED = 0x509;
+    protocol_def.S2C_CARDS_TURNSTART = 0x510;
+    protocol_def.S2C_CARDS_TURNEND = 0x511;
+    protocol_def.S2C_CARDS_ENTERDLV = 0x512;
+    protocol_def.S2C_CARDS_DELHAND = 0x513;
     protocol_def.S2C_CMD_2_PROTODESC = {};
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_WEBSOCKET_HELLO] = 'S2C_WEBSOCKET_HELLO';
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_MERGE_PACKET] = 'S2C_MERGE_PACKET';
@@ -405,6 +444,19 @@ var protocol_def;
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_WAR_BUFF_ADD] = 'S2C_WAR_BUFF_ADD';
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_WAR_BUFF_DEL] = 'S2C_WAR_BUFF_DEL';
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_WAR_DEFEAT] = 'S2C_WAR_DEFEAT';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_START] = 'S2C_CARDS_START';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_END] = 'S2C_CARDS_END';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_ARR] = 'S2C_CARDS_ARR';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_HANDS] = 'S2C_CARDS_HANDS';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_PLAYERINFO] = 'S2C_CARDS_PLAYERINFO';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_ATK] = 'S2C_CARDS_ATK';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_DEL] = 'S2C_CARDS_DEL';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_OPEN] = 'S2C_CARDS_OPEN';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_CHANGED] = 'S2C_CARDS_CHANGED';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_TURNSTART] = 'S2C_CARDS_TURNSTART';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_TURNEND] = 'S2C_CARDS_TURNEND';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_ENTERDLV] = 'S2C_CARDS_ENTERDLV';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_DELHAND] = 'S2C_CARDS_DELHAND';
     protocol_def.C2S_CMD_2_PROTODESC = {};
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_WEBSOCKET_HELLO] = 'C2S_WEBSOCKET_HELLO';
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_LOGIN_ASYN_TIME] = 'C2S_LOGIN_ASYN_TIME';
@@ -445,5 +497,11 @@ var protocol_def;
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CHAT_GM] = 'C2S_CHAT_GM';
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_HERO_LEVELUP] = 'C2S_HERO_LEVELUP';
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_WAR_PLAYEND] = 'C2S_WAR_PLAYEND';
+    protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CARDS_START] = 'C2S_CARDS_START';
+    protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CARDS_QUIT] = 'C2S_CARDS_QUIT';
+    protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CARDS_USE] = 'C2S_CARDS_USE';
+    protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CARDS_CLICK] = 'C2S_CARDS_CLICK';
+    protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CARDS_FLIP] = 'C2S_CARDS_FLIP';
+    protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_CARDS_DEL] = 'C2S_CARDS_DEL';
 })(protocol_def || (protocol_def = {}));
 //# sourceMappingURL=ProtocolDesc.js.map

@@ -181,7 +181,7 @@ var combat;
                 dy = -this.m_mgr.m_scene.m_pos_dy;
             }
             var src_pt = this.m_mgr.m_scene.get_pos(src);
-            var srcud = { "src": src, "x": 0, "y": 0 };
+            var srcud = { "src": src, "x": -1000, "y": -1000 };
             this._add_node(tm, combat.COMBATSCENE_WARRIORSETPOS, srcud);
             for (var _i = 0, _a = this.m_data.dst_list; _i < _a.length; _i++) {
                 var i = _a[_i];

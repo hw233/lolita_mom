@@ -71,9 +71,10 @@ var game;
             this.register_event(game_event.EVENT_TEST3, this.on_testfunc3);
             timer.timer_ins().add_timer(1000, this, this.on_1s_tick);
             game.get_module(module_enum.MODULE_PLAYER).start();
+            game.get_module(module_enum.MODULE_CARD).start();
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI, true);
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINTOPUI, true);
-            net.net_ins().connect("123.207.239.21", 11009);
+            net.net_ins().connect("123.207.239.21", 11029);
             //this.m_render.setmapbk("map/city/2001/2001.jpg");
             this.m_render.setmapscrollbkview(Laya.stage.designWidth, Laya.stage.designHeight);
             this.m_render.addmapscrollbk("map/scrollmap/1001.png", 1136, 640);
@@ -191,35 +192,19 @@ var game;
         };
         game_main.prototype.on_testfunc2 = function (ud) {
             if (ud === void 0) { ud = null; }
-            console.log("on_testfunc2 move item", ud);
-            if (this.m_itemlist.length > 1) {
-                var item = this.m_itemlist[1];
-                var dstpos = 2;
-                net.net_ins().send(protocol_def.C2S_ITEM_MOVE, { "id": item['id'], "dstpos": dstpos });
-            }
+            console.log("on_testfunc2", ud);
         };
         game_main.prototype.on_testfunc3 = function (ud) {
             if (ud === void 0) { ud = null; }
             console.log("on_testfunc3 buyitem", ud);
-            this.m_render.setmapbk("map/city/2002/2002.jpg");
-            //net.net_ins().send(protocol_def.C2S_ITEM_BUY,{"id":1001});
         };
         game_main.prototype.on_testfunc1 = function (ud) {
             if (ud === void 0) { ud = null; }
             console.log("on_testfunc1 refresh", ud);
-            this.m_render.setmapbk("map/city/2001/2001.jpg");
-            //net.net_ins().send(protocol_def.C2S_ROLE_INFO,{});
-            //net.net_ins().send(protocol_def.C2S_ITEM_GETLIST,{});
         };
         game_main.prototype.on_testfunc = function (ud) {
             if (ud === void 0) { ud = null; }
-            console.log("haha,i get event from main_ui");
-            console.log("on_testfunc useitem", ud);
-            //net.net_ins().send(protocol_def.C2S_CHAT_GM,{"msg":"addgold 10000"});
-            if (this.m_itemlist.length > 0) {
-                var item = this.m_itemlist[0];
-                net.net_ins().send(protocol_def.C2S_ITEM_USE, { "id": item['id'], "amount": 1 });
-            }
+            console.log("on_testfunc");
         };
         game_main.prototype.on_roleid = function (ud) {
             if (ud === void 0) { ud = null; }

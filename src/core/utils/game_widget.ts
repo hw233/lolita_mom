@@ -164,6 +164,9 @@ module utils{
         {
 
         }
+        public on_show_ud(flag:boolean,ud:any = null):void{
+
+        }
         public on_dispose():void
         {
             
@@ -223,6 +226,7 @@ module utils{
                     this.m_ui.removeSelf();
                 }
                 this.on_show(this.m_b_show);
+                this.on_show_ud(this.m_b_show,this.m_ud);
                 if(this.m_b_show){
                     utils.event_ins().fire_event(game_event.EVENT_WIDGET_ONSHOW,this);
                 }

@@ -415,9 +415,9 @@ var icon_mgr;
                 return null;
         }
         icon.name = "this_is_iconmgr_gen_icon";
-        var rate = 180 / 90;
+        var rate = 1.0;
         if (b_small) {
-            rate = 134 / 90;
+            rate = 0.5;
         }
         icon.scale(rate, rate, true);
         grid.addChild(icon);

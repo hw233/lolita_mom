@@ -53,6 +53,7 @@ var game;
         "res": "抗暴",
         "hit": "命中",
         "dod": "闪避",
+        "dura": "耐久",
     };
     // 常用提示
     game.L_SHIJIE = "世界";

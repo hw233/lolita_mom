@@ -106,6 +106,7 @@ var GameMain = /** @class */ (function () {
         Laya.View.uiMap = Laya.loader.getRes("ui.json");
         var config_json = Laya.loader.getRes("config.json");
         config.config_init(config_json);
+        icon_mgr.init_icon_config(config.Iconinfo.get_Iconinfo);
         Laya.loader.off(Laya.Event.ERROR, this, this.onError);
         //
         protocol_def.register_cmd(protocol_def.C2S_CMD_2_PROTODESC, protocol_def.S2C_CMD_2_PROTODESC);

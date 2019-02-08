@@ -14,7 +14,7 @@ module data{
             super();
         }
         
-        public dispose()
+        public dispose():void
         {
             super.dispose();
         }
