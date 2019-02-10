@@ -28,9 +28,10 @@ var widget;
             _this.m_bk = new Laya.Sprite();
             _this.m_icon = new Laya.Sprite();
             _this.m_info_label = new Laya.Sprite();
+            _this.m_ani = new Laya.Animation();
             _this.m_parent = null;
             _this.m_open_tp = 0;
-            _this.m_showopening = false;
+            _this.m_show_animation = false;
             _this.m_card_id = 0;
             _this.m_card_type = 0;
             _this.m_card_shape = 0;
@@ -40,6 +41,8 @@ var widget;
             _this.m_name = "";
             _this.m_desc = "";
             _this.m_info = "";
+            _this.m_info1 = "";
+            _this.m_waitani_list = new Array();
             _this.mouseEnabled = true;
             _this.addChild(_this.m_root);
             _this.m_root.pivot(CARD_ITEM_FRAME_W / 2, CARD_ITEM_FRAME_H / 2);
@@ -77,15 +80,16 @@ var widget;
                 this.show_bk();
             }
         };
-        card_item.prototype.update_info = function (name, desc, info) {
+        card_item.prototype.update_info = function (name, desc, info, info1) {
             this.m_name = name;
             this.m_desc = desc;
             this.m_info = info;
+            this.m_info1 = info1;
             //todo
             this.update_draw_info();
         };
         card_item.prototype.clear_data = function () {
-            this.stop_showopen();
+            this.stop_animation();
             this.clear_img();
             this.del_icon();
             this.m_card_id = 0;
@@ -106,14 +110,14 @@ var widget;
             if (ud === void 0) { ud = null; }
             //core.ui_tiplog("card_item on_mousedown ",this.m_id);
             if (this.m_parent && this._is_valid()) {
-                this.m_parent.on_mousedown_card(this.m_id);
+                this.m_parent.on_mousedown_card(this.m_id, this.m_card_id);
             }
         };
         card_item.prototype.on_mouseup = function (ud) {
             if (ud === void 0) { ud = null; }
             //core.ui_tiplog("card_item on_mouseup ",this.m_id);
             if (this.m_parent && this._is_valid()) {
-                this.m_parent.on_mouseup_card(this.m_id);
+                this.m_parent.on_mouseup_card(this.m_id, this.m_card_id);
             }
         };
         card_item.prototype.on_over = function (ud) {
@@ -122,11 +126,11 @@ var widget;
             if (!this._is_valid()) {
                 return;
             }
-            if (this.m_showopening) {
+            if (this.m_show_animation) {
                 return;
             }
             this.m_root.scale(1.2, 1.2);
-            if (this.m_parent && this.m_card_id != 0) {
+            if (this.m_parent && this.m_card_id != 0 && this.m_card_shape != 0) {
                 var x = this.x + CARD_ITEM_FRAME_W;
                 var y = this.y + CARD_ITEM_FRAME_H / 2;
                 var pt = new Laya.Point(x, y);
@@ -144,7 +148,7 @@ var widget;
             if (!this._is_valid()) {
                 return;
             }
-            if (this.m_showopening) {
+            if (this.m_show_animation) {
                 return;
             }
             this.m_root.scale(1.0, 1.0);
@@ -152,10 +156,63 @@ var widget;
                 helper.hide_float_text_tips();
             }
         };
+        card_item.prototype.show_attacked = function () {
+            if (this.m_show_animation) {
+                this.m_waitani_list.push(-2);
+                return;
+            }
+            this.on_out();
+            this.stop_animation();
+            this.m_root.addChild(this.m_ani);
+            this.m_ani.pos(CARD_ITEM_FRAME_W / 2, CARD_ITEM_FRAME_H / 2);
+            this.m_ani.loadAnimation("game_ani/attack.ani");
+            this.m_ani.play();
+            this.m_show_animation = true;
+            Laya.Tween.to(this.m_root, { rotation: -10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase1));
+        };
+        card_item.prototype.on_showattacked_phase1 = function () {
+            Laya.Tween.to(this.m_root, { rotation: 10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase2));
+        };
+        card_item.prototype.on_showattacked_phase2 = function () {
+            Laya.Tween.to(this.m_root, { rotation: -10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase3));
+        };
+        card_item.prototype.on_showattacked_phase3 = function () {
+            Laya.Tween.to(this.m_root, { rotation: 10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase4));
+        };
+        card_item.prototype.on_showattacked_phase4 = function () {
+            Laya.Tween.to(this.m_root, { rotation: -10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase5));
+        };
+        card_item.prototype.on_showattacked_phase5 = function (ud) {
+            if (ud === void 0) { ud = null; }
+            this.stop_animation(true);
+        };
+        card_item.prototype.show_attack = function () {
+            if (this.m_show_animation) {
+                this.m_waitani_list.push(-1);
+                return;
+            }
+            this.on_out();
+            this.stop_animation();
+            this.m_show_animation = true;
+            this.m_root.scale(1.2, 1.2);
+            Laya.Tween.to(this.m_root, { rotation: -20 }, 50, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattack_phase1));
+        };
+        card_item.prototype.on_showattack_phase1 = function () {
+            Laya.Tween.to(this.m_root, { rotation: 0 }, 50, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattack_phase2));
+        };
+        card_item.prototype.on_showattack_phase2 = function (ud) {
+            if (ud === void 0) { ud = null; }
+            this.stop_animation(true);
+        };
         card_item.prototype.show_open = function (tp) {
             //Laya.Tween.to()
+            if (this.m_show_animation) {
+                this.m_waitani_list.push(tp);
+                return;
+            }
             this.on_out();
-            this.m_showopening = true;
+            this.stop_animation();
+            this.m_show_animation = true;
             this.m_open_tp = tp;
             this.show_bk();
             Laya.Tween.to(this.m_root, { scaleX: 0 }, 100, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showopen_phase1));
@@ -167,12 +224,28 @@ var widget;
         };
         card_item.prototype.on_showopen_phase2 = function (ud) {
             if (ud === void 0) { ud = null; }
-            this.stop_showopen();
             this.show_frame(this.m_open_tp);
+            this.stop_animation(true);
         };
-        card_item.prototype.stop_showopen = function () {
-            this.m_showopening = false;
+        card_item.prototype.stop_animation = function (b_end) {
+            if (b_end === void 0) { b_end = false; }
+            this.m_show_animation = false;
             Laya.Tween.clearAll(this.m_root);
+            this.m_root.scale(1.0, 1.0);
+            this.m_root.rotation = 0;
+            this.m_ani.removeSelf();
+            if (b_end && this.m_waitani_list.length > 0) {
+                var tp = this.m_waitani_list.shift();
+                if (tp == -2) {
+                    this.show_attacked();
+                }
+                else if (tp == -1) {
+                    this.show_attack();
+                }
+                else {
+                    this.show_open(tp);
+                }
+            }
         };
         card_item.prototype.re_init = function () {
             this.m_name = "";
@@ -239,7 +312,8 @@ var widget;
         card_item.prototype.update_draw_info = function () {
             this.m_info_label.graphics.clear();
             this.m_info_label.graphics.fillBorderText(this.m_name, CARD_ITEM_FRAME_W / 2, CARD_ITEM_FRAME_H - 40, "20px SimHei", "#ffffff", "#000000", 2, "center");
-            //this.m_info_label.graphics.fillBorderText(this.m_info,CARD_ITEM_FRAME_W-20,40,"20px SimHei","#ffffff","#000000",2,"right");  
+            this.m_info_label.graphics.fillBorderText(this.m_info, CARD_ITEM_FRAME_W - 40, 30, "20px SimHei", "#ffffff", "#000000", 2, "right");
+            this.m_info_label.graphics.fillBorderText(this.m_info1, CARD_ITEM_FRAME_W - 40, 50, "20px SimHei", "#ffffff", "#000000", 2, "right");
         };
         card_item.prototype.clear_img = function () {
             this.m_root.removeChildren();
@@ -275,12 +349,45 @@ var widget;
             _this.m_arror_start = false;
             _this.m_start_pt = new Laya.Point();
             _this.m_end_pt = new Laya.Point();
+            _this.m_arror_startid = 0;
+            _this.m_data_ins = null;
+            _this.m_main_ins = null;
+            _this.append_extrares("res/atlas/ani_res/attack.atlas", Laya.Loader.ATLAS);
+            _this.append_extrares("game_ani/attack.ani", Laya.Loader.JSON);
             _this.m_layer = utils.WIDGET_LAYER.NORMAL;
             var ui_w = 720;
             _this.m_card_gap = (ui_w - _this.m_card_w * _this.m_card_linecnt - _this.m_card_dx * 2) / (_this.m_card_linecnt - 1);
             return _this;
         }
         card_ui.prototype.on_init = function () {
+        };
+        card_ui.prototype.show_head_attacked = function () {
+            this.stop_head_attacked();
+            this.UIins.m_head_ani.loadAnimation("game_ani/attack.ani");
+            this.UIins.m_head_ani.play();
+            this.UIins.addChild(this.UIins.m_head_ani);
+            Laya.Tween.to(this.UIins.m_head_img, { rotation: -10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase1));
+        };
+        card_ui.prototype.on_showattacked_phase1 = function () {
+            Laya.Tween.to(this.UIins.m_head_img, { rotation: 10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase2));
+        };
+        card_ui.prototype.on_showattacked_phase2 = function () {
+            Laya.Tween.to(this.UIins.m_head_img, { rotation: -10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase3));
+        };
+        card_ui.prototype.on_showattacked_phase3 = function () {
+            Laya.Tween.to(this.UIins.m_head_img, { rotation: 10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase4));
+        };
+        card_ui.prototype.on_showattacked_phase4 = function () {
+            Laya.Tween.to(this.UIins.m_head_img, { rotation: -10 }, 30, Laya.Ease.linearIn, laya.utils.Handler.create(this, this.on_showattacked_phase5));
+        };
+        card_ui.prototype.on_showattacked_phase5 = function (ud) {
+            if (ud === void 0) { ud = null; }
+            this.stop_head_attacked();
+        };
+        card_ui.prototype.stop_head_attacked = function () {
+            this.UIins.m_head_ani.stop();
+            this.UIins.m_head_ani.removeSelf();
+            Laya.Tween.clearAll(this.UIins.m_head_img);
         };
         card_ui.prototype.init_allcard = function () {
             this.clear_allcard();
@@ -303,7 +410,7 @@ var widget;
             for (var i = 0; i < this.m_card_list.length; ++i) {
                 var citem = this.m_card_list[i];
                 citem.clear_data();
-                citem.stop_showopen();
+                citem.stop_animation();
                 citem.removeSelf();
                 citem.m_parent = null;
                 citem.unregister_event();
@@ -334,7 +441,7 @@ var widget;
             for (var i = 0; i < this.m_hand_list.length; ++i) {
                 var citem = this.m_hand_list[i];
                 citem.clear_data();
-                citem.stop_showopen();
+                citem.stop_animation();
                 citem.removeSelf();
                 citem.m_parent = null;
                 citem.unregister_event();
@@ -346,6 +453,8 @@ var widget;
         };
         card_ui.prototype.on_show = function (flag) {
             if (flag) {
+                this.m_data_ins = data.get_data(data_enum.DATA_CARD);
+                this.m_main_ins = game.get_module(module_enum.MODULE_CARD);
                 this.UIins = this.m_ui;
                 this.UIins.m_closebtn.on(Laya.Event.CLICK, this, this.on_click_closebtn);
                 this.init_allcard();
@@ -361,21 +470,35 @@ var widget;
                 this.UIins.on(Laya.Event.MOUSE_DOWN, this, this.on_mousedown);
                 this.UIins.on(Laya.Event.MOUSE_UP, this, this.on_mouseup);
                 this.UIins.on(Laya.Event.MOUSE_MOVE, this, this.on_mousemove);
+                this.UIins.m_delicon.on(Laya.Event.MOUSE_UP, this, this.on_mouseupon_del);
                 this.register_event(game_event.EVENT_CARD_UPDATEHANDS, this.on_update_hands);
                 this.register_event(game_event.EVENT_CARD_UPDATECARDS, this.on_udpate_cards);
+                //
+                this.register_event(game_event.EVENT_CARD_UPDATEDLV, this.on_updatedlv);
+                this.register_event(game_event.EVENT_CARD_CARDCHANGED, this.on_cardchanged);
+                this.register_event(game_event.EVENT_CARD_ATTACK, this.on_card_attack);
+                this.register_event(game_event.EVENT_CARD_DELCARD, this.on_delcard);
+                this.register_event(game_event.EVENT_CARD_OPENCARD, this.on_opencard);
+                this.register_event(game_event.EVENT_CARD_PLAYERINFO, this.on_playerinfo);
+                this.register_event(game_event.EVENT_CARD_END, this.on_end);
+                //
                 this.on_update_hands();
                 this.on_udpate_cards();
             }
             else {
+                this.m_data_ins = null;
+                this.m_main_ins = null;
                 this.UIins.off(Laya.Event.MOUSE_DOWN, this, this.on_mousedown);
                 this.UIins.off(Laya.Event.MOUSE_UP, this, this.on_mouseup);
                 this.UIins.off(Laya.Event.MOUSE_MOVE, this, this.on_mousemove);
+                this.UIins.m_delicon.off(Laya.Event.MOUSE_UP, this, this.on_mouseupon_del);
                 if (this.m_arror_ani) {
                     this.m_arror_ani.removeSelf();
                     this.m_arror_ani.clear();
                     this.m_arror_ani.destroy();
                     this.m_arror_ani = null;
                 }
+                this.stop_head_attacked();
                 this.clear_allcard();
                 this.clear_allhand();
                 this.UIins.m_closebtn.off(Laya.Event.CLICK, this, this.on_click_closebtn);
@@ -389,13 +512,14 @@ var widget;
             for (var i = 0; i < this.m_card_list.length; ++i) {
                 var citem = this.m_card_list[i];
                 citem.clear_data();
-                citem.stop_showopen();
+                citem.stop_animation();
                 if (i < cdata.m_cards.length) {
                     var hdata = cdata.m_cards[i];
                     if (hdata.m_id != 0) {
                         citem.update_data(hdata.m_id, hdata.m_type, hdata.m_shape, hdata.m_hp, hdata.m_atk, hdata.m_duration);
                         var info = this._gen_card_info(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
-                        citem.update_info(hdata.m_name, hdata.m_desc, info);
+                        var info1 = this._gen_card_info1(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+                        citem.update_info(hdata.m_name, hdata.m_desc, info, info1);
                     }
                 }
             }
@@ -405,7 +529,7 @@ var widget;
             for (var i = 0; i < this.m_hand_list.length; ++i) {
                 var citem = this.m_hand_list[i];
                 citem.clear_data();
-                citem.stop_showopen();
+                citem.stop_animation();
             }
             var cdata = data.get_data(data_enum.DATA_CARD);
             for (var i = 0; i < cdata.m_hands.length; ++i) {
@@ -414,26 +538,149 @@ var widget;
                     var citem = this.m_hand_list[i];
                     citem.update_data(hdata.m_id, hdata.m_type, hdata.m_shape, hdata.m_hp, hdata.m_atk, hdata.m_duration);
                     var info = this._gen_card_info(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
-                    citem.update_info(hdata.m_name, hdata.m_desc, info);
+                    var info1 = this._gen_card_info1(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+                    citem.update_info(hdata.m_name, hdata.m_desc, info, info1);
                 }
             }
         };
+        //
+        card_ui.prototype.on_updatedlv = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+            var dlv = ud;
+            this.UIins.m_info.text = dlv.toString();
+        };
+        card_ui.prototype._get_card_item = function (card_id) {
+            var citem = null;
+            for (var i = 0; i < this.m_card_list.length; ++i) {
+                var titem = this.m_card_list[i];
+                if (titem.m_card_id == card_id) {
+                    citem = titem;
+                    break;
+                }
+            }
+            if (citem == null) {
+                for (var i = 0; i < this.m_hand_list.length; ++i) {
+                    var titem = this.m_hand_list[i];
+                    if (titem.m_card_id == card_id) {
+                        citem = titem;
+                        break;
+                    }
+                }
+            }
+            return citem;
+        };
+        card_ui.prototype.on_cardchanged = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+            var card_id = ud;
+            var hdata = this.m_data_ins.get_card_data(card_id);
+            var citem = this._get_card_item(card_id);
+            if (citem == null) {
+                core.game_errlog("on_cardchanged error!have not this card " + card_id.toString());
+                return;
+            }
+            citem.update_data(hdata.m_id, hdata.m_type, hdata.m_shape, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+            var info = this._gen_card_info(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+            var info1 = this._gen_card_info1(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+            citem.update_info(hdata.m_name, hdata.m_desc, info, info1);
+        };
+        card_ui.prototype.on_card_attack = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+            var sid = ud[0];
+            var did = ud[1];
+            var v = ud[2];
+            if (sid != 0) {
+                var citem = this._get_card_item(sid);
+                if (citem != null) {
+                    citem.show_attack();
+                }
+            }
+            if (did == 0) {
+                this.show_head_attacked();
+            }
+            else {
+                var citem = this._get_card_item(did);
+                if (citem != null) {
+                    citem.show_attacked();
+                }
+            }
+        };
+        card_ui.prototype.on_delcard = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+            var card_id = ud;
+            for (var i = 0; i < this.m_card_list.length; ++i) {
+                var citem = this.m_card_list[i];
+                if (citem.m_card_id == card_id) {
+                    citem.clear_data();
+                    return;
+                }
+            }
+        };
+        card_ui.prototype.on_opencard = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+            var card_id = ud;
+            var hdata = this.m_data_ins.get_card_data(card_id);
+            for (var i = 0; i < this.m_card_list.length; ++i) {
+                var citem = this.m_card_list[i];
+                if (citem.m_card_id == card_id) {
+                    citem.update_data(hdata.m_id, hdata.m_type, hdata.m_shape, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+                    var info = this._gen_card_info(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+                    var info1 = this._gen_card_info1(hdata.m_type, hdata.m_hp, hdata.m_atk, hdata.m_duration);
+                    citem.update_info(hdata.m_name, hdata.m_desc, info, info1);
+                    citem.show_open(hdata.m_type);
+                    return;
+                }
+            }
+        };
+        card_ui.prototype.on_playerinfo = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+            var hp = this.m_data_ins.m_hp;
+            var hpmax = this.m_data_ins.m_hpmax;
+            var armor = this.m_data_ins.m_armor;
+            var stamina = this.m_data_ins.m_stamina;
+            var staminamax = this.m_data_ins.m_staminamax;
+            var exp = this.m_data_ins.m_exp;
+            this.UIins.m_armor.text = game.PROP_KEY_MAP["armor"] + ":" + armor.toString();
+            var info = game.PROP_KEY_MAP["stam"] + ":" + stamina.toString() + "/" + staminamax.toString();
+            info += "\n";
+            info += game.PROP_KEY_MAP["hp"] + ":" + hp.toString() + "/" + hpmax.toString();
+            this.UIins.m_info.text = info;
+        };
+        card_ui.prototype.on_end = function (ud) {
+            if (ud === void 0) { ud = null; }
+            //todo
+        };
+        //
         card_ui.prototype._gen_card_info = function (tp, hp, atk, duration) {
             var ret = "";
             if (tp == data.CARD_TYPE_MONSTER) {
-                ret = game.PROP_KEY_MAP["atk"] + ":" + atk.toString() + "\n" + game.PROP_KEY_MAP["hp"] + ":" + hp.toString();
+                ret = game.PROP_KEY_MAP["atk"] + ":" + atk.toString();
             }
             else if (tp == data.CARD_TYPE_SWORD) {
-                ret = game.PROP_KEY_MAP["atk"] + ":" + atk.toString() + "\n" + game.PROP_KEY_MAP["dura"] + ":" + duration.toString();
+                ret = game.PROP_KEY_MAP["atk"] + ":" + atk.toString();
             }
             else if (tp == data.CARD_TYPE_ARMOR) {
-                ret = game.PROP_KEY_MAP["def"] + ":" + hp.toString() + "\n" + game.PROP_KEY_MAP["dura"] + ":" + duration.toString();
+                ret = game.PROP_KEY_MAP["def"] + ":" + hp.toString();
             }
             return ret;
         };
-        card_ui.prototype.on_mouseup_card = function (card_id) {
-            core.game_tiplog("on_mouseup_card ", card_id);
-            //todo
+        card_ui.prototype._gen_card_info1 = function (tp, hp, atk, duration) {
+            var ret = "";
+            if (tp == data.CARD_TYPE_MONSTER) {
+                ret = game.PROP_KEY_MAP["hp"] + ":" + hp.toString();
+            }
+            else if (tp == data.CARD_TYPE_SWORD) {
+                ret = game.PROP_KEY_MAP["dura"] + ":" + duration.toString();
+            }
+            else if (tp == data.CARD_TYPE_ARMOR) {
+                ret = game.PROP_KEY_MAP["dura"] + ":" + duration.toString();
+            }
+            return ret;
         };
         card_ui.prototype.show_arrow = function (sx, sy, dx, dy) {
             core.game_tiplog("show_arrow ", sx, sy, dx, dy);
@@ -452,17 +699,13 @@ var widget;
             //this.m_arror_ani.y = 200;
         };
         card_ui.prototype.on_mousedown = function (e) {
-            core.game_tiplog("on_mousedown ", e.stageX, e.stageY);
-            this.m_start_pt.x = Laya.stage.mouseX;
-            this.m_start_pt.y = Laya.stage.mouseY;
-            this.m_start_pt = this.UIins.globalToLocal(this.m_start_pt);
-            this.m_arror_start = true;
+            //core.game_tiplog("on_mousedown ",e.stageX,e.stageY);
         };
         card_ui.prototype.on_mousemove = function (e) {
             if (!this.m_arror_start) {
                 return;
             }
-            core.game_tiplog("on_mousemove ", e.stageX, e.stageY);
+            //core.game_tiplog("on_mousemove ",e.stageX,e.stageY);
             this.m_end_pt.x = Laya.stage.mouseX;
             this.m_end_pt.y = Laya.stage.mouseY;
             this.m_end_pt = this.UIins.globalToLocal(this.m_end_pt);
@@ -470,21 +713,67 @@ var widget;
         };
         card_ui.prototype.on_mouseup = function (e) {
             this.m_arror_start = false;
-            core.game_tiplog("on_mouseup ", e.target.x, e.target.y);
+            //core.game_tiplog("on_mouseup ",e.target.x,e.target.y);
             this.hide_arrow();
             //helper.show_float_text_tips("12345",Laya.stage.mouseX,Laya.stage.mouseY);
+        };
+        card_ui.prototype.on_mouseupon_del = function (e) {
+            core.game_tiplog("on_mouseupon_del ", e.target.x, e.target.y);
+            if (this.m_arror_start) {
+                this.m_arror_start = false;
+                this.hide_arrow();
+                this.m_main_ins.req_del_card(this.m_arror_startid);
+            }
+        };
+        card_ui.prototype.on_mouseup_card = function (card_idx, card_id) {
+            //core.game_tiplog("on_mouseup_card ",card_id);
+            //todo
+            var citem = this._get_card_item(card_id);
+            if (this.m_arror_start) {
+                if (card_idx < this.m_hand_id_start) {
+                    this.m_main_ins.req_use_card(this.m_arror_startid, card_id);
+                }
+                this.m_arror_start = false;
+                this.hide_arrow();
+            }
+            else {
+                if (card_idx < this.m_hand_id_start) {
+                    if (citem.m_card_shape == 0) {
+                        this.m_main_ins.req_flip_card(card_id);
+                    }
+                    else {
+                        this.m_main_ins.req_click_card(card_id);
+                    }
+                }
+                else {
+                    this.m_main_ins.req_use_card(card_id, 0);
+                }
+            }
         };
         card_ui.prototype.hide_arrow = function () {
             this.m_arror_ani.removeSelf();
         };
-        card_ui.prototype.on_mousedown_card = function (card_id) {
-            core.game_tiplog("on_mousedown_card ", card_id);
+        card_ui.prototype.on_mousedown_card = function (card_idx, card_id) {
+            //core.game_tiplog("on_mousedown_card ",card_id);
+            if (card_idx < this.m_hand_id_start) {
+                return;
+            }
+            this.m_start_pt.x = Laya.stage.mouseX;
+            this.m_start_pt.y = Laya.stage.mouseY;
+            this.m_start_pt = this.UIins.globalToLocal(this.m_start_pt);
+            this.m_arror_start = true;
+            this.m_arror_startid = card_id;
         };
         card_ui.prototype.on_click_closebtn = function (ud) {
             if (ud === void 0) { ud = null; }
             this.show(false);
+            this.m_main_ins.req_quit();
         };
         card_ui.prototype.on_dispose = function () {
+            this.m_main_ins = null;
+            this.UIins = null;
+            this.m_data_ins = null;
+            this.stop_head_attacked();
             this.clear_allhand();
             this.clear_allcard();
         };

@@ -89,6 +89,7 @@ var data;
             c.m_name = name;
             c.m_desc = desc;
             c.m_iconid = cshape;
+            c.m_type = c_cfg["type"];
         };
         card_data.prototype.add_hands = function (id, shape, atk, hp, duration) {
             var c = this._gen_card_obj();
@@ -162,6 +163,20 @@ var data;
         card_data.prototype.reset_map = function () {
             this.m_cards_map = new Object();
             this.m_cards_map_count = 0;
+        };
+        card_data.prototype.get_card_data = function (id) {
+            for (var i = 0; i < this.m_hands.length; ++i) {
+                var c = this.m_hands[i];
+                if (c.m_id == id) {
+                    return c;
+                }
+            }
+            for (var i = 0; i < this.m_cards.length; ++i) {
+                var c = this.m_cards[i];
+                if (c.m_id == id) {
+                    return c;
+                }
+            }
         };
         card_data.prototype.update_cards = function (idlist, shapelist, atklist, hplist, durationlist) {
             if (this.m_cards.length <= 0) {

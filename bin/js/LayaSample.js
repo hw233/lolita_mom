@@ -55,7 +55,7 @@ var GameMain = /** @class */ (function () {
         this.m_game_loading = null;
         this.m_gamemain_ins = null;
         Laya.init(720, 1280, Laya.WebGL);
-        Laya.Stat.show(0, 0);
+        //Laya.Stat.show(0,0);
         Laya.timer.frameLoop(1, this, this.onframeloop);
         core.set_log_module(core.log_module_enum.MODULE_ALL);
         core.set_log_level(core.log_level_enum.LOG_TIPS);

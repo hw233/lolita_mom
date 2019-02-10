@@ -54,6 +54,8 @@ var game;
         "hit": "命中",
         "dod": "闪避",
         "dura": "耐久",
+        "armor": "护甲",
+        "stam": "体力",
     };
     // 常用提示
     game.L_SHIJIE = "世界";

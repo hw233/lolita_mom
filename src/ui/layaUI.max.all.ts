@@ -3,11 +3,15 @@ import View=laya.ui.View;
 import Dialog=laya.ui.Dialog;
 module ui.game {
     export class card_mainUI extends Dialog {
-		public m_delicon:Laya.Image;
 		public m_card_sp:Laya.Sprite;
 		public m_closebtn:Laya.Button;
 		public m_info:Laya.Label;
 		public m_hand_sp:Laya.Sprite;
+		public m_head_img:Laya.Image;
+		public m_head_ani:Laya.Animation;
+		public m_delicon:Laya.Button;
+		public m_dlv:Laya.Label;
+		public m_armor:Laya.Label;
 
         constructor(){ super()}
         createChildren():void {

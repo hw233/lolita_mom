@@ -1,4 +1,5 @@
 D .
+D ani_res
 D bigpic
 S A95083B8 background.jpg
 R D0A90472 LOGO.png
@@ -10,7 +11,10 @@ P 1FA05BE4 080.png
 P 655826AB 088.png
 P D6498677 arrow_body.png
 P DF6E5ABA arrow_head.png
+P A375EE1E bronze_large_NoFlag.png
 P C2729720 Cardback01_minmin.png
+P 677F588F Cardback02.png
+P CCA8DEE7 Cardback03.png
 P EC55EAB7 CardBg_Big2_min.png
 P 3C1B979B CardBg_Big3_min.png
 P D562A87A CardBg_Big4_min.png
@@ -209,6 +213,16 @@ P 7F1A775D 灰球.png
 P 0D8A96FE 确定.png
 P 2E85C8C4 红球.png
 P 15915D83 绿球.png
+D ani_res/attack
+P 24D25FBE 30000.png
+P C3B30F5F 30001.png
+P A55CB5A8 30002.png
+P F9F713DB 30003.png
+P DEAD5546 30004.png
+P 3AF3830F 30005.png
+P 5A5B2D03 30006.png
+P 4EEBEA5E 30007.png
+P D7F791E6 30008.png
 D icon/buff
 D icon/head
 D icon/item

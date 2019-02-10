@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":55,
+    "selecteID":60,
     "props":{"width":720,"sceneColor":"#000000","height":1280},
     "nodeParent":-1,
     "label":"Dialog",
@@ -40,19 +40,6 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":915,"x":568,"var":"m_delicon","skin":"card/Iconbox01_2.png","name":"delicon"},
-            "nodeParent":1,
-            "label":"Image(m_delicon)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":44,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Sprite",
             "props":{"y":120,"x":0,"width":16,"var":"m_card_sp","name":"card_sp","height":16},
             "nodeParent":1,
@@ -67,7 +54,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":20,"x":658,"var":"m_closebtn","stateNum":"1","skin":"card/closebtn.png","name":"closebtn"},
+            "props":{"y":1213,"x":661,"var":"m_closebtn","stateNum":"1","skin":"card/closebtn.png","name":"closebtn"},
             "nodeParent":1,
             "label":"Button(m_closebtn)",
             "isDirectory":false,
@@ -80,7 +67,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":29,"x":30,"width":350,"skin":"card/title.png","sizeGrid":"0,70,0,70","height":86},
+            "props":{"y":29,"x":30,"width":493,"skin":"card/title.png","sizeGrid":"0,70,0,70","height":86},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -93,7 +80,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":48,"x":167,"width":175,"var":"m_info","text":"护甲:10/10\\n血量:10/10","name":"info","height":51,"fontSize":25,"font":"SimHei","color":"#ffffff","bold":true,"align":"center"},
+            "props":{"y":48,"x":167,"width":175,"var":"m_info","text":"体力:10/10\\n血量:10/10","name":"info","height":51,"fontSize":25,"font":"SimHei","color":"#ffffff","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label(m_info)",
             "isDirectory":false,
@@ -119,13 +106,78 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-47,"x":78,"skin":"ui/new/monster_hud_41071.png"},
+            "props":{"y":-47,"x":78,"var":"m_head_img","skin":"ui/new/monster_hud_41071.png","name":"head_img"},
+            "nodeParent":1,
+            "label":"Image(m_head_img)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":54,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Animation",
+            "props":{"y":71,"x":144,"var":"m_head_ani","name":"head_ani"},
+            "nodeParent":1,
+            "label":"Animation(m_head_ani)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":56,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":930,"x":561,"var":"m_delicon","stateNum":"1","skin":"card/Iconbox01_2.png","name":"delicon","label":"label"},
+            "nodeParent":1,
+            "label":"Button(m_delicon)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":57,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":18,"x":605,"skin":"card/bronze_large_NoFlag.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":54,
+            "compId":58,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":66,"x":642,"width":56,"var":"m_dlv","text":"999","name":"dlv","height":53,"fontSize":28,"font":"SimHei","color":"#f9f6f6","bold":true,"align":"center"},
+            "nodeParent":1,
+            "label":"Label(m_dlv)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":59,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":60,"x":311,"width":175,"var":"m_armor","text":"护甲:10","name":"armor","height":51,"fontSize":25,"font":"SimHei","color":"#ffffff","bold":true,"align":"center"},
+            "nodeParent":1,
+            "label":"Label(m_armor)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":60,
             "child":[
                 ]
         }],

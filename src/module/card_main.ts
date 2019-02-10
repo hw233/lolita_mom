@@ -2,6 +2,7 @@ module game{
     export class card_main extends utils.game_module{
         private m_pdata_ins:data.card_data = null;
         private m_gamemain_ins:game_main = null;
+        private m_turn_start:boolean = false;
         constructor()
         {
             super();
@@ -31,11 +32,13 @@ module game{
             this.m_pdata_ins.m_dlv = lv;
             this.m_pdata_ins.reset_map();
             this.m_pdata_ins.clear_cards();
+            this.fire_event(game_event.EVENT_CARD_UPDATEDLV);
         }
         private on_cards_delhand(ud:any = null):void{
             core.game_tiplog("on_cards_delhand ",ud);
             let id:number = ud["id"];
             this.m_pdata_ins.del_hands(id);
+            this.fire_event(game_event.EVENT_CARD_UPDATEHANDS);
         }
         private on_cards_changed(ud:any = null):void{
             core.game_tiplog("on_cards_changed ",ud);
@@ -45,29 +48,35 @@ module game{
             let hp:number = ud["hp"];
             let duration:number = ud["duration"];
             this.m_pdata_ins.update_cardsorhands(id,shape,atk,hp,duration);
+            this.fire_event(game_event.EVENT_CARD_CARDCHANGED,id);
         }
         private on_cards_turnstart(ud:any = null):void{
             core.game_tiplog("on_cards_turnstart ",ud);
+            this.m_turn_start = true;
         }
         private on_cards_turnend(ud:any = null):void{
             core.game_tiplog("on_cards_turnend ",ud);
+            this.m_turn_start = false;
         }
         private on_cards_atk(ud:any = null):void{
             core.game_tiplog("on_cards_atk ",ud);
             let srcid:number = ud["srcid"];
             let dstid:number = ud["dstid"];
             let value:number = ud["value"];
+            this.fire_event(game_event.EVENT_CARD_ATTACK,[srcid,dstid,value]);
         }
         private on_cards_del(ud:any = null):void{
             core.game_tiplog("on_cards_del ",ud);
             let id:number = ud["id"];
             this.m_pdata_ins.del_cards(id);
+            this.fire_event(game_event.EVENT_CARD_DELCARD,id);
         }
         private on_cards_open(ud:any = null):void{
             core.game_tiplog("on_cards_open ",ud);
             let id:number = ud["id"];
             let shape:number = ud["shape"];
             this.m_pdata_ins.open_card(id,shape);
+            this.fire_event(game_event.EVENT_CARD_OPENCARD,id);
         }
         public on_cards_hands(ud:any = null):void{
             core.game_tiplog("on_cards_hands ",ud);
@@ -80,7 +89,7 @@ module game{
             for(let i:number = 0;i < idlist.length;++i){
                 this.m_pdata_ins.add_hands(idlist[i],shapelist[i],atklist[i],hplist[i],durationlist[i]);
             }
-            this.fire_event_next_frame(game_event.EVENT_CARD_UPDATEHANDS);
+            this.fire_event(game_event.EVENT_CARD_UPDATEHANDS);
         }
         public on_cards_pinfo(ud:any = null):void{
             core.game_tiplog("on_cards_pinfo ",ud);
@@ -102,12 +111,16 @@ module game{
             this.m_pdata_ins.m_clv = clv;
             this.m_pdata_ins.m_hpmax = hpmax;
             this.m_pdata_ins.m_staminamax = staminamax;
+            this.fire_event(game_event.EVENT_CARD_PLAYERINFO);
         }
         private on_cards_start(ud:any = null):void{
             core.game_tiplog("on_cards_start ",ud);
+            utils.widget_ins().show_widget(widget_enum.WIDGET_CARDUI,true);
         }
         private on_cards_end(ud:any = null):void{
             core.game_tiplog("on_cards_end ",ud);
+            //todo
+            this.fire_event(game_event.EVENT_CARD_END);
         }
         public on_cards_arr(ud:any = null):void{
             core.game_tiplog("on_cards_arr ",ud);
@@ -117,7 +130,7 @@ module game{
             let atklist:Array<number> = ud["atklist"];
             let durationlist:Array<number> = ud["durationlist"];
             this.m_pdata_ins.update_cards(idlist,shapelist,atklist,hplist,durationlist);
-            this.fire_event_next_frame(game_event.EVENT_CARD_UPDATECARDS);
+            this.fire_event(game_event.EVENT_CARD_UPDATECARDS);
         }
         //
         public req_start():void{
@@ -127,15 +140,27 @@ module game{
             net.net_ins().send(protocol_def.C2S_CARDS_QUIT,{});
         }
         public req_del_card(id:number):void{
+            if(!this.m_turn_start){
+                return;
+            }
             net.net_ins().send(protocol_def.C2S_CARDS_DEL,{"id":id});
         }
         public req_click_card(id:number):void{
+            if(!this.m_turn_start){
+                return;
+            }
             net.net_ins().send(protocol_def.C2S_CARDS_CLICK,{"id":id});
         }
         public req_flip_card(id:number):void{
+            if(!this.m_turn_start){
+                return;
+            }
             net.net_ins().send(protocol_def.C2S_CARDS_FLIP,{"id":id});
         }
         public req_use_card(srcid:number,dstid:number):void{
+            if(!this.m_turn_start){
+                return;
+            }
             net.net_ins().send(protocol_def.C2S_CARDS_USE,{"srcid":srcid,"dstid":srcid});
         }
         //

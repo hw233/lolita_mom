@@ -78,6 +78,7 @@ module data{
             c.m_name = name;
             c.m_desc = desc;
             c.m_iconid = cshape;
+            c.m_type = c_cfg["type"];
         }
         public add_hands(id:number,shape:number,atk:number,hp:number,duration:number):void{
             let c:card_obj = this._gen_card_obj();
@@ -151,6 +152,20 @@ module data{
         public reset_map():void{
             this.m_cards_map = new Object();
             this.m_cards_map_count = 0;
+        }
+        public get_card_data(id:number):card_obj{
+            for(let i:number = 0;i < this.m_hands.length; ++i){
+                let c:card_obj = this.m_hands[i];
+                if(c.m_id == id){
+                    return c;
+                }
+            }
+            for(let i:number = 0;i < this.m_cards.length; ++i){
+                let c:card_obj = this.m_cards[i];
+                if(c.m_id == id){
+                    return c;
+                }
+            }
         }
         public update_cards(idlist:Array<number>,shapelist:Array<number>,atklist:Array<number>,hplist:Array<number>,durationlist:Array<number>):void{
             if(this.m_cards.length <= 0){

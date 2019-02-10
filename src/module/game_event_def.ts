@@ -13,4 +13,13 @@ module game_event{
 
     export const EVENT_CARD_UPDATEHANDS:string = "card_updatehands";
     export const EVENT_CARD_UPDATECARDS:string = "card_updatecards";
+    
+    export const EVENT_CARD_UPDATEDLV:string = "card_updatedlv";
+    export const EVENT_CARD_CARDCHANGED:string = "card_cardchanged";
+    export const EVENT_CARD_ATTACK:string = "card_attack";
+    export const EVENT_CARD_DELCARD:string = "card_delcard";
+    export const EVENT_CARD_OPENCARD:string = "card_open";
+    export const EVENT_CARD_PLAYERINFO:string = "card_playerinfo";
+    export const EVENT_CARD_END:string = "card_end";
+
 }
