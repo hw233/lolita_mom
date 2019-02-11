@@ -124,9 +124,15 @@ module widget {
 
             if(this.m_parent && this.m_card_id != 0&& this.m_card_shape != 0){
                 let x:number = this.x+CARD_ITEM_FRAME_W;
-                let y:number = this.y+CARD_ITEM_FRAME_H/2;
+                let y:number = this.y;
                 let pt:Laya.Point = new Laya.Point(x,y);
-                pt = this.m_parent.m_ui.localToGlobal(pt);
+                if(this.m_id < this.m_parent.m_hand_id_start){
+                    pt = this.m_parent.UIins.m_card_sp.localToGlobal(pt);
+                }
+                else{
+                    pt = this.m_parent.UIins.m_hand_sp.localToGlobal(pt);
+                }
+                
                 let nx:number = pt.x - CARD_ITEM_FRAME_W - 360;
                 if(pt.x > Laya.stage.designWidth - 360 && nx >= 0){
                     pt.x = nx;
@@ -320,7 +326,7 @@ module widget {
         }
     }
     export class card_ui extends utils.game_widget {
-        private UIins: ui.game.card_mainUI = null;
+        public UIins: ui.game.card_mainUI = null;
         private m_card_list:Array<card_item> = new Array<card_item>();
         private m_card_max:number = 16;
         private m_card_linecnt:number = 4;
@@ -331,7 +337,7 @@ module widget {
         private m_card_h:number = CARD_ITEM_FRAME_H;
         private m_card_cls_sign:string = "card_ui_card_item";
 
-        private m_hand_id_start:number = 10000;
+        public m_hand_id_start:number = 10000;
         private m_hand_list:Array<card_item> = new Array<card_item>();
         private m_hand_max:number = 5;
         private m_hand_gap:number = 130;
@@ -486,6 +492,8 @@ module widget {
                 //
                 this.on_update_hands();
                 this.on_udpate_cards();
+                this.on_playerinfo();
+                this.on_updatedlv();
             }
             else {
                 this.m_b_end = false;
@@ -547,8 +555,8 @@ module widget {
         //
         private on_updatedlv(ud:any = null):void{
             //todo
-            let dlv:number = ud as number;
-            this.UIins.m_info.text = dlv.toString();
+            this.UIins.m_dlv.text = this.m_data_ins.m_dlv.toString();
+            helper.show_text_tips(game.L_CARD_ENTERDLV + this.m_data_ins.m_dlv.toString()+game.L_CARD_ENTERDLV1);
         }
         private _get_card_item(card_id:number):card_item{
             let citem:card_item = null;
@@ -649,6 +657,7 @@ module widget {
             info += "\n";
             info += game.PROP_KEY_MAP["hp"]+":"+hp.toString()+"/"+hpmax.toString();
             this.UIins.m_info.text = info;
+            this.UIins.m_dlv.text = this.m_data_ins.m_dlv.toString();
         }
         private on_end(ud:any = null):void{
             //todo
@@ -676,9 +685,6 @@ module widget {
                 ret = game.PROP_KEY_MAP["hp"]+":"+hp.toString();
             }
             else if(tp == data.CARD_TYPE_SWORD){
-                ret = game.PROP_KEY_MAP["dura"]+":"+duration.toString();
-            }
-            else if(tp == data.CARD_TYPE_ARMOR){
                 ret = game.PROP_KEY_MAP["dura"]+":"+duration.toString();
             }
             return ret;
@@ -740,6 +746,9 @@ module widget {
                 if(card_idx < this.m_hand_id_start){
                     this.m_main_ins.req_use_card(this.m_arror_startid,card_id);
                 }
+                else{
+                    this.m_main_ins.req_use_card(card_id,0);
+                }
                 this.m_arror_start = false;
                 this.hide_arrow();
             }
@@ -774,8 +783,8 @@ module widget {
             this.m_arror_startid = card_id;
         }
         private on_click_closebtn(ud:any = null):void{
-            this.show(false);
             this.m_main_ins.req_quit();
+            this.show(false);
         }
 
         public on_dispose(): void {

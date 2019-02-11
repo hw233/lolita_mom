@@ -113,7 +113,7 @@ module data{
                     return true;
                 }
             }
-            for(let i:number = 0;i > this.m_cards.length;++i){
+            for(let i:number = 0;i < this.m_cards.length;++i){
                 let c:card_obj = this.m_cards[i];
                 if(c.m_id == id){
                     c.m_shape = shape;

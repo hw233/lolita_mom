@@ -187,7 +187,7 @@ module game{
             if(!this.m_turn_start){
                 return;
             }
-            net.net_ins().send(protocol_def.C2S_CARDS_USE,{"srcid":srcid,"dstid":srcid});
+            net.net_ins().send(protocol_def.C2S_CARDS_USE,{"srcid":srcid,"dstid":dstid});
         }
         //
         private on_1s_tick(ud:any = null):void{

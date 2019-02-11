@@ -17,6 +17,7 @@ var game;
             _this.m_pdata_ins = null;
             _this.m_gamemain_ins = null;
             _this.m_turn_start = false;
+            _this.m_game_start = false;
             return _this;
         }
         card_main.prototype.start = function () {
@@ -37,6 +38,7 @@ var game;
             this.register_net_event(protocol_def.S2C_CARDS_TURNEND, this.on_cards_turnend);
             this.register_net_event(protocol_def.S2C_CARDS_ENTERDLV, this.on_cards_enterdlv);
             this.register_net_event(protocol_def.S2C_CARDS_DELHAND, this.on_cards_delhand);
+            this.register_event(game_event.EVENT_CARD_REQ_START, this.on_req_start);
         };
         card_main.prototype.on_cards_enterdlv = function (ud) {
             if (ud === void 0) { ud = null; }
@@ -138,12 +140,14 @@ var game;
         card_main.prototype.on_cards_start = function (ud) {
             if (ud === void 0) { ud = null; }
             core.game_tiplog("on_cards_start ", ud);
+            this.m_game_start = true;
             utils.widget_ins().show_widget(widget_enum.WIDGET_CARDUI, true);
         };
         card_main.prototype.on_cards_end = function (ud) {
             if (ud === void 0) { ud = null; }
             core.game_tiplog("on_cards_end ", ud);
             //todo
+            this.m_game_start = false;
             this.fire_event(game_event.EVENT_CARD_END);
         };
         card_main.prototype.on_cards_arr = function (ud) {
@@ -157,36 +161,58 @@ var game;
             this.m_pdata_ins.update_cards(idlist, shapelist, atklist, hplist, durationlist);
             this.fire_event(game_event.EVENT_CARD_UPDATECARDS);
         };
+        card_main.prototype.on_req_start = function (ud) {
+            if (ud === void 0) { ud = null; }
+            if (this.m_game_start) {
+                return;
+            }
+            this.req_start();
+        };
         //
         card_main.prototype.req_start = function () {
             net.net_ins().send(protocol_def.C2S_CARDS_START, {});
         };
         card_main.prototype.req_quit = function () {
+            if (!this.m_game_start) {
+                return;
+            }
             net.net_ins().send(protocol_def.C2S_CARDS_QUIT, {});
         };
         card_main.prototype.req_del_card = function (id) {
+            if (!this.m_game_start) {
+                return;
+            }
             if (!this.m_turn_start) {
                 return;
             }
             net.net_ins().send(protocol_def.C2S_CARDS_DEL, { "id": id });
         };
         card_main.prototype.req_click_card = function (id) {
+            if (!this.m_game_start) {
+                return;
+            }
             if (!this.m_turn_start) {
                 return;
             }
             net.net_ins().send(protocol_def.C2S_CARDS_CLICK, { "id": id });
         };
         card_main.prototype.req_flip_card = function (id) {
+            if (!this.m_game_start) {
+                return;
+            }
             if (!this.m_turn_start) {
                 return;
             }
             net.net_ins().send(protocol_def.C2S_CARDS_FLIP, { "id": id });
         };
         card_main.prototype.req_use_card = function (srcid, dstid) {
+            if (!this.m_game_start) {
+                return;
+            }
             if (!this.m_turn_start) {
                 return;
             }
-            net.net_ins().send(protocol_def.C2S_CARDS_USE, { "srcid": srcid, "dstid": srcid });
+            net.net_ins().send(protocol_def.C2S_CARDS_USE, { "srcid": srcid, "dstid": dstid });
         };
         //
         card_main.prototype.on_1s_tick = function (ud) {

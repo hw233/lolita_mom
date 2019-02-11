@@ -11,6 +11,7 @@ var game_event;
     game_event.EVENT_MSGBOX_CHOOSED = "msgbox_choosed";
     game_event.EVENT_CARD_UPDATEHANDS = "card_updatehands";
     game_event.EVENT_CARD_UPDATECARDS = "card_updatecards";
+    game_event.EVENT_CARD_REQ_START = "card_req_start";
     game_event.EVENT_CARD_UPDATEDLV = "card_updatedlv";
     game_event.EVENT_CARD_CARDCHANGED = "card_cardchanged";
     game_event.EVENT_CARD_ATTACK = "card_attack";

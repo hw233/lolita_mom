@@ -944,4 +944,6 @@ module game{
     export const L_JIAN = "件";
 
     export const L_CARD_ENDTIPS = "挑战结束，请退出";
+    export const L_CARD_ENTERDLV = "进入第";
+    export const L_CARD_ENTERDLV1 = "关";
 }

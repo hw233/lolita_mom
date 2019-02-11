@@ -837,5 +837,8 @@ var game;
     game.L_CNGM = "佩戴更多器灵，获得更强连锁共鸣属性";
     game.L_CNGMMAX = "器灵连锁共鸣属性已达上限";
     game.L_JIAN = "件";
+    game.L_CARD_ENDTIPS = "挑战结束，请退出";
+    game.L_CARD_ENTERDLV = "进入第";
+    game.L_CARD_ENTERDLV1 = "关";
 })(game || (game = {}));
 //# sourceMappingURL=lang_config.js.map

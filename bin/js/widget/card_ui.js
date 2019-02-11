@@ -132,9 +132,14 @@ var widget;
             this.m_root.scale(1.2, 1.2);
             if (this.m_parent && this.m_card_id != 0 && this.m_card_shape != 0) {
                 var x = this.x + CARD_ITEM_FRAME_W;
-                var y = this.y + CARD_ITEM_FRAME_H / 2;
+                var y = this.y;
                 var pt = new Laya.Point(x, y);
-                pt = this.m_parent.m_ui.localToGlobal(pt);
+                if (this.m_id < this.m_parent.m_hand_id_start) {
+                    pt = this.m_parent.UIins.m_card_sp.localToGlobal(pt);
+                }
+                else {
+                    pt = this.m_parent.UIins.m_hand_sp.localToGlobal(pt);
+                }
                 var nx = pt.x - CARD_ITEM_FRAME_W - 360;
                 if (pt.x > Laya.stage.designWidth - 360 && nx >= 0) {
                     pt.x = nx;
@@ -352,6 +357,7 @@ var widget;
             _this.m_arror_startid = 0;
             _this.m_data_ins = null;
             _this.m_main_ins = null;
+            _this.m_b_end = false;
             _this.append_extrares("res/atlas/ani_res/attack.atlas", Laya.Loader.ATLAS);
             _this.append_extrares("game_ani/attack.ani", Laya.Loader.JSON);
             _this.m_layer = utils.WIDGET_LAYER.NORMAL;
@@ -453,6 +459,7 @@ var widget;
         };
         card_ui.prototype.on_show = function (flag) {
             if (flag) {
+                this.m_b_end = false;
                 this.m_data_ins = data.get_data(data_enum.DATA_CARD);
                 this.m_main_ins = game.get_module(module_enum.MODULE_CARD);
                 this.UIins = this.m_ui;
@@ -484,8 +491,11 @@ var widget;
                 //
                 this.on_update_hands();
                 this.on_udpate_cards();
+                this.on_playerinfo();
+                this.on_updatedlv();
             }
             else {
+                this.m_b_end = false;
                 this.m_data_ins = null;
                 this.m_main_ins = null;
                 this.UIins.off(Laya.Event.MOUSE_DOWN, this, this.on_mousedown);
@@ -547,8 +557,8 @@ var widget;
         card_ui.prototype.on_updatedlv = function (ud) {
             if (ud === void 0) { ud = null; }
             //todo
-            var dlv = ud;
-            this.UIins.m_info.text = dlv.toString();
+            this.UIins.m_dlv.text = this.m_data_ins.m_dlv.toString();
+            helper.show_text_tips(game.L_CARD_ENTERDLV + this.m_data_ins.m_dlv.toString() + game.L_CARD_ENTERDLV1);
         };
         card_ui.prototype._get_card_item = function (card_id) {
             var citem = null;
@@ -650,10 +660,13 @@ var widget;
             info += "\n";
             info += game.PROP_KEY_MAP["hp"] + ":" + hp.toString() + "/" + hpmax.toString();
             this.UIins.m_info.text = info;
+            this.UIins.m_dlv.text = this.m_data_ins.m_dlv.toString();
         };
         card_ui.prototype.on_end = function (ud) {
             if (ud === void 0) { ud = null; }
             //todo
+            this.m_b_end = true;
+            helper.show_text_tips(game.L_CARD_ENDTIPS);
         };
         //
         card_ui.prototype._gen_card_info = function (tp, hp, atk, duration) {
@@ -675,9 +688,6 @@ var widget;
                 ret = game.PROP_KEY_MAP["hp"] + ":" + hp.toString();
             }
             else if (tp == data.CARD_TYPE_SWORD) {
-                ret = game.PROP_KEY_MAP["dura"] + ":" + duration.toString();
-            }
-            else if (tp == data.CARD_TYPE_ARMOR) {
                 ret = game.PROP_KEY_MAP["dura"] + ":" + duration.toString();
             }
             return ret;
@@ -733,6 +743,9 @@ var widget;
                 if (card_idx < this.m_hand_id_start) {
                     this.m_main_ins.req_use_card(this.m_arror_startid, card_id);
                 }
+                else {
+                    this.m_main_ins.req_use_card(card_id, 0);
+                }
                 this.m_arror_start = false;
                 this.hide_arrow();
             }
@@ -766,8 +779,8 @@ var widget;
         };
         card_ui.prototype.on_click_closebtn = function (ud) {
             if (ud === void 0) { ud = null; }
-            this.show(false);
             this.m_main_ins.req_quit();
+            this.show(false);
         };
         card_ui.prototype.on_dispose = function () {
             this.m_main_ins = null;

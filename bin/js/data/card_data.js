@@ -124,7 +124,7 @@ var data;
                     return true;
                 }
             }
-            for (var i = 0; i > this.m_cards.length; ++i) {
+            for (var i = 0; i < this.m_cards.length; ++i) {
                 var c = this.m_cards[i];
                 if (c.m_id == id) {
                     c.m_shape = shape;
