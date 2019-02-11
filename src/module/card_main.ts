@@ -3,6 +3,7 @@ module game{
         private m_pdata_ins:data.card_data = null;
         private m_gamemain_ins:game_main = null;
         private m_turn_start:boolean = false;
+        private m_game_start:boolean = false;
         constructor()
         {
             super();
@@ -25,6 +26,8 @@ module game{
             this.register_net_event(protocol_def.S2C_CARDS_TURNEND,this.on_cards_turnend);
             this.register_net_event(protocol_def.S2C_CARDS_ENTERDLV,this.on_cards_enterdlv);
             this.register_net_event(protocol_def.S2C_CARDS_DELHAND,this.on_cards_delhand);
+
+            this.register_event(game_event.EVENT_CARD_REQ_START,this.on_req_start);
         }
         private on_cards_enterdlv(ud:any = null):void{
             core.game_tiplog("on_cards_enterdlv ",ud);
@@ -115,11 +118,13 @@ module game{
         }
         private on_cards_start(ud:any = null):void{
             core.game_tiplog("on_cards_start ",ud);
+            this.m_game_start = true;
             utils.widget_ins().show_widget(widget_enum.WIDGET_CARDUI,true);
         }
         private on_cards_end(ud:any = null):void{
             core.game_tiplog("on_cards_end ",ud);
             //todo
+            this.m_game_start = false;
             this.fire_event(game_event.EVENT_CARD_END);
         }
         public on_cards_arr(ud:any = null):void{
@@ -132,32 +137,53 @@ module game{
             this.m_pdata_ins.update_cards(idlist,shapelist,atklist,hplist,durationlist);
             this.fire_event(game_event.EVENT_CARD_UPDATECARDS);
         }
+        public on_req_start(ud:any = null):void{
+            if(this.m_game_start){
+                return;
+            }
+            this.req_start();
+        }
         //
         public req_start():void{
             net.net_ins().send(protocol_def.C2S_CARDS_START,{});
         }
         public req_quit():void{
+            if(!this.m_game_start){
+                return;
+            }
             net.net_ins().send(protocol_def.C2S_CARDS_QUIT,{});
         }
         public req_del_card(id:number):void{
+            if(!this.m_game_start){
+                return;
+            }
             if(!this.m_turn_start){
                 return;
             }
             net.net_ins().send(protocol_def.C2S_CARDS_DEL,{"id":id});
         }
         public req_click_card(id:number):void{
+            if(!this.m_game_start){
+                return;
+            }
             if(!this.m_turn_start){
                 return;
             }
             net.net_ins().send(protocol_def.C2S_CARDS_CLICK,{"id":id});
         }
         public req_flip_card(id:number):void{
+            if(!this.m_game_start){
+                return;
+            }
             if(!this.m_turn_start){
                 return;
             }
             net.net_ins().send(protocol_def.C2S_CARDS_FLIP,{"id":id});
         }
         public req_use_card(srcid:number,dstid:number):void{
+            if(!this.m_game_start){
+                return;
+            }
             if(!this.m_turn_start){
                 return;
             }

@@ -344,6 +344,8 @@ module widget {
 
         private m_data_ins:data.card_data = null;
         private m_main_ins:game.card_main = null;
+
+        private m_b_end:boolean = false;
         constructor() {
             super("res/atlas/card.atlas", ui.game.card_mainUI);
             this.append_extrares("res/atlas/ani_res/attack.atlas",Laya.Loader.ATLAS);
@@ -451,6 +453,7 @@ module widget {
         }
         public on_show(flag: boolean): void {
             if (flag) {
+                this.m_b_end = false;
                 this.m_data_ins = data.get_data(data_enum.DATA_CARD) as data.card_data;
                 this.m_main_ins = game.get_module(module_enum.MODULE_CARD) as game.card_main;
                 this.UIins = this.m_ui as ui.game.card_mainUI;
@@ -485,6 +488,7 @@ module widget {
                 this.on_udpate_cards();
             }
             else {
+                this.m_b_end = false;
                 this.m_data_ins = null;
                 this.m_main_ins = null;
                 this.UIins.off(Laya.Event.MOUSE_DOWN,this,this.on_mousedown);
@@ -648,6 +652,8 @@ module widget {
         }
         private on_end(ud:any = null):void{
             //todo
+            this.m_b_end = true;
+            helper.show_text_tips(game.L_CARD_ENDTIPS);
         }
         
         //

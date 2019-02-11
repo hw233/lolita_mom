@@ -942,4 +942,6 @@ module game{
     export const L_CNGM = "佩戴更多器灵，获得更强连锁共鸣属性";
     export const L_CNGMMAX = "器灵连锁共鸣属性已达上限";
     export const L_JIAN = "件";
+
+    export const L_CARD_ENDTIPS = "挑战结束，请退出";
 }
