@@ -382,6 +382,9 @@ module core {
         public is_scene_block(x:number,y:number):boolean{
             return this.m_render.m_scene.m_map.is_block(x,y);
         }
+        public is_scene_mask(x:number,y:number):boolean{
+            return this.m_render.m_scene.m_map.is_mask(x,y);
+        }
         public get_map_canvas(w:number,h:number,x:number,y:number):Laya.HTMLCanvas{
             return this.m_render.m_view.get_mapviewport_canvas(this.m_render.m_context,w,h);
         }

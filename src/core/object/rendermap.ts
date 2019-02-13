@@ -80,6 +80,13 @@ module core {
             let ssy:number = Math.floor(sy/bh);
             return this.m_block.m_mat.is_block_cache(ssx,ssy);
         }
+        public is_mask(sx:number,sy:number):boolean{
+            let bw:number = this.m_block.m_mat.m_grid_w;
+            let bh:number = this.m_block.m_mat.m_grid_h;
+            let ssx:number = Math.floor(sx/bw);
+            let ssy:number = Math.floor(sy/bh);
+            return this.m_block.m_mat.is_mask_cache(ssx,ssy);
+        }
         public findpath(sx:number,sy:number,dx:number,dy:number,bclosest:boolean,spd:number):path
         {
             let starttm:number = utils.get_render_milltm();

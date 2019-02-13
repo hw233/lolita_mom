@@ -22,6 +22,10 @@ var core;
             _this.m_block_array = null;
             _this.m_block_w_num = 0;
             _this.m_block_h_num = 0;
+            _this.m_mask_array = null;
+            _this.m_mask_cache = null;
+            _this.m_mask_w_num = 0;
+            _this.m_mask_h_num = 0;
             _this.m_b_n_per_byte = 8;
             _this.m_init_sp = false;
             _this.m_block_cache = null;
@@ -83,10 +87,111 @@ var core;
                     this.m_block_cache[i * this.m_block_w_num + j] = this.is_block(j, i) ? 1 : 0;
                 }
             }
+            //
+            offset += block_len;
+            var tmp = this.m_buf.getUint32(); //leftwall len
+            offset += 4;
+            this.m_buf.getUint8Array(offset, tmp);
+            offset += tmp;
+            tmp = this.m_buf.getUint32(); //rightwall len
+            offset += 4;
+            this.m_buf.getUint8Array(offset, tmp);
+            offset += tmp;
+            tmp = this.m_buf.getUint32(); //floor count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint32(); //floor 128*64 count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint32(); //floor 256*128 count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint32(); //wallpaper left count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint32(); //wallpaper right count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint32(); //decoration count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint32(); //plant count
+            offset += 4;
+            for (var i = 0; i < tmp; ++i) {
+                var tmplen = this.m_buf.getUint32();
+                offset += 4;
+                this.m_buf.getUint8Array(offset, tmplen);
+                offset += tmplen;
+            }
+            tmp = this.m_buf.getUint16(); //name len
+            offset += 2;
+            if (tmp > 0) {
+                this.m_buf.getUint8Array(offset, tmp);
+                offset += tmp;
+            }
+            if (this.m_buf.length > offset) {
+                //
+                this.m_mask_w_num = this.m_buf.getUint32();
+                this.m_mask_h_num = this.m_buf.getUint32();
+                core.core_tiplog("mapblock mask bw ", this.m_mask_w_num);
+                core.core_tiplog("mapblock mask bh ", this.m_mask_h_num);
+                block_len = this.m_buf.getUint32();
+                core.core_tiplog("mapblock mask block_len ", block_len);
+                offset += 12;
+                this.m_mask_array = this.m_buf.getUint8Array(offset, block_len);
+                this.m_mask_cache = new Uint8Array(this.m_mask_w_num * this.m_mask_h_num);
+                for (var i = 0; i < this.m_mask_h_num; ++i) {
+                    for (var j = 0; j < this.m_mask_w_num; ++j) {
+                        this.m_mask_cache[i * this.m_mask_w_num + j] = this.is_mask(j, i) ? 1 : 0;
+                    }
+                }
+                //
+            }
+            //
         };
         mapblock.prototype._is_block = function (v, pos) {
             return (v & (0x80 >> pos)) != 0;
             //return (v&(1<<pos)) != 0;
+        };
+        mapblock.prototype.is_mask = function (x, y) {
+            if (this.m_buf != null) {
+                var offset = y * this.m_mask_w_num + x;
+                var vpos = Math.floor(offset / this.m_b_n_per_byte);
+                var v = this.m_mask_array[vpos];
+                var pos = offset % this.m_b_n_per_byte;
+                return this._is_block(v, pos);
+            }
+            return true;
         };
         mapblock.prototype.is_block = function (x, y) {
             if (this.m_buf != null) {
@@ -106,6 +211,12 @@ var core;
             }
             //core.core_tiplog("mapblock is_block_cache ",this.m_block_cache[y*this.m_block_w_num+x]);
             return this.m_block_cache[y * this.m_block_w_num + x] != 0;
+        };
+        mapblock.prototype.is_mask_cache = function (x, y) {
+            if (this.m_buf == null || x < 0 || y < 0 || x >= this.m_mask_w_num || y >= this.m_mask_h_num) {
+                return true;
+            }
+            return this.m_mask_cache[y * this.m_mask_w_num + x] != 0;
         };
         mapblock.prototype.get_block_sp = function () {
             this.m_init_sp = true;
@@ -135,6 +246,8 @@ var core;
         mapblock.prototype.dispose = function () {
             this.m_block_array = null;
             this.m_block_cache = null;
+            this.m_mask_array = null;
+            this.m_mask_cache = null;
             if (this.m_buf != null) {
                 this.m_buf.clear();
                 this.m_buf = null;
