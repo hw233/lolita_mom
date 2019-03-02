@@ -161,6 +161,11 @@ var core;
             }
             if (this.m_buf.length > offset) {
                 //
+                //bw,bh,slen
+                core.core_tiplog("mapblock setbuff bw1 ", this.m_buf.getUint16());
+                core.core_tiplog("mapblock setbuff bh1 ", this.m_buf.getUint16());
+                core.core_tiplog("mapblock setbuff ", this.m_buf.getUint32());
+                offset += 8;
                 this.m_mask_w_num = this.m_buf.getUint32();
                 this.m_mask_h_num = this.m_buf.getUint32();
                 core.core_tiplog("mapblock mask bw ", this.m_mask_w_num);

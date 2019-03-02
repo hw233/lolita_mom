@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 167,
+                "idx": 0,
+                "w": 94,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 205,
+                "y": 138
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 150,
+                "idx": 0,
+                "w": 115,
+                "x": 95,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 220,
+                "y": 152
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 102,
+                "idx": 0,
+                "w": 94,
+                "x": 0,
+                "y": 168
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 213,
+                "y": 198
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 121,
+                "idx": 0,
+                "w": 115,
+                "x": 95,
+                "y": 151
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 177,
+                "y": 178
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/yuren/attacked/all/"
+    }
+}

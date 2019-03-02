@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 123,
+                "idx": 0,
+                "w": 85,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 191
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 93,
+                "idx": 0,
+                "w": 102,
+                "x": 0,
+                "y": 124
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 207,
+                "y": 217
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 102,
+                "idx": 0,
+                "w": 85,
+                "x": 86,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 215,
+                "y": 192
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 102,
+                "x": 103,
+                "y": 103
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 203,
+                "y": 177
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/tieshan/attacked/all/"
+    }
+}

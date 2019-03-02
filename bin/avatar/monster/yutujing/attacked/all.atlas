@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 119,
+                "idx": 0,
+                "w": 119,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 175,
+                "y": 174
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 102,
+                "idx": 0,
+                "w": 118,
+                "x": 0,
+                "y": 120
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 190,
+                "y": 202
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 119,
+                "x": 120,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 218,
+                "y": 192
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 135,
+                "idx": 0,
+                "w": 118,
+                "x": 120,
+                "y": 101
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 157
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/yutujing/attacked/all/"
+    }
+}

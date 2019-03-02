@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 112,
+                "idx": 0,
+                "w": 96,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 187,
+                "y": 189
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 102,
+                "x": 97,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 193,
+                "y": 190
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 174,
+                "idx": 0,
+                "w": 176,
+                "x": 0,
+                "y": 115
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 149,
+                "y": 145
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 171,
+                "idx": 0,
+                "w": 172,
+                "x": 177,
+                "y": 115
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 147,
+                "y": 143
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/jinyu/jinyu_back/attacked/all/"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 175,
+                "idx": 0,
+                "w": 111,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 210,
+                "y": 160
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 158,
+                "idx": 0,
+                "w": 129,
+                "x": 0,
+                "y": 176
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 178
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 154,
+                "idx": 0,
+                "w": 115,
+                "x": 112,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 192,
+                "y": 173
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 165,
+                "idx": 0,
+                "w": 126,
+                "x": 130,
+                "y": 155
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 179,
+                "y": 155
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/wanshenggongzhu/attacked/all/"
+    }
+}

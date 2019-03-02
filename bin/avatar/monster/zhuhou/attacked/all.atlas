@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 142,
+                "idx": 0,
+                "w": 106,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 180
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 136,
+                "idx": 0,
+                "w": 107,
+                "x": 0,
+                "y": 143
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 211,
+                "y": 186
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 133,
+                "idx": 0,
+                "w": 106,
+                "x": 107,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 194,
+                "y": 181
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 144,
+                "idx": 0,
+                "w": 107,
+                "x": 108,
+                "y": 134
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 194,
+                "y": 170
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/zhuhou/attacked/all/"
+    }
+}

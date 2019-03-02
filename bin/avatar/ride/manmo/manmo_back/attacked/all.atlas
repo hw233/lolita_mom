@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 121,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 205
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 127,
+                "idx": 0,
+                "w": 122,
+                "x": 122,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 211,
+                "y": 191
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 151,
+                "idx": 0,
+                "w": 127,
+                "x": 0,
+                "y": 128
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 166,
+                "y": 159
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 139,
+                "idx": 0,
+                "w": 135,
+                "x": 128,
+                "y": 128
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 160,
+                "y": 157
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/manmo/manmo_back/attacked/all/"
+    }
+}

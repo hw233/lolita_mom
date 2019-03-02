@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 54,
+                "idx": 0,
+                "w": 65,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 249,
+                "y": 215
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 55,
+                "idx": 0,
+                "w": 109,
+                "x": 66,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 247,
+                "y": 224
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 143,
+                "idx": 0,
+                "w": 51,
+                "x": 0,
+                "y": 55
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 204
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 128,
+                "idx": 0,
+                "w": 110,
+                "x": 52,
+                "y": 56
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 156,
+                "y": 207
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "weapon/dao7/attacked/all/"
+    }
+}

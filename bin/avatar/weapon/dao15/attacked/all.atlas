@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 58,
+                "idx": 0,
+                "w": 50,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 258,
+                "y": 214
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 64,
+                "idx": 0,
+                "w": 110,
+                "x": 51,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 250,
+                "y": 223
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 145,
+                "idx": 0,
+                "w": 52,
+                "x": 162,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 203,
+                "y": 204
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 119,
+                "idx": 0,
+                "w": 110,
+                "x": 0,
+                "y": 65
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 152,
+                "y": 211
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "weapon/dao15/attacked/all/"
+    }
+}

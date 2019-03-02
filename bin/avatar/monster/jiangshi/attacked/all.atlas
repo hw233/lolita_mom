@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 134,
+                "idx": 0,
+                "w": 78,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 203,
+                "y": 164
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 96,
+                "idx": 0,
+                "w": 96,
+                "x": 0,
+                "y": 135
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 233,
+                "y": 203
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 120,
+                "idx": 0,
+                "w": 78,
+                "x": 79,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 232,
+                "y": 178
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 124,
+                "idx": 0,
+                "w": 104,
+                "x": 97,
+                "y": 121
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 182,
+                "y": 171
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/jiangshi/attacked/all/"
+    }
+}

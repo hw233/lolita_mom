@@ -9,6 +9,16 @@ module data{
         public m_goldspd:number = 0;
         public m_stamina:number = 0;
         public m_last_time:number = 0;
+        public m_scene_roleid:number = 0;
+
+        public m_pid:number = 0;
+        public m_name:string = "";
+        public m_class:number = 0;
+        public x:number = 0;
+        public y:number = 0;
+        public m_desc:Laya.Byte = new Laya.Byte();
+        public m_sid:number = 0;
+        public m_sresid:number = 0;
         constructor()
         {
             super();

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 165,
+                "idx": 0,
+                "w": 110,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 198,
+                "y": 144
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 155,
+                "idx": 0,
+                "w": 112,
+                "x": 111,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 155
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 110,
+                "idx": 0,
+                "w": 94,
+                "x": 111,
+                "y": 156
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 200
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 104,
+                "idx": 0,
+                "w": 98,
+                "x": 0,
+                "y": 166
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 196,
+                "y": 202
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/xiaolu/xiaolu_back/attacked/all/"
+    }
+}

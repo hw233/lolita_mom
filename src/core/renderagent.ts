@@ -436,7 +436,10 @@ module core {
                 }
                 newpath.start();
                 this.m_render.m_scene.addpath(newpath,id);
-                unit.change_action(AVATAR_ACTON.ACTION_RUN);
+                if(unit.m_action != AVATAR_ACTON.ACTION_RUN){
+                    unit.change_action(AVATAR_ACTON.ACTION_RUN);
+                }
+                
                 return newpath.get_end();
             }
             return;

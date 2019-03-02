@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 2,
+                "idx": 0,
+                "w": 2,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 255,
+                "y": 255
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 2,
+                "idx": 0,
+                "w": 2,
+                "x": 0,
+                "y": 3
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 255,
+                "y": 255
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 93,
+                "x": 0,
+                "y": 6
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 187
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 118,
+                "idx": 0,
+                "w": 87,
+                "x": 94,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 202,
+                "y": 174
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/xiong/xiong_frout/attacked/all/"
+    }
+}

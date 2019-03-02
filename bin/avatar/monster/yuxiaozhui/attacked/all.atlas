@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 153,
+                "idx": 0,
+                "w": 122,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 197,
+                "y": 160
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 140,
+                "idx": 0,
+                "w": 114,
+                "x": 123,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 200,
+                "y": 181
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 127,
+                "idx": 0,
+                "w": 120,
+                "x": 0,
+                "y": 154
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 195,
+                "y": 188
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 137,
+                "idx": 0,
+                "w": 115,
+                "x": 123,
+                "y": 141
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 197,
+                "y": 176
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/yuxiaozhui/attacked/all/"
+    }
+}

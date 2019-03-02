@@ -1,0 +1,42 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 111,
+                "idx": 0,
+                "w": 110,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 221,
+                "y": 189
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 121,
+                "idx": 0,
+                "w": 105,
+                "x": 111,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 191,
+                "y": 180
+            }
+        }
+    },
+    "meta": {
+        "image": "defend.png",
+        "prefix": "zhuque/defend/"
+    }
+}

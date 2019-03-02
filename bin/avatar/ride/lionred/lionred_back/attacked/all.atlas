@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 199,
+                "idx": 0,
+                "w": 220,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 162,
+                "y": 159
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 187,
+                "idx": 0,
+                "w": 212,
+                "x": 0,
+                "y": 200
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 173,
+                "y": 145
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 134,
+                "idx": 0,
+                "w": 152,
+                "x": 213,
+                "y": 200
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 130,
+                "y": 179
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 173,
+                "idx": 0,
+                "w": 137,
+                "x": 221,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 127,
+                "y": 140
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/lionred/lionred_back/attacked/all/"
+    }
+}

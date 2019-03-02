@@ -18,10 +18,11 @@ var game;
             _this.m_render_sp = null;
             _this.m_render = null;
             _this.m_curtime = 0;
-            _this.m_roleid = 0;
             _this.m_itemlist = new Array();
             _this.m_svr_tm = 0;
             _this.m_svr_clitm = 0;
+            _this.m_b_req_guestaccount = false;
+            _this.m_b_logining = false;
             frametask.add_task(_this, _this.update30, 1);
             frametask.add_task(_this, _this.update20, 2);
             frametask.add_task(_this, _this.update10, 6);
@@ -62,6 +63,7 @@ var game;
             this.register_net_event(protocol_def.S2C_LOGIN_ROLEINFO, this.on_roleid);
             this.register_net_event(protocol_def.S2C_ITEM_LIST, this.on_get_itemlist);
             this.register_net_event(protocol_def.S2C_ASYNTIME, this.on_sync_svrtime);
+            this.register_net_event(protocol_def.S2C_ACCOUNT_GUEST, this.on_account_guest);
             this.register_event(game_event.EVENT_NET_CONNECTED, this.on_net_connected);
             this.register_event(game_event.EVENT_NET_CLOSED, this.on_net_closed);
             this.register_event(game_event.EVENT_NET_ERROR, this.on_net_error);
@@ -72,81 +74,84 @@ var game;
             timer.timer_ins().add_timer(1000, this, this.on_1s_tick);
             game.get_module(module_enum.MODULE_PLAYER).start();
             game.get_module(module_enum.MODULE_CARD).start();
+            game.get_module(module_enum.MODULE_SCENE).start();
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI, true);
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINTOPUI, true);
-            net.net_ins().connect("123.207.239.21", 11029);
-            //this.m_render.setmapbk("map/city/2001/2001.jpg");
-            this.m_render.setmapscrollbkview(Laya.stage.designWidth, Laya.stage.designHeight);
-            this.m_render.addmapscrollbk("map/scrollmap/1001.png", 1136, 640);
-            this.m_render.addmapscrollbk("map/scrollmap/1001.png", 1136, 640);
-            this.m_render.addmapscrollbk("map/scrollmap/1001.png", 1136, 640);
-            this.m_render.setmapscrollbkpos(0, 200);
-            this.m_render.setmapscrollbkspd(200);
-            var dx = 100;
-            var dy = 600;
-            var uid = this.m_render.addunit("role1", 2, dx, dy);
-            var ra = this.m_render.getunit(uid);
-            ra.change_dir(6);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
-            uid = this.m_render.addunit("enemy1", 3, dx + 100, dy);
-            ra = this.m_render.getunit(uid);
-            ra.change_dir(2);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
-            uid = this.m_render.addunit("enemy2", 4, dx + 200, dy);
-            ra = this.m_render.getunit(uid);
-            ra.change_dir(2);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
-            uid = this.m_render.addunit("enemy3", 5, dx + 300, dy);
-            ra = this.m_render.getunit(uid);
-            ra.change_dir(2);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
-            uid = this.m_render.addunit("enemy4", 6, dx + 400, dy);
-            ra = this.m_render.getunit(uid);
-            ra.change_dir(2);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
-            uid = this.m_render.addunit("enemy5", 7, dx + 500, dy);
-            ra = this.m_render.getunit(uid);
-            ra.change_dir(2);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
-            uid = this.m_render.addunit("enemy6", 8, dx + 600, dy);
-            ra = this.m_render.getunit(uid);
-            ra.change_dir(2);
-            ra.change_action(1 /* ACTION_RUN */);
-            ra.set_dx(-15);
-            ra.set_dy(-60);
+            net.net_ins().connect("129.204.91.54", 11009);
+            //this.m_render.entermap(1003,false);
+            //this.m_render.setmapbk("map/city/1003/1003.jpg");
+            //let chase_id:number = this.m_render.addunit("role",102,254,516);
+            //let chase_role:core.renderavatar = this.m_render.getunit(chase_id);
+            //chase_role.change_weapon(10001);
+            //chase_role.change_ride(20001,30001);
+            //chase_role.set_ride_h(30);
+            //chase_role.change_wing(40001);
+            //this.m_render.cameralookat(chase_role);
+            //this.m_role_id = chase_id;
+            //this.m_role_obj = chase_role;
+        };
+        game_main.prototype.get_render = function () {
+            return this.m_render;
         };
         game_main.prototype.on_click_sp = function (e) {
             core.game_tiplog("onClick sp ", e.stageX, e.stageY);
+            //
+            this.fire_event_next_frame(game_event.EVENT_SCENE_CLICK, [e.stageX, e.stageY]);
+            //
         };
         game_main.prototype.on_net_error = function (ud) {
             if (ud === void 0) { ud = null; }
             core.net_errlog("on_net_error");
+            this.m_b_logining = false;
+            this.m_b_req_guestaccount = false;
         };
         game_main.prototype.on_net_closed = function (ud) {
             if (ud === void 0) { ud = null; }
             core.net_errlog("on_net_closed");
+            this.m_b_logining = false;
+            this.m_b_req_guestaccount = false;
         };
         game_main.prototype.on_net_connected = function (ud) {
             if (ud === void 0) { ud = null; }
             core.net_tiplog("on_net_connected");
+            var account = helper.get_local("my_demo_account");
+            var pwd = helper.get_local("my_demo_pwd");
+            if (account == null || account.length <= 0) {
+                this.req_guest_account();
+            }
+            else {
+                this.req_login(account, pwd);
+            }
+        };
+        game_main.prototype.req_guest_account = function () {
+            if (this.m_b_req_guestaccount) {
+                return;
+            }
+            this.m_b_req_guestaccount = true;
+            net.net_ins().send(protocol_def.C2S_ACCOUNT_GUEST, {});
+        };
+        game_main.prototype.on_account_guest = function (ud) {
+            if (ud === void 0) { ud = null; }
+            console.log("on_account_guest ", ud, this.m_b_req_guestaccount);
+            this.m_b_req_guestaccount = false;
+            var account = ud["account"];
+            var pwd = ud["pwd"];
+            helper.set_local("my_demo_account", account);
+            helper.set_local("my_demo_pwd", pwd);
+            this.req_login(account, pwd);
+        };
+        game_main.prototype.req_login = function (account, pwd) {
+            core.net_tiplog("req_login ", account, pwd, this.m_b_logining);
+            if (this.m_b_logining) {
+                return;
+            }
+            this.m_b_logining = true;
             var ld = {};
             ld["clientver"] = { "major": 0, "minor": 0, "patch": 0 };
             ld["scriptver"] = { "major": 0, "minor": 0, "patch": 0 };
             ld["productver"] = { "major": 0, "minor": 0, "patch": 0 };
-            ld["account"] = "mytesta";
-            ld["pwd"] = "112233";
+            ld["account"] = account;
+            ld["pwd"] = pwd;
             ld["platform"] = 0;
             ld["client_type"] = 0;
             ld["device"] = "";
@@ -167,6 +172,7 @@ var game;
         game_main.prototype.on_login_ok = function (ud) {
             if (ud === void 0) { ud = null; }
             console.log("on_login_ok ", ud);
+            this.m_b_logining = false;
         };
         game_main.prototype.req_svr_tm = function () {
             console.log("req_svr_tm ");
@@ -210,9 +216,14 @@ var game;
             if (ud === void 0) { ud = null; }
             console.log("on_roleinfo ", ud);
             var roleid = ud["roles"][0]["rid"];
+            var shape = ud["roles"][0]["shape"];
+            var name = ud["roles"][0]["name"];
+            var mp = data.get_data(data_enum.DATA_PLAYER);
+            mp.m_pid = roleid;
+            mp.m_name = name;
+            mp.m_shape = shape;
             console.log("request select ", roleid);
             net.net_ins().send(protocol_def.C2S_LOGIN_SELECTROLE, { "rid": roleid });
-            this.m_roleid = roleid;
         };
         game_main.prototype.on_get_itemlist = function (ud) {
             if (ud === void 0) { ud = null; }
@@ -241,6 +252,7 @@ var game;
         game_main.prototype.on_login_err = function (ud) {
             if (ud === void 0) { ud = null; }
             console.log("on_login_err ", ud);
+            this.m_b_logining = false;
         };
         game_main.prototype.on_svr_notify = function (ud) {
             if (ud === void 0) { ud = null; }

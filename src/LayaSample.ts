@@ -87,6 +87,9 @@ class GameMain{
         assets.push({ url: "res/atlas/ui/bk.atlas", type: Laya.Loader.ATLAS });
         assets.push({ url: "res/atlas/ui/bk1.atlas", type: Laya.Loader.ATLAS });
         assets.push({ url: "config.json", type: Laya.Loader.JSON });
+        assets.push({ url: "avatar/link_data.bin", type: Laya.Loader.BUFFER });
+        assets.push({ url: "avatar/link_data_txt.bin", type: Laya.Loader.BUFFER });
+        assets.push({ url: "avatar/skillperform.bin", type: Laya.Loader.BUFFER });
         //
         for(let i of assets){
             utils.widget_ins().add_preload_res(i["url"]);
@@ -103,6 +106,20 @@ class GameMain{
         config.config_init(config_json);
 
         icon_mgr.init_icon_config(config.Iconinfo.get_Iconinfo);
+
+        let buff: Laya.Byte = new Laya.Byte(Laya.loader.getRes("avatar/link_data.bin"));
+        if (buff.length > 0) {
+            core.filepack_ins().addpack("link_data", buff);
+        }
+        buff = new Laya.Byte(Laya.loader.getRes("avatar/link_data_txt.bin"));
+        if (buff.length > 0) {
+            core.filepack_ins().addpack("link_data_txt", buff);
+        }
+        buff = new Laya.Byte(Laya.loader.getRes("avatar/skillperform.bin"));
+        if (buff.length > 0) {
+            core.filepack_ins().addpack("skillperform", buff);
+        }
+
         
         Laya.loader.off(Laya.Event.ERROR, this, this.onError);
         //

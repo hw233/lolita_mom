@@ -399,5 +399,10 @@ module helper {
         }
         return true;
     }
-
+    export function get_local(key:string):string{
+        return Laya.LocalStorage.getItem(key);
+    }
+    export function set_local(key:string,v:string):void{
+        return Laya.LocalStorage.setItem(key,v);
+    }
 }

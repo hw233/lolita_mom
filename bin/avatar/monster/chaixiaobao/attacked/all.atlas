@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 157,
+                "idx": 0,
+                "w": 185,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 197,
+                "y": 166
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 142,
+                "idx": 0,
+                "w": 150,
+                "x": 0,
+                "y": 158
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 198,
+                "y": 182
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 134,
+                "idx": 0,
+                "w": 131,
+                "x": 151,
+                "y": 158
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 180,
+                "y": 190
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 142,
+                "idx": 0,
+                "w": 131,
+                "x": 186,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 180,
+                "y": 182
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/chaixiaobao/attacked/all/"
+    }
+}

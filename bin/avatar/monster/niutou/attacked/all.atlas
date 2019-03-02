@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 130,
+                "idx": 0,
+                "w": 149,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 190,
+                "y": 167
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 144,
+                "idx": 0,
+                "w": 166,
+                "x": 150,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 210,
+                "y": 156
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 158,
+                "idx": 0,
+                "w": 156,
+                "x": 0,
+                "y": 145
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 164,
+                "y": 176
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 170,
+                "idx": 0,
+                "w": 159,
+                "x": 157,
+                "y": 145
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 141,
+                "y": 156
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/niutou/attacked/all/"
+    }
+}

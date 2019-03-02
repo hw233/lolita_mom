@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 158,
+                "idx": 0,
+                "w": 171,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 181,
+                "y": 173
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 173,
+                "idx": 0,
+                "w": 173,
+                "x": 172,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 185,
+                "y": 169
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 147,
+                "idx": 0,
+                "w": 170,
+                "x": 0,
+                "y": 159
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 160,
+                "y": 162
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 142,
+                "idx": 0,
+                "w": 161,
+                "x": 171,
+                "y": 174
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 153,
+                "y": 163
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/jinguanghou/attacked/all/"
+    }
+}

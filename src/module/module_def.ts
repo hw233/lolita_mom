@@ -6,6 +6,7 @@ module game{
         utils.module_ins().register_module(module_enum.MODULE_CARD,game.card_main);
         utils.module_ins().register_module(module_enum.MODULE_TIPS,game.tips_mgr);
         utils.module_ins().register_module(module_enum.MODULE_SYS_MSG,game.sys_msg);
+        utils.module_ins().register_module(module_enum.MODULE_SCENE,game.scene);
     }
     export function get_module(module_name:string):utils.game_module
     {

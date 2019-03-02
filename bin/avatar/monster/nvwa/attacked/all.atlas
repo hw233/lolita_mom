@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 123,
+                "idx": 0,
+                "w": 94,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 229,
+                "y": 177
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 120,
+                "x": 95,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 228,
+                "y": 211
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 148,
+                "idx": 0,
+                "w": 94,
+                "x": 0,
+                "y": 124
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 189,
+                "y": 167
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 158,
+                "idx": 0,
+                "w": 120,
+                "x": 95,
+                "y": 101
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 164,
+                "y": 167
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/nvwa/attacked/all/"
+    }
+}

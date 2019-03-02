@@ -373,6 +373,9 @@ var core;
         renderagent.prototype.is_scene_block = function (x, y) {
             return this.m_render.m_scene.m_map.is_block(x, y);
         };
+        renderagent.prototype.is_scene_mask = function (x, y) {
+            return this.m_render.m_scene.m_map.is_mask(x, y);
+        };
         renderagent.prototype.get_map_canvas = function (w, h, x, y) {
             return this.m_render.m_view.get_mapviewport_canvas(this.m_render.m_context, w, h);
         };
@@ -420,7 +423,9 @@ var core;
                 }
                 newpath.start();
                 this.m_render.m_scene.addpath(newpath, id);
-                unit.change_action(1 /* ACTION_RUN */);
+                if (unit.m_action != 1 /* ACTION_RUN */) {
+                    unit.change_action(1 /* ACTION_RUN */);
+                }
                 return newpath.get_end();
             }
             return;

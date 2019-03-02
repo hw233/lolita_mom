@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 2,
+                "idx": 0,
+                "w": 2,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 255,
+                "y": 255
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 2,
+                "idx": 0,
+                "w": 2,
+                "x": 0,
+                "y": 3
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 255,
+                "y": 255
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 159,
+                "idx": 0,
+                "w": 96,
+                "x": 0,
+                "y": 6
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 156
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 189,
+                "idx": 0,
+                "w": 94,
+                "x": 97,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 218,
+                "y": 122
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/chitublue/chitublue_frout/attacked/all/"
+    }
+}

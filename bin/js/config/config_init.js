@@ -34,6 +34,7 @@ var config;
         config.auraresinfo_map_init(config_obj);
         config.titleresinfo_map_init(config_obj);
         config.buffinfo_map_init(config_obj);
+        config.sceneinfo_map_init(config_obj);
         config.cards_map_init(config_obj);
         config.cards_spell_map_init(config_obj);
         config.cards_effect_map_init(config_obj);

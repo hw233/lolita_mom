@@ -74,6 +74,13 @@ var core;
             var ssy = Math.floor(sy / bh);
             return this.m_block.m_mat.is_block_cache(ssx, ssy);
         };
+        rendermap.prototype.is_mask = function (sx, sy) {
+            var bw = this.m_block.m_mat.m_grid_w;
+            var bh = this.m_block.m_mat.m_grid_h;
+            var ssx = Math.floor(sx / bw);
+            var ssy = Math.floor(sy / bh);
+            return this.m_block.m_mat.is_mask_cache(ssx, ssy);
+        };
         rendermap.prototype.findpath = function (sx, sy, dx, dy, bclosest, spd) {
             var starttm = utils.get_render_milltm();
             //core.core_tiplog("rendermap findpath start time ",sx,sy,dx,dy,starttm);

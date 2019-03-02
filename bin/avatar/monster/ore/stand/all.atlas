@@ -1,0 +1,42 @@
+{
+    "frames": {
+        "70000.png": {
+            "frame": {
+                "h": 91,
+                "idx": 0,
+                "w": 88,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 211
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 91,
+                "idx": 0,
+                "w": 88,
+                "x": 89,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 211
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/ore/stand/all/"
+    }
+}

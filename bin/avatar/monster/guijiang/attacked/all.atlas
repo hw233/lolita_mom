@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 145,
+                "idx": 0,
+                "w": 120,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 162,
+                "y": 172
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 138,
+                "idx": 0,
+                "w": 136,
+                "x": 0,
+                "y": 146
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 171,
+                "y": 178
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 112,
+                "idx": 0,
+                "w": 117,
+                "x": 121,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 231,
+                "y": 192
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 150,
+                "idx": 0,
+                "w": 135,
+                "x": 137,
+                "y": 113
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 152
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/guijiang/attacked/all/"
+    }
+}

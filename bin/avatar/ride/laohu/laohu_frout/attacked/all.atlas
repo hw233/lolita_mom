@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 120,
+                "idx": 0,
+                "w": 145,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 184,
+                "y": 197
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 135,
+                "idx": 0,
+                "w": 135,
+                "x": 0,
+                "y": 121
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 184,
+                "y": 182
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 85,
+                "x": 136,
+                "y": 121
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 234,
+                "y": 214
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 82,
+                "idx": 0,
+                "w": 94,
+                "x": 146,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 226,
+                "y": 202
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/laohu/laohu_frout/attacked/all/"
+    }
+}

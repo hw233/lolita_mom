@@ -104,6 +104,8 @@ export let Protocol_desc = {
 	'S2C_OPENTIME':[['opentime', 'uint32', ''],],
 	'S2C_SERVER_INFO':[['srvid', 'int16', ''],['srvname', 'string8', ''],['opentime', 'uint32', ''],],
 	'S2C_ACCOUNT_INFO':[['aid', 'int32', ''],['qudao', 'string8', ''],],
+	'C2S_ACCOUNT_NEW':[],
+	'S2C_ACCOUNT_NEW':[['account', 'string8', ''],['pwd', 'string8', ''],],
 	'S2C_PROTOCOL_DESC':[['ptypes', 'list8', 'ptyperow'],['cusptypes', 'list16', 'protocoltype'],['c2sprotocols', 'list16', 'protocoldesc'],['s2cprotocols', 'list16', 'protocoldesc'],],
 	'S2C_CLIENT_COMMAND':[['msg', 'string16', ''],],
 	'C2S_CLIENT_SETTING':[['setting', 'byte8', ''],],
@@ -116,8 +118,8 @@ export let Protocol_desc = {
 	'S2C_SERVER_ONDAY':[['hour', 'int8', ''],],
 	'C2S_MAP_MOVE':[['x', 'int16', ''],['y', 'int16', ''],['step', 'list8', 'uint8'],],
 	'C2S_MAP_PICK':[['id', 'int32', ''],],
-	'S2C_MAP_TRACK':[['id', 'int32', ''],['x', 'int16', ''],['y', 'int16', ''],['dx', 'int8', ''],['dy', 'int8', ''],],
-	'S2C_MAP_DEL':[['id', 'byte', ''],],
+	'S2C_MAP_TRACK':[['id', 'int32', ''],['x', 'int16', ''],['y', 'int16', ''],['dx', 'int16', ''],['dy', 'int16', ''],],
+	'S2C_MAP_DEL':[['id', 'int32', ''],],
 	'S2C_MAP_ADDPLAYER':[['id', 'int32', ''],['shape', 'int16', ''],['x', 'int16', ''],['y', 'int16', ''],['desc', 'byte8', ''],['name', 'string8', ''],],
 	'S2C_MAP_ADDNPC':[['id', 'int32', ''],['sid', 'int32', ''],['shape', 'int16', ''],['x', 'int16', ''],['y', 'int16', ''],['dir', 'int8', ''],['desc', 'byte8', ''],['name', 'string8', ''],],
 	'S2C_MAP_ADDGOODS':[['id', 'int32', ''],['shape', 'int16', ''],['x', 'int16', ''],['y', 'int16', ''],['owners', 'list8', 'int32'],['name', 'string8', ''],],
@@ -131,6 +133,7 @@ export let Protocol_desc = {
 	'S2C_MAP_PLAYANI':[['id', 'int32', ''],['ani', 'int16', ''],['x', 'int16', ''],['y', 'int16', ''],],
 	'S2C_MAP_ROLETITLE':[['id', 'int32', ''],['tid', 'int8', ''],],
 	'S2C_HANGMAP_INFO':[['scsid', 'int16', ''],],
+	'S2C_MAP_REGIONCHANGE':[['x', 'int16', ''],['y', 'int16', ''],['rw', 'int16', ''],['rh', 'int16', ''],],
 	'C2S_NPC_LOOK':[['id', 'int32', ''],],
 	'C2S_NPC_RESPOND':[['idx', 'int32', ''],],
 	'S2C_NPC_CHAT':[['id', 'int32', ''],['icon', 'int16', ''],['name', 'string8', ''],['text', 'string16', ''],['textid', 'int32', ''],['opts', 'list8', 'npctalkopt'],],
@@ -246,6 +249,8 @@ export const S2C_ACCOUNT_GUEST = 0x11a;
 export const S2C_OPENTIME = 0x120;
 export const S2C_SERVER_INFO = 0x128;
 export const S2C_ACCOUNT_INFO = 0x129;
+export const C2S_ACCOUNT_NEW = 0x130;
+export const S2C_ACCOUNT_NEW = 0x130;
 export const S2C_PROTOCOL_DESC = 0x121;
 export const S2C_CLIENT_COMMAND = 0x122;
 export const C2S_CLIENT_SETTING = 0x123;
@@ -273,6 +278,7 @@ export const S2C_MAP_CHANGETITLE = 0x146;
 export const S2C_MAP_PLAYANI = 0x147;
 export const S2C_MAP_ROLETITLE = 0x14b;
 export const S2C_HANGMAP_INFO = 0x150;
+export const S2C_MAP_REGIONCHANGE = 0x151;
 export const C2S_NPC_LOOK = 0x160;
 export const C2S_NPC_RESPOND = 0x161;
 export const S2C_NPC_CHAT = 0x160;
@@ -378,6 +384,7 @@ S2C_CMD_2_PROTODESC[S2C_ACCOUNT_GUEST]='S2C_ACCOUNT_GUEST';
 S2C_CMD_2_PROTODESC[S2C_OPENTIME]='S2C_OPENTIME';
 S2C_CMD_2_PROTODESC[S2C_SERVER_INFO]='S2C_SERVER_INFO';
 S2C_CMD_2_PROTODESC[S2C_ACCOUNT_INFO]='S2C_ACCOUNT_INFO';
+S2C_CMD_2_PROTODESC[S2C_ACCOUNT_NEW]='S2C_ACCOUNT_NEW';
 S2C_CMD_2_PROTODESC[S2C_PROTOCOL_DESC]='S2C_PROTOCOL_DESC';
 S2C_CMD_2_PROTODESC[S2C_CLIENT_COMMAND]='S2C_CLIENT_COMMAND';
 S2C_CMD_2_PROTODESC[S2C_CLIENT_SETTING]='S2C_CLIENT_SETTING';
@@ -399,6 +406,7 @@ S2C_CMD_2_PROTODESC[S2C_MAP_CHANGETITLE]='S2C_MAP_CHANGETITLE';
 S2C_CMD_2_PROTODESC[S2C_MAP_PLAYANI]='S2C_MAP_PLAYANI';
 S2C_CMD_2_PROTODESC[S2C_MAP_ROLETITLE]='S2C_MAP_ROLETITLE';
 S2C_CMD_2_PROTODESC[S2C_HANGMAP_INFO]='S2C_HANGMAP_INFO';
+S2C_CMD_2_PROTODESC[S2C_MAP_REGIONCHANGE]='S2C_MAP_REGIONCHANGE';
 S2C_CMD_2_PROTODESC[S2C_NPC_CHAT]='S2C_NPC_CHAT';
 S2C_CMD_2_PROTODESC[S2C_ROLE_INFO]='S2C_ROLE_INFO';
 S2C_CMD_2_PROTODESC[S2C_PET_INFO]='S2C_PET_INFO';
@@ -471,6 +479,7 @@ C2S_CMD_2_PROTODESC[C2S_LOGIN_CREATEROLE]='C2S_LOGIN_CREATEROLE';
 C2S_CMD_2_PROTODESC[C2S_LOGIN_DELETEROLE]='C2S_LOGIN_DELETEROLE';
 C2S_CMD_2_PROTODESC[C2S_LOGIN_RESTOREROLE]='C2S_LOGIN_RESTOREROLE';
 C2S_CMD_2_PROTODESC[C2S_ACCOUNT_GUEST]='C2S_ACCOUNT_GUEST';
+C2S_CMD_2_PROTODESC[C2S_ACCOUNT_NEW]='C2S_ACCOUNT_NEW';
 C2S_CMD_2_PROTODESC[C2S_CLIENT_SETTING]='C2S_CLIENT_SETTING';
 C2S_CMD_2_PROTODESC[C2S_SERVER_SETTING]='C2S_SERVER_SETTING';
 C2S_CMD_2_PROTODESC[C2S_ROLE_RENAME]='C2S_ROLE_RENAME';

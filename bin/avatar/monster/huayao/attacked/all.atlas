@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 125,
+                "idx": 0,
+                "w": 109,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 195,
+                "y": 154
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 88,
+                "idx": 0,
+                "w": 125,
+                "x": 0,
+                "y": 126
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 193
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 115,
+                "idx": 0,
+                "w": 111,
+                "x": 110,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 205,
+                "y": 166
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 122,
+                "idx": 0,
+                "w": 126,
+                "x": 126,
+                "y": 116
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 181,
+                "y": 157
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/huayao/attacked/all/"
+    }
+}

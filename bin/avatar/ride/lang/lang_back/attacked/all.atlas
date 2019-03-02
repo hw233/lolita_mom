@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 160,
+                "idx": 0,
+                "w": 169,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 183,
+                "y": 179
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 157,
+                "idx": 0,
+                "w": 171,
+                "x": 170,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 182,
+                "y": 175
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 128,
+                "idx": 0,
+                "w": 160,
+                "x": 0,
+                "y": 161
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 162,
+                "y": 196
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 155,
+                "idx": 0,
+                "w": 171,
+                "x": 170,
+                "y": 158
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 158,
+                "y": 175
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/lang/lang_back/attacked/all/"
+    }
+}

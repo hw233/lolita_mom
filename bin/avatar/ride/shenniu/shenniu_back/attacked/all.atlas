@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 146,
+                "idx": 0,
+                "w": 146,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 147,
+                "y": 156
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 168,
+                "idx": 0,
+                "w": 141,
+                "x": 0,
+                "y": 147
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 156,
+                "y": 128
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 136,
+                "idx": 0,
+                "w": 146,
+                "x": 147,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 218,
+                "y": 206
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 155,
+                "idx": 0,
+                "w": 144,
+                "x": 142,
+                "y": 147
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 156
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/shenniu/shenniu_back/attacked/all/"
+    }
+}

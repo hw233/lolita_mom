@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 234,
+                "idx": 0,
+                "w": 158,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 179,
+                "y": 104
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 223,
+                "idx": 0,
+                "w": 149,
+                "x": 159,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 196,
+                "y": 94
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 200,
+                "idx": 0,
+                "w": 157,
+                "x": 159,
+                "y": 224
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 175,
+                "y": 121
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 178,
+                "idx": 0,
+                "w": 147,
+                "x": 0,
+                "y": 235
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 168,
+                "y": 139
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/langtaosha/attacked/all/"
+    }
+}

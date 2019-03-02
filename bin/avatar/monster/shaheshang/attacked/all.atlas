@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 153,
+                "idx": 0,
+                "w": 135,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 168
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 145,
+                "idx": 0,
+                "w": 177,
+                "x": 136,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 220,
+                "y": 196
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 126,
+                "idx": 0,
+                "w": 133,
+                "x": 0,
+                "y": 154
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 169,
+                "y": 197
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 143,
+                "idx": 0,
+                "w": 175,
+                "x": 136,
+                "y": 146
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 121,
+                "y": 164
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/shaheshang/attacked/all/"
+    }
+}

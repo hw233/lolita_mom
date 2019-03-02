@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 155,
+                "idx": 0,
+                "w": 144,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 175,
+                "y": 164
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 161,
+                "idx": 0,
+                "w": 139,
+                "x": 145,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 186,
+                "y": 158
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 154,
+                "idx": 0,
+                "w": 133,
+                "x": 0,
+                "y": 156
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 167,
+                "y": 160
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 158,
+                "idx": 0,
+                "w": 150,
+                "x": 134,
+                "y": 162
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 155,
+                "y": 155
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/daxiang/daxiang_back/attacked/all/"
+    }
+}

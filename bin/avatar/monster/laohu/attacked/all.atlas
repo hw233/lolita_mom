@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 73,
+                "idx": 0,
+                "w": 108,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 200,
+                "y": 241
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 97,
+                "idx": 0,
+                "w": 101,
+                "x": 109,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 213,
+                "y": 212
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 68,
+                "idx": 0,
+                "w": 108,
+                "x": 0,
+                "y": 74
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 196,
+                "y": 238
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 100,
+                "x": 109,
+                "y": 98
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 190,
+                "y": 218
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/laohu/attacked/all/"
+    }
+}

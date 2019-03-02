@@ -1,0 +1,246 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 204,
+                "idx": 0,
+                "w": 225,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 128,
+                "y": 127
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 215,
+                "idx": 0,
+                "w": 228,
+                "x": 0,
+                "y": 205
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 129,
+                "y": 120
+            }
+        },
+        "30002.png": {
+            "frame": {
+                "h": 231,
+                "idx": 0,
+                "w": 214,
+                "x": 0,
+                "y": 421
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 141,
+                "y": 105
+            }
+        },
+        "30003.png": {
+            "frame": {
+                "h": 202,
+                "idx": 0,
+                "w": 214,
+                "x": 226,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 135,
+                "y": 126
+            }
+        },
+        "30004.png": {
+            "frame": {
+                "h": 201,
+                "idx": 0,
+                "w": 224,
+                "x": 441,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 124,
+                "y": 127
+            }
+        },
+        "30005.png": {
+            "frame": {
+                "h": 203,
+                "idx": 0,
+                "w": 228,
+                "x": 229,
+                "y": 203
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 118,
+                "y": 125
+            }
+        },
+        "30006.png": {
+            "frame": {
+                "h": 201,
+                "idx": 0,
+                "w": 228,
+                "x": 458,
+                "y": 202
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 120,
+                "y": 127
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 180,
+                "idx": 0,
+                "w": 185,
+                "x": 229,
+                "y": 407
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 152,
+                "y": 164
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 150,
+                "idx": 0,
+                "w": 171,
+                "x": 215,
+                "y": 588
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 149,
+                "y": 176
+            }
+        },
+        "70002.png": {
+            "frame": {
+                "h": 140,
+                "idx": 0,
+                "w": 178,
+                "x": 0,
+                "y": 653
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 152,
+                "y": 180
+            }
+        },
+        "70003.png": {
+            "frame": {
+                "h": 172,
+                "idx": 0,
+                "w": 189,
+                "x": 415,
+                "y": 407
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 159,
+                "y": 178
+            }
+        },
+        "70004.png": {
+            "frame": {
+                "h": 179,
+                "idx": 0,
+                "w": 188,
+                "x": 605,
+                "y": 404
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 160,
+                "y": 172
+            }
+        },
+        "70005.png": {
+            "frame": {
+                "h": 181,
+                "idx": 0,
+                "w": 188,
+                "x": 415,
+                "y": 580
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 160,
+                "y": 170
+            }
+        },
+        "70006.png": {
+            "frame": {
+                "h": 183,
+                "idx": 0,
+                "w": 181,
+                "x": 604,
+                "y": 584
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 157,
+                "y": 168
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/ruishou/ruishou_back/attack/all/"
+    }
+}

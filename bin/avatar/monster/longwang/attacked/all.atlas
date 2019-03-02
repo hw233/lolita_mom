@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 155,
+                "idx": 0,
+                "w": 100,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 216,
+                "y": 160
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 146,
+                "idx": 0,
+                "w": 102,
+                "x": 0,
+                "y": 156
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 229,
+                "y": 172
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 122,
+                "idx": 0,
+                "w": 101,
+                "x": 101,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 195,
+                "y": 184
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 144,
+                "idx": 0,
+                "w": 102,
+                "x": 103,
+                "y": 123
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 181,
+                "y": 157
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/longwang/attacked/all/"
+    }
+}

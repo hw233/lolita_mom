@@ -1,0 +1,110 @@
+{
+    "frames": {
+        "00000.png": {
+            "frame": {
+                "h": 53,
+                "idx": 0,
+                "w": 49,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 229
+            }
+        },
+        "00001.png": {
+            "frame": {
+                "h": 58,
+                "idx": 0,
+                "w": 49,
+                "x": 0,
+                "y": 54
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 223
+            }
+        },
+        "00002.png": {
+            "frame": {
+                "h": 60,
+                "idx": 0,
+                "w": 49,
+                "x": 50,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 219
+            }
+        },
+        "00003.png": {
+            "frame": {
+                "h": 59,
+                "idx": 0,
+                "w": 49,
+                "x": 50,
+                "y": 61
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 218
+            }
+        },
+        "00004.png": {
+            "frame": {
+                "h": 55,
+                "idx": 0,
+                "w": 49,
+                "x": 100,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 224
+            }
+        },
+        "00005.png": {
+            "frame": {
+                "h": 58,
+                "idx": 0,
+                "w": 51,
+                "x": 100,
+                "y": 56
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 223
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "fairy/soul14/stand/all/"
+    }
+}

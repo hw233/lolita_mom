@@ -405,5 +405,13 @@ var helper;
         return true;
     }
     helper.html_filter = html_filter;
+    function get_local(key) {
+        return Laya.LocalStorage.getItem(key);
+    }
+    helper.get_local = get_local;
+    function set_local(key, v) {
+        return Laya.LocalStorage.setItem(key, v);
+    }
+    helper.set_local = set_local;
 })(helper || (helper = {}));
 //# sourceMappingURL=helper.js.map

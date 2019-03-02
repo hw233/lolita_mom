@@ -6,6 +6,15 @@ module game_event{
     export const EVENT_TIMER_TICK_1S:string = "timer_tick_1s";
     export const EVENT_PLAYERDATA_UPDATED:string = "playerdata_updated";
 
+    export const EVENT_SCENE_CLICK:string = "game_click";
+    export const EVENT_SCENE_STOP:string = "scene_stop";
+    
+    export const EVENT_PLAYER_ENTER:string = "player_enterscene";
+    export const EVENT_PLAYER_OUT:string = "player_outscene";
+    export const EVENT_MAINPLAYER_MOVE:string = "mainplayer_move";
+    export const EVENT_ENTERSCENE:string = "mainplayer_enterscene";
+    export const EVENT_CLICK_PLAYER:string = "scene_click_player";
+
     export const EVENT_UI_MAINTOPUPDATE:string = "ui_maintop_update";
     export const EVENT_UI_MAINUPDATE:string = "ui_main_update";
 

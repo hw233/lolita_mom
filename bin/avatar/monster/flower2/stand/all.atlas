@@ -1,0 +1,42 @@
+{
+    "frames": {
+        "70000.png": {
+            "frame": {
+                "h": 106,
+                "idx": 0,
+                "w": 100,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 203
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 106,
+                "idx": 0,
+                "w": 100,
+                "x": 101,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 203
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/flower2/stand/all/"
+    }
+}

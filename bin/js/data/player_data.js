@@ -23,6 +23,15 @@ var data;
             _this.m_goldspd = 0;
             _this.m_stamina = 0;
             _this.m_last_time = 0;
+            _this.m_scene_roleid = 0;
+            _this.m_pid = 0;
+            _this.m_name = "";
+            _this.m_class = 0;
+            _this.x = 0;
+            _this.y = 0;
+            _this.m_desc = new Laya.Byte();
+            _this.m_sid = 0;
+            _this.m_sresid = 0;
             return _this;
         }
         player_data.prototype.dispose = function () {

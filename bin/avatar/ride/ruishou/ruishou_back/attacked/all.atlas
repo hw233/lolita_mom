@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 206,
+                "idx": 0,
+                "w": 216,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 139,
+                "y": 131
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 223,
+                "idx": 0,
+                "w": 225,
+                "x": 0,
+                "y": 207
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 131,
+                "y": 116
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 173,
+                "idx": 0,
+                "w": 175,
+                "x": 217,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 162,
+                "y": 171
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 172,
+                "idx": 0,
+                "w": 179,
+                "x": 226,
+                "y": 174
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 157,
+                "y": 173
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/ruishou/ruishou_back/attacked/all/"
+    }
+}
