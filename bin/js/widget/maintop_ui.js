@@ -22,16 +22,25 @@ var widget;
             return _this;
         }
         maintop_ui.prototype.on_init = function () {
+            fontmgr.set_ui_font(this.m_ui);
         };
         maintop_ui.prototype.on_show = function (flag) {
             if (flag) {
                 this.UIins = this.m_ui;
                 this.register_event(game_event.EVENT_UI_MAINTOPUPDATE, this.on_update_data);
+                this.register_event(game_event.EVENT_MAINPLAYER_MOVE, this.on_mainplayer_move);
             }
             else {
                 this.unregister_allevent();
                 this.UIins = null;
             }
+        };
+        maintop_ui.prototype.on_mainplayer_move = function (ud) {
+            if (ud === void 0) { ud = null; }
+            var x = ud[0];
+            var y = ud[1];
+            var mp = data.get_data(data_enum.DATA_PLAYER);
+            this.UIins.name_label.text = mp.m_name + " (" + x.toString() + "," + y.toString() + ")";
         };
         maintop_ui.prototype.on_update_data = function (ud) {
             if (ud === void 0) { ud = null; }

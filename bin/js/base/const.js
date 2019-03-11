@@ -365,9 +365,11 @@ var base;
         '#P9&': 'emotion/face0.png'
     };
     // 频道
+    // 频道
     base.CHANNEL_GANG = 2;
     base.CHANNEL_WORLD = 3;
     base.CHANNEL_ACROSSSVR = 4;
+    base.CHANNEL_INFO = 5; //提示信息
     base.CHANNEL_SYS = 6;
     base.CHANNEL_RECRUIT = 7;
     // 属性相关

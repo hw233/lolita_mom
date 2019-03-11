@@ -31,6 +31,7 @@ var widget;
                 this.UIins.btn3.on(Laya.Event.CLICK, this, this.on_mainequip);
                 this.UIins.btn4.on(Laya.Event.CLICK, this, this.on_add);
                 this.UIins.btn5.on(Laya.Event.CLICK, this, this.on_partner);
+                this.UIins.x = Laya.stage.designWidth - this.UIins.width;
                 this.UIins.y = Laya.stage.designHeight - this.UIins.height;
                 this.register_event(game_event.EVENT_UI_MAINUPDATE, this.on_update_data);
             }

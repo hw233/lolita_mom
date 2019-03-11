@@ -840,5 +840,6 @@ var game;
     game.L_CARD_ENDTIPS = "挑战结束，请退出";
     game.L_CARD_ENTERDLV = "进入第";
     game.L_CARD_ENTERDLV1 = "关";
+    game.L_CHAR_LIMIT_CHANGED = "最大字符数修改为500，失去焦点，需要重新聚焦";
 })(game || (game = {}));
 //# sourceMappingURL=lang_config.js.map

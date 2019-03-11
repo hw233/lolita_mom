@@ -386,9 +386,11 @@ module base {
         '#P9&': 'emotion/face0.png'
     }
     // 频道
+    // 频道
     export const CHANNEL_GANG: number = 2;
     export const CHANNEL_WORLD: number = 3;
     export const CHANNEL_ACROSSSVR: number = 4;
+    export const CHANNEL_INFO: number = 5;//提示信息
     export const CHANNEL_SYS: number = 6;
     export const CHANNEL_RECRUIT: number = 7;
     // 属性相关

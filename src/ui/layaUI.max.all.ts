@@ -25,6 +25,75 @@ module ui.game {
 }
 
 module ui.game {
+    export class chat_faceUI extends Dialog {
+		public faceList:Laya.List;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("game/chat_face");
+
+        }
+
+    }
+}
+
+module ui.game {
+    export class chat_input_uiUI extends Dialog {
+		public input_msg:Laya.TextInput;
+		public img_send:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("game/chat_input_ui");
+
+        }
+
+    }
+}
+
+module ui.game {
+    export class chat_uiUI extends Dialog {
+		public chatBg:Laya.Image;
+		public showBtn:Laya.Image;
+		public ch0:Laya.Box;
+		public ch0_bg:Laya.Image;
+		public ch0_title:Laya.Image;
+		public ch1:Laya.Box;
+		public ch1_bg:Laya.Image;
+		public ch1_title:Laya.Image;
+		public ch2:Laya.Box;
+		public ch2_bg:Laya.Image;
+		public ch2_title:Laya.Image;
+		public ch3:Laya.Box;
+		public ch3_bg:Laya.Image;
+		public ch3_title:Laya.Image;
+		public chatPanel:Laya.Panel;
+		public bottom_box:Laya.Box;
+		public faceBtn:Laya.Image;
+		public sendBtn:Laya.Button;
+		public input_box:Laya.Box;
+		public input_bg:Laya.Image;
+		public input_gray_bg:Laya.Image;
+		public inputInfo:Laya.TextInput;
+		public bagBtn:Laya.Button;
+		public red_bag:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("game/chat_ui");
+
+        }
+
+    }
+}
+
+module ui.game {
     export class help_tipsUI extends Dialog {
 		public img_bk:Laya.Image;
 		public lab_text:Laya.Label;

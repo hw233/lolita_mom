@@ -48,9 +48,22 @@ class GameMain{
     private m_gamemain_ins:game.game_main = null;
     constructor()
     {
-        Laya.init(720,1280,Laya.WebGL);
-        //Laya.Stat.show(0,0);
+        Laya.init(1280,720,Laya.WebGL);
+        //
+        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
+        //让舞台处于屏幕的水平居中
+        Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
+        //保持原始高宽比的情况下，将舞台铺满屏幕，超出比例的部分会有黑边
+        Laya.stage.screenMode = Laya.Stage.SCREEN_HORIZONTAL;
+        Laya.stage.scaleMode = Laya.Stage.SCALE_SHOWALL;
+        //自动横屏，游戏的水平方向始终与浏览器屏幕较短边保持垂直
+        
+        Laya.Stat.show(0,0);
 
+        let l: Laya.Label = new Laya.Label(" ");
+        l.font = "h5font"
+        Laya.stage.addChild(l);
+        
         Laya.timer.frameLoop(1,this,this.onframeloop);
         core.set_log_module(core.log_module_enum.MODULE_ALL);
         core.set_log_level(core.log_level_enum.LOG_TIPS);
@@ -90,6 +103,7 @@ class GameMain{
         assets.push({ url: "avatar/link_data.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "avatar/link_data_txt.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "avatar/skillperform.bin", type: Laya.Loader.BUFFER });
+        assets.push({ url: "kjlinxin.ttf", type: Laya.Loader.BUFFER });
         //
         for(let i of assets){
             utils.widget_ins().add_preload_res(i["url"]);
@@ -100,6 +114,9 @@ class GameMain{
     private on_preload():void{
         this.m_game_loading.removeSelf();
         this.m_game_loading = null;
+
+        let arr: ArrayBuffer = Laya.loader.getRes("kjlinxin.ttf");
+        fontmgr.registerfont(arr);
 
         Laya.View.uiMap = Laya.loader.getRes("ui.json");
         let config_json:Object = Laya.loader.getRes("config.json");

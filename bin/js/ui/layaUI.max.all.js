@@ -31,6 +31,57 @@ var ui;
 (function (ui) {
     var game;
     (function (game) {
+        var chat_faceUI = /** @class */ (function (_super) {
+            __extends(chat_faceUI, _super);
+            function chat_faceUI() {
+                return _super.call(this) || this;
+            }
+            chat_faceUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.loadUI("game/chat_face");
+            };
+            return chat_faceUI;
+        }(Dialog));
+        game.chat_faceUI = chat_faceUI;
+    })(game = ui.game || (ui.game = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var game;
+    (function (game) {
+        var chat_input_uiUI = /** @class */ (function (_super) {
+            __extends(chat_input_uiUI, _super);
+            function chat_input_uiUI() {
+                return _super.call(this) || this;
+            }
+            chat_input_uiUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.loadUI("game/chat_input_ui");
+            };
+            return chat_input_uiUI;
+        }(Dialog));
+        game.chat_input_uiUI = chat_input_uiUI;
+    })(game = ui.game || (ui.game = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var game;
+    (function (game) {
+        var chat_uiUI = /** @class */ (function (_super) {
+            __extends(chat_uiUI, _super);
+            function chat_uiUI() {
+                return _super.call(this) || this;
+            }
+            chat_uiUI.prototype.createChildren = function () {
+                _super.prototype.createChildren.call(this);
+                this.loadUI("game/chat_ui");
+            };
+            return chat_uiUI;
+        }(Dialog));
+        game.chat_uiUI = chat_uiUI;
+    })(game = ui.game || (ui.game = {}));
+})(ui || (ui = {}));
+(function (ui) {
+    var game;
+    (function (game) {
         var help_tipsUI = /** @class */ (function (_super) {
             __extends(help_tipsUI, _super);
             function help_tipsUI() {

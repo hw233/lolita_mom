@@ -34,6 +34,7 @@ var game;
             this.register_net_event(protocol_def.S2C_MAP_TRACK, this.on_net_rolemove);
             this.register_net_event(protocol_def.S2C_MAP_DEL, this.on_net_scenedel);
             this.register_net_event(protocol_def.S2C_MAP_ADDPLAYER, this.on_net_addplayer);
+            this.register_net_event(protocol_def.S2C_MAP_REGIONCHANGE, this.on_regionchanged);
             this.register_event(game_event.EVENT_SCENE_CLICK, this.on_scene_click);
             this.register_event(game_event.EVENT_SCENE_STOP, this.on_scene_stop);
             var game_ins = game.get_module(module_enum.MODULE_MAIN);
@@ -123,6 +124,7 @@ var game;
             }
         };
         scene.prototype.on_enter_scene = function (ssid, resid, x, y) {
+            core.game_tiplog("scene on_enter_scene ", ssid, resid, x, y);
             this.m_b_start_run = false;
             this.m_b_run_start_x = -1;
             this.m_b_run_start_y = -1;
@@ -224,7 +226,7 @@ var game;
                 }
                 mp.x = mx;
                 mp.y = my;
-                this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE, [mx, my]);
+                //this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE,[mx,my]);
             }
         };
         scene.prototype.wpos2spos = function (x, y) {
@@ -302,7 +304,7 @@ var game;
             var C2S_MOVE_STEP_SUB = 0x0;
             var STEP_MAX = 16;
             var sendbuff = new Laya.Byte();
-            sendbuff.endian = Laya.Byte.LITTLE_ENDIAN;
+            sendbuff.endian = Laya.Byte.BIG_ENDIAN;
             while (step_list.length > 0) {
                 sendbuff.clear();
                 //sendbuff.writeUint8(C2S_MOVE_STEP_SUB);
@@ -360,6 +362,7 @@ var game;
                     if (this.m_render.is_unit_walk(this._get_mainrole_id()) == false) {
                         this.m_b_start_run = false;
                     }
+                    this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE, [cx, cy]);
                     core.game_tiplog("on_check_mainplayer_pos end1");
                     return;
                 }
@@ -389,6 +392,7 @@ var game;
                     this.send_move_step(this.m_b_run_start_x, this.m_b_run_start_y, step_list);
                     this.m_b_run_start_x = cx;
                     this.m_b_run_start_y = cy;
+                    this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE, [cx, cy]);
                 }
                 core.game_tiplog("on_check_mainplayer_pos end2");
             }
@@ -443,60 +447,33 @@ var game;
             // let touxian:number = ud["touxian"];
             this.on_role_enter(id, name, shape, lv, cls, x, y, desc);
         };
+        scene.prototype.on_regionchanged = function (ud) {
+            core.game_tiplog("on_regionchanged ", ud);
+            var left = ud['x'];
+            var top = ud['y'];
+            var right = ud['rw'];
+            var bottom = ud['rh'];
+            core.game_tiplog("on_regionchanged ", left, top, right, bottom);
+            var scenedata = data.get_data(data_enum.DATA_SCENE);
+            for (var _i = 0, _a = scenedata.m_role_mgr.m_role_list; _i < _a.length; _i++) {
+                var i = _a[_i];
+                if (this.is_mainplayer(i.m_pid)) {
+                    continue;
+                }
+                //自己不删除
+                //need code 如果将来场景里有组队，则要加入下面处理
+                //如果在组队中，并且只是队员，而不是队长，暂时跳过不处理
+                //如果在组队中，并且是队长，则连整个队伍一起删除
+                //end need code
+                if (i.x < left || i.x > right || i.y < top || i.y > bottom) {
+                    this.on_role_out(i.m_pid);
+                }
+            }
+        };
         scene.prototype.on_net_scenedel = function (ud) {
             core.game_tiplog("on_net_scenedel ", ud);
-            var b = ud["id"];
-            // b.endian = Laya.Byte.BIG_ENDIAN;
-            // b.endian = Laya.Byte.LITTLE_ENDIAN;
-            b.pos = 0;
-            if (b.length == 4) {
-                var id = b.getInt32();
-                this.on_role_out(id);
-            }
-            else if (b.length == 8) {
-                //其实这个分支是服务器告诉客户端：你当前所属的区域范围，你自己根据你所处的区域范围进行场景删除
-                var Scene_Region_Hor_Num = 10;
-                var Scene_Region_Ver_Num = 8;
-                var role_x = b.getByte();
-                var role_y = b.getByte();
-                var role_w = b.getByte();
-                var role_h = b.getByte();
-                var role_del_left = role_x * Scene_Region_Hor_Num;
-                var role_del_top = role_y * Scene_Region_Ver_Num;
-                var role_del_right = (role_w + 1) * Scene_Region_Hor_Num;
-                var role_del_bottom = (role_h + 1) * Scene_Region_Ver_Num;
-                var scenedata = data.get_data(data_enum.DATA_SCENE);
-                for (var _i = 0, _a = scenedata.m_role_mgr.m_role_list; _i < _a.length; _i++) {
-                    var i = _a[_i];
-                    if (this.is_mainplayer(i.m_pid)) {
-                        continue;
-                    }
-                    //自己不删除
-                    //need code 如果将来场景里有组队，则要加入下面处理
-                    //如果在组队中，并且只是队员，而不是队长，暂时跳过不处理
-                    //如果在组队中，并且是队长，则连整个队伍一起删除
-                    //end need code
-                    if (i.x < role_del_left || i.x >= role_del_right || i.y < role_del_top || i.y >= role_del_bottom) {
-                        this.on_role_out(i.m_pid);
-                    }
-                }
-                var npcanditem_x = b.getByte();
-                var npcanditem_y = b.getByte();
-                var npcanditem_w = b.getByte();
-                var npcanditem_h = b.getByte();
-                var npcanditem_del_left = npcanditem_x * Scene_Region_Hor_Num;
-                var npcanditem_del_top = npcanditem_y * Scene_Region_Ver_Num;
-                var npcanditem_del_right = (npcanditem_w + 1) * Scene_Region_Hor_Num;
-                var npcanditem_del_bottom = (npcanditem_h + 1) * Scene_Region_Ver_Num;
-                for (var _b = 0, _c = scenedata.m_npc_mgr.m_role_list; _b < _c.length; _b++) {
-                    var i = _c[_b];
-                    if (i.x < npcanditem_del_left || i.x >= npcanditem_del_right || i.y < npcanditem_del_top || i.y >= npcanditem_del_bottom) {
-                        this.on_role_out(i.m_pid);
-                    }
-                }
-            }
-            else {
-            }
+            var id = ud["id"];
+            this.on_role_out(id);
         };
         scene.prototype.on_net_rolemove = function (ud) {
             if (ud === void 0) { ud = null; }
@@ -507,7 +484,7 @@ var game;
             var dx = ud["dx"];
             var dy = ud["dy"];
             core.game_tiplog("on_net_rolemove data ", id, x, y, dx, dy);
-            this.on_role_move(id, x + dx, y + dy);
+            this.on_role_move(id, dx, dy);
         };
         scene.prototype.on_scene_click = function (user_data) {
             if (user_data === void 0) { user_data = null; }

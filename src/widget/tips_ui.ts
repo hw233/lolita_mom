@@ -24,8 +24,8 @@ module widget {
             if (flag) {
                 this.tips_mgr = game.get_module(module_enum.MODULE_TIPS) as game.tips_mgr;
                 this.tips_data = data.get_data(data_enum.DATA_TIPS) as data.tips_data;
-                this.centre_x = Laya.stage.desginWidth / 2;
-                this.centre_y = Laya.stage.desginHeight / 2;
+                this.centre_x = Laya.stage.designWidth / 2;
+                this.centre_y = Laya.stage.designHeight / 2;
                 this.cur_y = this.centre_y;
                 timer.timer_ins().add_timer(100, this, this.update);
             }

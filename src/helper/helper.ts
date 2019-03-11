@@ -405,4 +405,116 @@ module helper {
     export function set_local(key:string,v:string):void{
         return Laya.LocalStorage.setItem(key,v);
     }
+    export function get_design_w():number{
+        return Laya.stage.designWidth;
+    }
+    export function get_design_h():number{
+        return Laya.stage.designHeight;
+    }
+    export function get_design_wh():Object{
+        return {"w":Laya.stage.designWidth,"h":Laya.stage.designHeight};
+    }
+
+    /**
+     * 播放音效，音响目前只支持wav格式
+     * @param url 资源路径
+     */
+    export function play_sound(url: string): void {
+        let soundins = utils.module_ins().get_module(module_enum.MODULE_SOUND) as game.soundmgr;
+        soundins.play_sound(url);
+    }
+
+    /**
+     * 停止音效
+     * @param url 资源路径
+     */
+    export function stop_sound(url: string): void {
+        let soundins = utils.module_ins().get_module(module_enum.MODULE_SOUND) as game.soundmgr;
+        soundins.stop_sound(url);
+    }
+
+    export let TOPBAR_HEIGHT: number = 0;  //刘海屏高度
+
+    export let main_chat: string = "main_chat";
+    export let friend_chat: string = "friend_chat"; //需要弹出输入框的聊天页面标记量
+    export let chat_input_dict: Laya.Dictionary = new Laya.Dictionary(); //记录聊天输入框内容
+
+    export let g_focus_ui:string = "";
+    export function set_focus_str(s:string):void{
+        g_focus_ui = s;
+    }
+    export function get_focus_str():string{
+        return g_focus_ui;
+    }
+    export function clear_focus_str():void{
+        g_focus_ui = "";
+    }
+
+    /**
+     * 是否已经加入帮派
+     */
+    export function is_join_gang(): boolean {
+        //let gang_mgr = utils.module_ins().get_module(module_enum.MODULE_GANG) as game.gang_mgr;
+        //return gang_mgr.is_join_gang();
+        return false;
+    }
+
+    /**
+     * 判断该系统当前条件是否可以开启，并显示开启提示。配置表格：系统开启.xls。
+     * @param sys_name 系统名字
+     * @param b_tips 不满足时是否显示开启提示
+     */
+    export function is_sys_open(sys_name: string, b_tips: boolean = false): boolean {
+        let flag: boolean = false;
+        let cfg = config.Sys_open.get_Sys_open(sys_name);
+        if (cfg == null) {
+            cfg = config.Sys_open_activity.get_Sys_open_activity(sys_name);
+        }
+        if (cfg != null) {
+            let condition = cfg["condition"] as number;
+            let cdt_value = cfg["value"] as number;
+            if (condition == 1) {  // 1：等级
+                let pdata:data.player_data = utils.data_ins().get_data(data_enum.DATA_PLAYER) as data.player_data;
+                flag = pdata.m_lv >= cdt_value;
+            }
+            else if (condition == 2) {
+                flag = is_join_gang();
+            }
+            else if (condition == 3) {
+                //let g_data = data.get_data(data_enum.DATA_GANG) as data.gang_data;
+                //flag = g_data.gang_lv >= cdt_value;
+            }
+
+            if (flag == false && b_tips) {
+                show_text_tips(cfg["tips"]);
+            }
+        }
+        return flag;
+    }
+
+    /**
+     * 是否在武林盟主场景
+     */
+    export function is_wlmz_scene(): boolean {
+        let pdata:data.player_data = utils.data_ins().get_data(data_enum.DATA_PLAYER) as data.player_data;
+        let scene_id = pdata.m_sid;
+        return scene_id >= base.CROSS_WLMZ_SCENE_START && scene_id <= base.CROSS_WLMZ_SCENE_END;
+    }
+    /**
+     * 是否在挂机场景
+     */
+    export function is_guaji_scene(): boolean {
+        let pdata:data.player_data = utils.data_ins().get_data(data_enum.DATA_PLAYER) as data.player_data;
+        let scene_id = pdata.m_sid;
+        return scene_id >= base.GUAJI_SCENE_START && scene_id <= base.GUAJI_SCENE_END;
+    }
+
+    /**
+     * 是否在跨服场景
+     */
+    export function is_cross_server_scene(): boolean {
+        let pdata:data.player_data = utils.data_ins().get_data(data_enum.DATA_PLAYER) as data.player_data;
+        let flag : boolean = (pdata.m_sid >= base.CROSS_SERVER_SCENE_START && pdata.m_sid <= base.CROSS_SERVER_SCENE_END) ;
+        return flag;
+    }
 }

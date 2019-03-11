@@ -11,17 +11,25 @@ module widget {
         }
 
         public on_init(): void {
+            fontmgr.set_ui_font(this.m_ui);
         }
 
         public on_show(flag: boolean): void {
             if (flag) {
                 this.UIins = this.m_ui as ui.game.main_topui_newUI;
                 this.register_event(game_event.EVENT_UI_MAINTOPUPDATE,this.on_update_data);
+                this.register_event(game_event.EVENT_MAINPLAYER_MOVE,this.on_mainplayer_move);
             }
             else {
                 this.unregister_allevent();
                 this.UIins = null;
             }
+        }
+        private on_mainplayer_move(ud:any = null):void{
+            let x:number = ud[0];
+            let y:number = ud[1];
+            let mp:data.player_data = data.get_data(data_enum.DATA_PLAYER) as data.player_data;
+            this.UIins.name_label.text = mp.m_name + " ("+x.toString()+","+y.toString()+")";
         }
         private on_update_data(ud:any = null):void{
             let gold:number = ud[0];

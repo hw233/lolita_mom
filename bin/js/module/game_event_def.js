@@ -26,5 +26,26 @@ var game_event;
     game_event.EVENT_CARD_OPENCARD = "card_open";
     game_event.EVENT_CARD_PLAYERINFO = "card_playerinfo";
     game_event.EVENT_CARD_END = "card_end";
+    // chat
+    game_event.EVENT_CHAT = "chat";
+    game_event.EVENT_CHAT_HYPERLINK = "chat_hyperlink"; // 超链接点击，userdata：{"text":data_arr[0], "hyperlink_type":data_arr[1], "u2":data_arr[2], "u3":data_arr[3], "u4":data_arr[4]}
+    game_event.EVENT_CHATWND_SIZE = "chatwnd_size";
+    game_event.EVENT_CHATWND_SYSMSG = "chatwnd_sysmsg";
+    // export const EVENT_CHAT_VISIBLE: string = "chat_visible";
+    // chat end
+    game_event.EVENT_CHANGE_INPUT_LIMIT = "cancel_input_limit";
+    game_event.EVENT_SELECT_EMOTION = "select_emotion";
+    game_event.EVENT_SELECT_EMOTION_FCHAT = "select_emotion_fchat";
+    game_event.EVENT_KEYBOARD_SHOW = "keyboard_show";
+    //键盘消失
+    game_event.EVENT_KEYBOARD_HIDDEN = "keyboard_hidden";
+    game_event.EVENT_KEYBOARD_HEIGHT_CHANGE = "keyboard_height_change";
+    game_event.EVENT_CHAT_INPUT_MSG = "chat_input_msg";
+    game_event.EVENT_CHAT_INPUT_SEND = "chat_input_send";
+    game_event.EVENT_CHAT_CLEAR = "chat_clear";
+    game_event.EVENT_SOUND_OPEN = "sound_open";
+    game_event.EVENT_SOUND_CLOSE = "sound_close";
+    game_event.EVENT_BUTTON_CLICK = "button_click";
+    game_event.EVENT_TAB_SHOW = "tab_show";
 })(game_event || (game_event = {}));
 //# sourceMappingURL=game_event_def.js.map

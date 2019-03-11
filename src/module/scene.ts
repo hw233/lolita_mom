@@ -19,11 +19,12 @@ module game{
             //this.m_render.addani(1001,150,100,true);
             //this.m_render.addani(1001,this.m_render.m_render.getworldw()/2,this.m_render.m_render.getworldh()/2,false);
             //
-            this.register_net_event(protocol_def.S2C_HERO_GOTO,this.on_main_force_goto)
+            this.register_net_event(protocol_def.S2C_HERO_GOTO,this.on_main_force_goto);
             this.register_net_event(protocol_def.S2C_HERO_ENTERSCENE,this.on_main_enterscene);
             this.register_net_event(protocol_def.S2C_MAP_TRACK,this.on_net_rolemove);
-            this.register_net_event(protocol_def.S2C_MAP_DEL,this.on_net_scenedel)
-            this.register_net_event(protocol_def.S2C_MAP_ADDPLAYER,this.on_net_addplayer)
+            this.register_net_event(protocol_def.S2C_MAP_DEL,this.on_net_scenedel);
+            this.register_net_event(protocol_def.S2C_MAP_ADDPLAYER,this.on_net_addplayer);
+            this.register_net_event(protocol_def.S2C_MAP_REGIONCHANGE,this.on_regionchanged);
 
             
             this.register_event(game_event.EVENT_SCENE_CLICK,this.on_scene_click);
@@ -133,6 +134,7 @@ module game{
         }
         private on_enter_scene(ssid:number,resid:number,x:number,y:number):void
         {
+            core.game_tiplog("scene on_enter_scene ",ssid,resid,x,y);
             this.m_b_start_run = false;
             this.m_b_run_start_x = -1;
             this.m_b_run_start_y = -1; 
@@ -250,7 +252,7 @@ module game{
                 
                 mp.x = mx;
                 mp.y = my;
-                this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE,[mx,my]);
+                //this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE,[mx,my]);
             }
         }
 
@@ -340,7 +342,7 @@ module game{
             let C2S_MOVE_STEP_SUB:number = 0x0;
             let STEP_MAX:number = 16;
             let sendbuff:Laya.Byte = new Laya.Byte();
-            sendbuff.endian = Laya.Byte.LITTLE_ENDIAN;
+            sendbuff.endian = Laya.Byte.BIG_ENDIAN;
             while(step_list.length > 0){
                 sendbuff.clear();
                 //sendbuff.writeUint8(C2S_MOVE_STEP_SUB);
@@ -398,6 +400,7 @@ module game{
                     if(this.m_render.is_unit_walk(this._get_mainrole_id()) == false){
                         this.m_b_start_run = false;
                     }
+                    this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE,[cx,cy]);
                     core.game_tiplog("on_check_mainplayer_pos end1");
                     return;
                 }
@@ -428,6 +431,7 @@ module game{
                     this.send_move_step(this.m_b_run_start_x,this.m_b_run_start_y,step_list);
                     this.m_b_run_start_x = cx;
                     this.m_b_run_start_y = cy;
+                    this.fire_event_next_frame(game_event.EVENT_MAINPLAYER_MOVE,[cx,cy]);
                 }
                 core.game_tiplog("on_check_mainplayer_pos end2");
             }
@@ -484,64 +488,33 @@ module game{
             // let touxian:number = ud["touxian"];
             this.on_role_enter(id,name,shape,lv,cls,x,y,desc);
         }
-        
+        private on_regionchanged(ud:any):void{
+            core.game_tiplog("on_regionchanged ",ud);
+            let left:number = ud['x'];
+            let top:number = ud['y'];
+            let right:number = ud['rw'];
+            let bottom:number = ud['rh'];
+
+            core.game_tiplog("on_regionchanged ",left,top,right,bottom);
+            let scenedata:data.scene_data = data.get_data(data_enum.DATA_SCENE) as data.scene_data;
+            for(let i of scenedata.m_role_mgr.m_role_list){
+                if(this.is_mainplayer(i.m_pid)){
+                    continue;
+                }
+                //自己不删除
+                //need code 如果将来场景里有组队，则要加入下面处理
+                //如果在组队中，并且只是队员，而不是队长，暂时跳过不处理
+                //如果在组队中，并且是队长，则连整个队伍一起删除
+                //end need code
+                if(i.x < left || i.x > right || i.y < top || i.y > bottom){
+                    this.on_role_out(i.m_pid);
+                }
+            }
+        }
         private on_net_scenedel(ud:any):void{
             core.game_tiplog("on_net_scenedel ",ud);
-            let b:Laya.Byte = ud["id"] as Laya.Byte;
-            // b.endian = Laya.Byte.BIG_ENDIAN;
-            // b.endian = Laya.Byte.LITTLE_ENDIAN;
-            b.pos = 0;
-            if(b.length == 4){
-                let id:number = b.getInt32();
-                this.on_role_out(id);
-            }
-            else if (b.length == 8){
-                //其实这个分支是服务器告诉客户端：你当前所属的区域范围，你自己根据你所处的区域范围进行场景删除
-                let Scene_Region_Hor_Num:number = 10;
-                let Scene_Region_Ver_Num:number = 8;
-
-                let role_x:number = b.getByte();
-                let role_y:number = b.getByte();
-                let role_w:number = b.getByte();
-                let role_h:number = b.getByte();
-
-                let role_del_left:number = role_x*Scene_Region_Hor_Num;
-                let role_del_top:number = role_y*Scene_Region_Ver_Num;
-                let role_del_right:number = (role_w+1)*Scene_Region_Hor_Num;
-                let role_del_bottom:number = (role_h+1)*Scene_Region_Ver_Num;
-
-                let scenedata:data.scene_data = data.get_data(data_enum.DATA_SCENE) as data.scene_data;
-                for(let i of scenedata.m_role_mgr.m_role_list){
-                    if(this.is_mainplayer(i.m_pid)){
-                        continue;
-                    }
-                    //自己不删除
-                    //need code 如果将来场景里有组队，则要加入下面处理
-                    //如果在组队中，并且只是队员，而不是队长，暂时跳过不处理
-                    //如果在组队中，并且是队长，则连整个队伍一起删除
-                    //end need code
-                    if(i.x < role_del_left || i.x >= role_del_right || i.y < role_del_top || i.y >= role_del_bottom){
-                        this.on_role_out(i.m_pid);
-                    }
-                }
-                let npcanditem_x:number = b.getByte();
-                let npcanditem_y:number = b.getByte();
-                let npcanditem_w:number = b.getByte();
-                let npcanditem_h:number = b.getByte();
-
-                let npcanditem_del_left:number = npcanditem_x*Scene_Region_Hor_Num;
-                let npcanditem_del_top:number = npcanditem_y*Scene_Region_Ver_Num;
-                let npcanditem_del_right:number = (npcanditem_w+1)*Scene_Region_Hor_Num;
-                let npcanditem_del_bottom:number = (npcanditem_h+1)*Scene_Region_Ver_Num;
-
-                for(let i of scenedata.m_npc_mgr.m_role_list){
-                    if(i.x < npcanditem_del_left || i.x >= npcanditem_del_right || i.y < npcanditem_del_top || i.y >= npcanditem_del_bottom){
-                        this.on_role_out(i.m_pid);
-                    }
-                }
-            }
-            else{
-            }
+            let id:number = ud["id"];
+            this.on_role_out(id);
         }
         
         private on_net_rolemove(ud:any = null):void{
@@ -552,7 +525,7 @@ module game{
             let dx:number = ud["dx"];
             let dy:number = ud["dy"];
             core.game_tiplog("on_net_rolemove data ",id,x,y,dx,dy);
-            this.on_role_move(id,x+dx,y+dy);
+            this.on_role_move(id,dx,dy);
         }
         private on_scene_click(user_data:any = null):void
         {

@@ -946,4 +946,8 @@ module game{
     export const L_CARD_ENDTIPS = "挑战结束，请退出";
     export const L_CARD_ENTERDLV = "进入第";
     export const L_CARD_ENTERDLV1 = "关";
+    
+    export const L_CHAR_LIMIT_CHANGED: string = "最大字符数修改为500，失去焦点，需要重新聚焦";
+
+
 }

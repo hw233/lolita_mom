@@ -54,8 +54,19 @@ var GameMain = /** @class */ (function () {
         this.m_game_start = false;
         this.m_game_loading = null;
         this.m_gamemain_ins = null;
-        Laya.init(720, 1280, Laya.WebGL);
-        //Laya.Stat.show(0,0);
+        Laya.init(1280, 720, Laya.WebGL);
+        //
+        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
+        //让舞台处于屏幕的水平居中
+        Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
+        //保持原始高宽比的情况下，将舞台铺满屏幕，超出比例的部分会有黑边
+        Laya.stage.screenMode = Laya.Stage.SCREEN_HORIZONTAL;
+        Laya.stage.scaleMode = Laya.Stage.SCALE_SHOWALL;
+        //自动横屏，游戏的水平方向始终与浏览器屏幕较短边保持垂直
+        Laya.Stat.show(0, 0);
+        var l = new Laya.Label(" ");
+        l.font = "h5font";
+        Laya.stage.addChild(l);
         Laya.timer.frameLoop(1, this, this.onframeloop);
         core.set_log_module(core.log_module_enum.MODULE_ALL);
         core.set_log_level(core.log_level_enum.LOG_TIPS);
@@ -95,6 +106,7 @@ var GameMain = /** @class */ (function () {
         assets.push({ url: "avatar/link_data.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "avatar/link_data_txt.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "avatar/skillperform.bin", type: Laya.Loader.BUFFER });
+        assets.push({ url: "kjlinxin.ttf", type: Laya.Loader.BUFFER });
         //
         for (var _i = 0, assets_2 = assets; _i < assets_2.length; _i++) {
             var i = assets_2[_i];
@@ -106,6 +118,8 @@ var GameMain = /** @class */ (function () {
     GameMain.prototype.on_preload = function () {
         this.m_game_loading.removeSelf();
         this.m_game_loading = null;
+        var arr = Laya.loader.getRes("kjlinxin.ttf");
+        fontmgr.registerfont(arr);
         Laya.View.uiMap = Laya.loader.getRes("ui.json");
         var config_json = Laya.loader.getRes("config.json");
         config.config_init(config_json);
