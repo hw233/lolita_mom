@@ -108,11 +108,13 @@ module game{
             core.net_errlog("on_net_error");
             this.m_b_logining = false;
             this.m_b_req_guestaccount = false;
+            helper.show_msgbox("net error");
         }
         private on_net_closed(ud:any = null):void{
             core.net_errlog("on_net_closed");
             this.m_b_logining = false;
             this.m_b_req_guestaccount = false;
+            helper.show_msgbox("net closed");
         }
         private on_net_connected(ud:any = null):void{
             core.net_tiplog("on_net_connected");

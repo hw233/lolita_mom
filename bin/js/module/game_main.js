@@ -106,12 +106,14 @@ var game;
             core.net_errlog("on_net_error");
             this.m_b_logining = false;
             this.m_b_req_guestaccount = false;
+            helper.show_msgbox("net error");
         };
         game_main.prototype.on_net_closed = function (ud) {
             if (ud === void 0) { ud = null; }
             core.net_errlog("on_net_closed");
             this.m_b_logining = false;
             this.m_b_req_guestaccount = false;
+            helper.show_msgbox("net closed");
         };
         game_main.prototype.on_net_connected = function (ud) {
             if (ud === void 0) { ud = null; }
