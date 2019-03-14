@@ -57,4 +57,29 @@ module game_event{
     export const EVENT_BUTTON_CLICK:string = "button_click";
 
     export const EVENT_TAB_SHOW:string = "tab_show";
+
+    export const EVENT_GAMELOADINGUI_PROGRESS:string = "gameloadingui_progress";
+    //combat
+    export const EVENT_ENTERCOMBAT:string = "enter_combat";
+    export const EVENT_OUTCOMBAT:string = "out_combat";
+    export const EVENT_COMBATPLAYING:string = "combatplaying";
+    export const EVENT_COMBATLOADINGUI_PROGRESS:string = "combatloadingui_progress";
+    export const EVENT_COMBATPLAYERATTACK:string = "combat_playerattack";
+    export const EVENT_COMBATPLAYERHPCHANGED:string = "combat_playerhpchanged";
+    export const EVENT_COMBAT_DEFEAT:string = "combat_defeat";
+    export const EVENT_COMBAT_SERIAL:string = "combat_serial";
+    export const EVENT_COMBAT_NORMAL:string = "combat_normal";
+    export const EVENT_COMBAT_QUICK:string = "combat_quick";
+    export const EVENT_COMBAT_SPDCHANGED:string = "combat_spdchanged";
+
+    export const EVENT_COMBATTURNSCHANGE:string = "combat_turnchanged";
+    export const EVENT_COMBATLOADINGMGR_COMPLETE:string = "combatloadingmgr_complete";
+    export const EVENT_COMBATLOADINGMGRV2_COMPLETE:string = "combatloadingmgrv2_complete";
+    export const EVENT_COMBATLOADINGMGR_ERROR:string = "combatloadingmgr_error";
+    export const EVENT_COMBATGO2NEXT:string = "combatgo2next";
+
+
+    export const EVENT_LOADINGUI_PROGRESS:string = "loadingui_progress";
+    export const EVENT_LOADINGMGR_ERROR:string = "loadingmgr_error";
+    export const EVENT_LOADINGMGR_COMPLETE:string = "loadingmgr_complete";
 }

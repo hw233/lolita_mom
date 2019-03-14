@@ -50,8 +50,8 @@ var widget;
             var exp = ud[0];
             var expmax = ud[1];
             var rate = exp / expmax;
-            this.UIins.exp_progress.value = rate;
-            this.UIins.exp_label.changeText((rate * 100).toFixed(2) + "%");
+            //this.UIins.exp_progress.value = rate;
+            //this.UIins.exp_label.changeText((rate*100).toFixed(2)+"%");
         };
         main_ui.prototype.on_battle = function (ud) {
             if (ud === void 0) { ud = null; }

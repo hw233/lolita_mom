@@ -19,6 +19,7 @@ var data;
             _this.m_exp = 0;
             _this.m_expmax = 0;
             _this.m_gold = 0;
+            _this.m_vip = 0;
             _this.m_expspd = 0;
             _this.m_goldspd = 0;
             _this.m_stamina = 0;
@@ -34,6 +35,9 @@ var data;
             _this.m_sresid = 0;
             return _this;
         }
+        player_data.prototype.get_scene_res_id = function () {
+            return this.m_sresid;
+        };
         player_data.prototype.dispose = function () {
             _super.prototype.dispose.call(this);
         };

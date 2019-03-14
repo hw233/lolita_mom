@@ -51,6 +51,10 @@ var config;
         config.sys_preview_cfg_map_init(config_obj);
         config.sys_open_map_init(config_obj);
         config.sys_open_activity_map_init(config_obj);
+        config.combat_skip_cfg_map_init(config_obj);
+        config.cli_round_detail_cfg_map_init(config_obj);
+        config.skillperform_map_init(config_obj);
+        config.skillperformconfig_map_init(config_obj);
     }
     config.config_init = config_init;
 })(config || (config = {}));

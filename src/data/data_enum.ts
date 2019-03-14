@@ -7,4 +7,5 @@ module data_enum{
     export let DATA_SCENE:string = "scene";
     export let DATA_CHAT:string = "chat";
     export let DATA_SVRLIST:string = "svrlist";
+    export let DATA_TRANSFER:string = "transfer";
 }

@@ -221,6 +221,8 @@ var protocol_def;
         'S2C_CARDS_TURNEND': [],
         'S2C_CARDS_ENTERDLV': [['lv', 'int32', ''],],
         'S2C_CARDS_DELHAND': [['id', 'int32', ''],],
+        'S2C_WAR_SERIAL': [],
+        'S2C_QMBOSS_FIGHT_DAMAGE': [['myrank', 'int8', ''], ['mystartdmg', 'int32', ''], ['warid', 'int32', ''], ['starthp', 'int32', ''], ['hpmax', 'int32', ''], ['damagelist', 'list8', 'qmbossdmg'],],
     };
     protocol_def.C2S_WEBSOCKET_HELLO = 0x100;
     protocol_def.S2C_WEBSOCKET_HELLO = 0x100;
@@ -366,6 +368,8 @@ var protocol_def;
     protocol_def.S2C_CARDS_TURNEND = 0x511;
     protocol_def.S2C_CARDS_ENTERDLV = 0x512;
     protocol_def.S2C_CARDS_DELHAND = 0x513;
+    protocol_def.S2C_WAR_SERIAL = 0x30c;
+    protocol_def.S2C_QMBOSS_FIGHT_DAMAGE = 0x1109;
     protocol_def.S2C_CMD_2_PROTODESC = {};
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_WEBSOCKET_HELLO] = 'S2C_WEBSOCKET_HELLO';
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_MERGE_PACKET] = 'S2C_MERGE_PACKET';
@@ -465,6 +469,8 @@ var protocol_def;
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_TURNEND] = 'S2C_CARDS_TURNEND';
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_ENTERDLV] = 'S2C_CARDS_ENTERDLV';
     protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_CARDS_DELHAND] = 'S2C_CARDS_DELHAND';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_WAR_SERIAL] = 'S2C_WAR_SERIAL';
+    protocol_def.S2C_CMD_2_PROTODESC[protocol_def.S2C_QMBOSS_FIGHT_DAMAGE] = 'S2C_QMBOSS_FIGHT_DAMAGE';
     protocol_def.C2S_CMD_2_PROTODESC = {};
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_WEBSOCKET_HELLO] = 'C2S_WEBSOCKET_HELLO';
     protocol_def.C2S_CMD_2_PROTODESC[protocol_def.C2S_LOGIN_ASYN_TIME] = 'C2S_LOGIN_ASYN_TIME';

@@ -1,0 +1,37 @@
+{
+    "x":0,
+    "type":"Dialog",
+    "selectedBox":1,
+    "selecteID":2,
+    "props":{"width":1440,"sceneColor":"#000000","height":400},
+    "nodeParent":-1,
+    "label":"Dialog",
+    "isOpen":true,
+    "isDirectory":true,
+    "isAniNode":true,
+    "hasChild":true,
+    "compId":1,
+    "child":[
+        {
+            "x":15,
+            "type":"Animation",
+            "props":{"y":200,"x":720,"var":"ani","source":"game_ani/lvup.ani","scaleY":4,"scaleX":4,"name":"ani"},
+            "nodeParent":1,
+            "label":"Animation(ani)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":2,
+            "child":[
+                ]
+        }],
+    "animations":[
+        {
+            "nodes":[
+                ],
+            "name":"ani1",
+            "id":1,
+            "frameRate":24,
+            "action":0
+        }]
+}

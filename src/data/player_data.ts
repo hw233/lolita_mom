@@ -5,6 +5,7 @@ module data{
         public m_exp:number = 0;
         public m_expmax:number = 0;
         public m_gold:number = 0;
+        public m_vip:number = 0;
         public m_expspd:number = 0;
         public m_goldspd:number = 0;
         public m_stamina:number = 0;
@@ -23,7 +24,9 @@ module data{
         {
             super();
         }
-        
+        public get_scene_res_id():number{
+            return this.m_sresid;
+        }
         public dispose():void
         {
             super.dispose();

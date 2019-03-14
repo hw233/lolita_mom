@@ -826,5 +826,121 @@ var helper;
         return Laya.LocalStorage.setItem(key, v);
     }
     helper.set_local = set_local;
+    function get_design_w() {
+        return Laya.stage.designWidth;
+    }
+    helper.get_design_w = get_design_w;
+    function get_design_h() {
+        return Laya.stage.designHeight;
+    }
+    helper.get_design_h = get_design_h;
+    function get_design_wh() {
+        return { "w": Laya.stage.designWidth, "h": Laya.stage.designHeight };
+    }
+    helper.get_design_wh = get_design_wh;
+    /**
+     * 播放音效，音响目前只支持wav格式
+     * @param url 资源路径
+     */
+    function play_sound(url) {
+        var soundins = utils.module_ins().get_module(module_enum.MODULE_SOUND);
+        soundins.play_sound(url);
+    }
+    helper.play_sound = play_sound;
+    /**
+     * 停止音效
+     * @param url 资源路径
+     */
+    function stop_sound(url) {
+        var soundins = utils.module_ins().get_module(module_enum.MODULE_SOUND);
+        soundins.stop_sound(url);
+    }
+    helper.stop_sound = stop_sound;
+    helper.TOPBAR_HEIGHT = 0; //刘海屏高度
+    helper.main_chat = "main_chat";
+    helper.friend_chat = "friend_chat"; //需要弹出输入框的聊天页面标记量
+    helper.chat_input_dict = new Laya.Dictionary(); //记录聊天输入框内容
+    helper.g_focus_ui = "";
+    function set_focus_str(s) {
+        helper.g_focus_ui = s;
+    }
+    helper.set_focus_str = set_focus_str;
+    function get_focus_str() {
+        return helper.g_focus_ui;
+    }
+    helper.get_focus_str = get_focus_str;
+    function clear_focus_str() {
+        helper.g_focus_ui = "";
+    }
+    helper.clear_focus_str = clear_focus_str;
+    /**
+     * 是否已经加入帮派
+     */
+    function is_join_gang() {
+        //let gang_mgr = utils.module_ins().get_module(module_enum.MODULE_GANG) as game.gang_mgr;
+        //return gang_mgr.is_join_gang();
+        return false;
+    }
+    helper.is_join_gang = is_join_gang;
+    /**
+     * 判断该系统当前条件是否可以开启，并显示开启提示。配置表格：系统开启.xls。
+     * @param sys_name 系统名字
+     * @param b_tips 不满足时是否显示开启提示
+     */
+    function is_sys_open(sys_name, b_tips) {
+        if (b_tips === void 0) { b_tips = false; }
+        var flag = false;
+        var cfg = config.Sys_open.get_Sys_open(sys_name);
+        if (cfg == null) {
+            cfg = config.Sys_open_activity.get_Sys_open_activity(sys_name);
+        }
+        if (cfg != null) {
+            var condition = cfg["condition"];
+            var cdt_value = cfg["value"];
+            if (condition == 1) { // 1：等级
+                var pdata = utils.data_ins().get_data(data_enum.DATA_PLAYER);
+                flag = pdata.m_lv >= cdt_value;
+            }
+            else if (condition == 2) {
+                flag = is_join_gang();
+            }
+            else if (condition == 3) {
+                //let g_data = data.get_data(data_enum.DATA_GANG) as data.gang_data;
+                //flag = g_data.gang_lv >= cdt_value;
+            }
+            if (flag == false && b_tips) {
+                show_text_tips(cfg["tips"]);
+            }
+        }
+        return flag;
+    }
+    helper.is_sys_open = is_sys_open;
+    /**
+     * 是否在武林盟主场景
+     */
+    function is_wlmz_scene() {
+        var pdata = utils.data_ins().get_data(data_enum.DATA_PLAYER);
+        var scene_id = pdata.m_sid;
+        return scene_id >= base.CROSS_WLMZ_SCENE_START && scene_id <= base.CROSS_WLMZ_SCENE_END;
+    }
+    helper.is_wlmz_scene = is_wlmz_scene;
+    /**
+     * 是否在挂机场景
+     */
+    function is_guaji_scene() {
+        var pdata = utils.data_ins().get_data(data_enum.DATA_PLAYER);
+        var scene_id = pdata.m_sid;
+        return scene_id >= base.GUAJI_SCENE_START && scene_id <= base.GUAJI_SCENE_END;
+    }
+    helper.is_guaji_scene = is_guaji_scene;
+    /**
+     * 是否在跨服场景
+     */
+    function is_cross_server_scene() {
+        var pdata = utils.data_ins().get_data(data_enum.DATA_PLAYER);
+        var flag = (pdata.m_sid >= base.CROSS_SERVER_SCENE_START && pdata.m_sid <= base.CROSS_SERVER_SCENE_END);
+        return flag;
+    }
+    helper.is_cross_server_scene = is_cross_server_scene;
 })(helper || (helper = {}));
 //# sourceMappingURL=helper.js.map

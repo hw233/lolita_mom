@@ -47,5 +47,26 @@ var game_event;
     game_event.EVENT_SOUND_CLOSE = "sound_close";
     game_event.EVENT_BUTTON_CLICK = "button_click";
     game_event.EVENT_TAB_SHOW = "tab_show";
+    game_event.EVENT_GAMELOADINGUI_PROGRESS = "gameloadingui_progress";
+    //combat
+    game_event.EVENT_ENTERCOMBAT = "enter_combat";
+    game_event.EVENT_OUTCOMBAT = "out_combat";
+    game_event.EVENT_COMBATPLAYING = "combatplaying";
+    game_event.EVENT_COMBATLOADINGUI_PROGRESS = "combatloadingui_progress";
+    game_event.EVENT_COMBATPLAYERATTACK = "combat_playerattack";
+    game_event.EVENT_COMBATPLAYERHPCHANGED = "combat_playerhpchanged";
+    game_event.EVENT_COMBAT_DEFEAT = "combat_defeat";
+    game_event.EVENT_COMBAT_SERIAL = "combat_serial";
+    game_event.EVENT_COMBAT_NORMAL = "combat_normal";
+    game_event.EVENT_COMBAT_QUICK = "combat_quick";
+    game_event.EVENT_COMBAT_SPDCHANGED = "combat_spdchanged";
+    game_event.EVENT_COMBATTURNSCHANGE = "combat_turnchanged";
+    game_event.EVENT_COMBATLOADINGMGR_COMPLETE = "combatloadingmgr_complete";
+    game_event.EVENT_COMBATLOADINGMGRV2_COMPLETE = "combatloadingmgrv2_complete";
+    game_event.EVENT_COMBATLOADINGMGR_ERROR = "combatloadingmgr_error";
+    game_event.EVENT_COMBATGO2NEXT = "combatgo2next";
+    game_event.EVENT_LOADINGUI_PROGRESS = "loadingui_progress";
+    game_event.EVENT_LOADINGMGR_ERROR = "loadingmgr_error";
+    game_event.EVENT_LOADINGMGR_COMPLETE = "loadingmgr_complete";
 })(game_event || (game_event = {}));
 //# sourceMappingURL=game_event_def.js.map

@@ -7,6 +7,8 @@ module helper {
         if (head == "closestat") {
             Laya.Stat.hide();
         }
-        
+        else if(head == "combat"){
+            utils.event_ins().fire_event_next_frame(game_event.EVENT_TESTCOMBATPROTO);
+        }
     }
 }

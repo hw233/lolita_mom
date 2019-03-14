@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":16,
-    "props":{"width":650,"sceneColor":"#000000","height":500},
+    "selecteID":12,
+    "props":{"width":1300,"sceneColor":"#000000","height":1000},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":650,"skin":"ui/board.png","sizeGrid":"65,65,65,65","height":500},
+            "props":{"y":0,"x":0,"width":1300,"skin":"ui/board.png","sizeGrid":"65,65,65,65","height":1000},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,7 +28,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":152,"x":40,"width":570,"skin":"ui/paneldark.png","sizeGrid":"20,30,35,30","height":285},
+            "props":{"y":38,"x":200,"width":900,"skin":"ui/titlebg.png","sizeGrid":"0,230,0,230"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":180,"x":80,"width":1140,"skin":"ui/paneldark.png","sizeGrid":"20,30,35,30","height":570},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -41,7 +54,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":343,"x":373,"var":"btn_ok","stateNum":"2","skin":"ui/188spc.png","name":"btn_ok","labelSize":50,"labelColors":"#aa7365","labelAlign":"center","label":"确  定"},
+            "props":{"y":770,"x":715,"var":"btn_ok","stateNum":"2","skin":"ui/376normal.png","name":"btn_ok","labelSize":50,"labelColors":"#aa7365","labelAlign":"center","label":"确  定"},
             "nodeParent":1,
             "label":"Button(btn_ok)",
             "isDirectory":false,
@@ -54,7 +67,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":345,"x":110,"var":"btn_cancle","stateNum":"2","skin":"ui/188spc.png","name":"btn_cancle","labelSize":50,"labelColors":"#aa7365","labelAlign":"center","label":"取  消"},
+            "props":{"y":770,"x":210,"var":"btn_cancle","stateNum":"2","skin":"ui/376normal.png","name":"btn_cancle","labelSize":50,"labelColors":"#aa7365","labelAlign":"center","label":"取  消"},
             "nodeParent":1,
             "label":"Button(btn_cancle)",
             "isDirectory":false,
@@ -67,7 +80,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":15,"x":491,"width":0,"var":"btn_close","stateNum":"1","skin":"ui/close.png","name":"btn_close","height":0},
+            "props":{"y":-2,"x":1170,"width":0,"var":"btn_close","stateNum":"1","skin":"ui/close.png","name":"btn_close","height":0},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -80,7 +93,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":271,"x":130,"var":"btn_NoTips","stateNum":"1","skin":"ui/selectn.png","name":"btn_NoTips"},
+            "props":{"y":645,"x":415,"var":"btn_NoTips","stateNum":"1","skin":"ui/selectn.png","name":"btn_NoTips"},
             "nodeParent":1,
             "label":"Button(btn_NoTips)",
             "isDirectory":false,
@@ -93,7 +106,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":65,"x":255,"skin":"ui/title/tips.png"},
+            "props":{"y":65,"x":570,"skin":"ui/title/tips.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -106,7 +119,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":284,"x":221,"var":"lab_NoTips","text":"本次登录不再提示","name":"lab_NoTips","fontSize":48,"color":"#bd8651"},
+            "props":{"y":658,"x":505,"var":"lab_NoTips","text":"本次登录不再提示","name":"lab_NoTips","fontSize":48,"color":"#bd8651"},
             "nodeParent":1,
             "label":"Label(lab_NoTips)",
             "isDirectory":false,
@@ -120,7 +133,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":166,"x":73,"width":500,"var":"htmlText_content","name":"htmlText_content","height":200},
+            "props":{"y":220,"x":150,"width":1000,"var":"htmlText_content","name":"htmlText_content","height":400},
             "nodeParent":1,
             "label":"HTMLDivElement(htmlText_content)",
             "isDirectory":false,
@@ -128,8 +141,7 @@
             "hasChild":false,
             "compId":10,
             "child":[
-                ],
-            "$HIDDEN":true
+                ]
         }],
     "animations":[
         {

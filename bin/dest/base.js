@@ -1247,9 +1247,11 @@ var base;
         '#P9&': 'emotion/face0.png'
     };
     // 频道
+    // 频道
     base.CHANNEL_GANG = 2;
     base.CHANNEL_WORLD = 3;
     base.CHANNEL_ACROSSSVR = 4;
+    base.CHANNEL_INFO = 5; //提示信息
     base.CHANNEL_SYS = 6;
     base.CHANNEL_RECRUIT = 7;
     // 属性相关
@@ -3437,6 +3439,7 @@ var game;
     game.L_CARD_ENDTIPS = "挑战结束，请退出";
     game.L_CARD_ENTERDLV = "进入第";
     game.L_CARD_ENTERDLV1 = "关";
+    game.L_CHAR_LIMIT_CHANGED = "最大字符数修改为500，失去焦点，需要重新聚焦";
 })(game || (game = {}));
 //# sourceMappingURL=lang_config.js.map
 var base;

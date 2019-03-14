@@ -3,6 +3,15 @@ module game{
         public m_ui_sp:laya.display.Sprite = null;
         public m_render_sp:laya.display.Sprite = null;
         public m_render:core.renderagent = null;
+
+        public m_combat_render:combat.combatimpl = null;
+        public m_combat_sp:laya.display.Sprite;
+        private m_b_combat:boolean = false;
+        private m_b_combatplaying:boolean = false;
+        private m_combat_spd:number = 1.0;
+        public m_b_net_inited:boolean = false;
+        private m_b_gamestart:boolean = false;
+
         private m_curtime:number = 0;
         private m_itemlist:Array<Object> = new Array<Object>();
         private m_svr_tm:number = 0;
@@ -10,6 +19,8 @@ module game{
         
         private m_b_req_guestaccount:boolean = false;
         private m_b_logining:boolean = false;
+
+        private m_b_RC_sp:boolean = true;
         constructor()
         {
             super();
@@ -26,12 +37,15 @@ module game{
             core.game_tiplog('game_main start');
             this.m_ui_sp = new laya.display.Sprite();
             this.m_render_sp = new laya.display.Sprite();
+            this.m_combat_sp = new laya.display.Sprite();
+
             utils.widget_ins().set_root(this.m_ui_sp);
 
-            Laya.stage.addChild(this.m_render_sp);
-            Laya.stage.addChild(this.m_ui_sp);
-
             
+            this.m_combat_render = new combat.combatimpl(this.m_combat_sp);
+            this.m_combat_render.set_skill_config(config.Skillperform.get_Skillperform);
+            this.m_combat_render.set_skillperform_config(config.Skillperformconfig.get_Skillperformconfig);
+
             this.m_render = new core.renderagent();
             this.m_render.set_walk_spd(200);
             this.m_render.set_avatar_config(config.Avatarinfo.get_Avatarinfo);
@@ -42,6 +56,9 @@ module game{
             this.m_render.initstage(this.m_render_sp);
             this.m_render.m_render.setworldwh(2560,2560);
             this.m_render.setviewport(Laya.stage.designWidth,Laya.stage.designHeight);
+
+            this.m_combat_render.m_scene.set_viewport(Laya.stage.designWidth,Laya.stage.designHeight);
+
             this.m_render.setcamerapos(0,0);
             this.m_render_sp.width = 2560;
             this.m_render_sp.height = 2560;
@@ -75,29 +92,111 @@ module game{
             get_module(module_enum.MODULE_SCENE).start();
             get_module(module_enum.MODULE_CHAT_MSG).start();
 
+            let combat_ins:combatmgr = get_module(module_enum.MODULE_COMBAT) as combatmgr;
+            combat_ins.start();
+            
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI,true);
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINTOPUI,true);
 
 
+            this.register_event(game_event.EVENT_ENTERCOMBAT,this.on_entercombat);
+            this.register_event(game_event.EVENT_COMBATPLAYING,this.on_combatplaying);
+            this.register_event(game_event.EVENT_OUTCOMBAT,this.on_outcombat);
+            
+            this.register_event(game_event.EVENT_COMBAT_NORMAL,this.on_combat_normal);
+            this.register_event(game_event.EVENT_COMBAT_QUICK,this.on_combat_quick);
+            this.register_event(game_event.EVENT_COMBAT_SPDCHANGED,this.on_combatspd_changed);
+            
+            let loading_ins:loadingmgr = get_module(module_enum.MODULE_LOADING) as loadingmgr;
+            loading_ins.start();
+
+            let combatloading_ins:combatloadingmgr = get_module(module_enum.MODULE_COMBATLOADING) as combatloadingmgr;
+            combatloading_ins.start();
+            
+            get_module(module_enum.MODULE_COMBATLOADINGV2).start();
+
             net.net_ins().connect("129.204.91.54",11009);
 
-            //this.m_render.entermap(1003,false);
-            //this.m_render.setmapbk("map/city/1003/1003.jpg");
-
-            //let chase_id:number = this.m_render.addunit("role",102,254,516);
-            //let chase_role:core.renderavatar = this.m_render.getunit(chase_id);
-            //chase_role.change_weapon(10001);
-            //chase_role.change_ride(20001,30001);
-            //chase_role.set_ride_h(30);
-            //chase_role.change_wing(40001);
-            //this.m_render.cameralookat(chase_role);
-            //this.m_role_id = chase_id;
-            //this.m_role_obj = chase_role;
+            this.on_outcombat();
         }
         public get_render():core.renderagent{
             return this.m_render;
         }
-        
+        public get_combat_render():combat.combatimpl{
+            return this.m_combat_render;
+        }
+        private on_combat_normal(ud:any = null):void{
+            this.m_combat_spd = 1.0;
+        }
+        private on_combat_quick(ud:any = null):void{
+            this.m_combat_spd = 1.5;
+        }
+        private on_combatspd_changed(ud:any = null):void{
+            if(this.m_combat_spd > 1.0){
+                this.m_combat_spd = 1.0;
+            }
+            else{
+                this.m_combat_spd = 2.0;
+            }
+        }
+        private on_entercombat(user_data:any = null):void{
+            this.m_b_combat = true;
+            let soundins:game.soundmgr = get_module(module_enum.MODULE_SOUND) as game.soundmgr;
+            soundins.enter_boss();
+        }
+        private on_combatplaying(user_data:any = null):void{
+            if (this.m_b_RC_sp == true){
+                this.m_render_sp.removeSelf();
+                this.m_combat_sp.removeSelf();
+                // this.m_ui_sp.removeSelf();
+                Laya.stage.addChild(this.m_combat_sp);
+                Laya.stage.addChild(this.m_ui_sp);
+            }
+            this.m_b_combatplaying = true;
+        }
+        private on_outcombat(user_data:any = null):void{
+            if (this.m_b_RC_sp == true){
+                this.m_render_sp.removeSelf();
+                this.m_combat_sp.removeSelf();
+                // this.m_ui_sp.removeSelf();
+                Laya.stage.addChild(this.m_render_sp);
+                Laya.stage.addChild(this.m_ui_sp);
+            }
+            let soundins:game.soundmgr = get_module(module_enum.MODULE_SOUND) as game.soundmgr;
+            soundins.enter_scene();
+            this.m_b_combat = false;
+            this.m_b_combatplaying = false;
+        }
+        public on_tab_show(ud:any = null):void{
+            let flag = ud["flag"];
+            if (flag == true){
+                this._remove_RC_sp();
+            }
+            else{
+                this._add_RC_sp();
+            }
+        }
+        private _add_RC_sp():void{
+            if (this.m_b_RC_sp == false){
+                this.m_combat_sp.removeSelf();
+                this.m_render_sp.removeSelf();
+                if (this.m_b_combatplaying == true){
+                    Laya.stage.addChild(this.m_combat_sp);
+                }
+                else{
+                    Laya.stage.addChild(this.m_render_sp);
+                }
+                Laya.stage.addChild(this.m_ui_sp);
+                this.m_b_RC_sp = true;
+            }
+        }
+        private _remove_RC_sp():void{
+            if (this.m_b_RC_sp == true){
+                this.m_combat_sp.removeSelf();
+                this.m_render_sp.removeSelf();
+                this.m_b_RC_sp = false;
+            }
+        }
         private on_click_sp(e:Laya.Event):void{
             core.game_tiplog("onClick sp ",e.stageX,e.stageY);
             //
@@ -267,7 +366,11 @@ module game{
                 let nowtime:number = laya.utils.Browser.now();
                 let delta:number = nowtime - this.m_curtime;
                 this.m_curtime = nowtime;
-                if(this.m_render != null){
+                
+                if(this.m_b_combatplaying){
+                    this.m_combat_render.update(delta*this.m_combat_spd);
+                }
+                else{
                     this.m_render.update(delta);
                 }
             }
@@ -282,7 +385,7 @@ module game{
         }
         public update1():void{
             utils.widget_ins().check_release();
-            if(this.m_render != null){
+            if(this.m_render != null&&!this.m_b_combatplaying){
                 this.m_render.check_release();
             }
         }
@@ -292,7 +395,10 @@ module game{
             
             let nowtime:number = laya.utils.Browser.now();
             //render here
-            if(this.m_render != null){
+            if(this.m_b_combatplaying){
+                this.m_combat_render.render();
+            }
+            else{
                 this.m_render.render();
             }
             let nowtimeafterrender:number = laya.utils.Browser.now();
@@ -305,8 +411,16 @@ module game{
                 this.m_render.dispose();
                 this.m_render = null;
             }
+            if(this.m_combat_render != null)
+            {
+                this.m_combat_render.dispose();
+                this.m_combat_render = null;
+            }
+
             this.m_ui_sp.removeSelf();
             this.m_render_sp.removeSelf();
+            this.m_combat_sp.removeSelf();
+            this.m_combat_sp = null;
             this.m_ui_sp = null;
             this.m_render_sp = null;
             super.dispose();

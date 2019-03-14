@@ -340,6 +340,60 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var config;
 (function (config) {
+    var cardbuff_map = null;
+    function cardbuff_map_init(config_obj) {
+        cardbuff_map = config_obj["cardbuff_map"];
+    }
+    config.cardbuff_map_init = cardbuff_map_init;
+    var Cardbuff = /** @class */ (function (_super) {
+        __extends(Cardbuff, _super);
+        function Cardbuff(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = cardbuff_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Cardbuff.get_Cardbuff = function (key) {
+            if (Cardbuff.m_static_map.hasOwnProperty(key) == false) {
+                Cardbuff.m_static_map[key] = Cardbuff.create_Cardbuff(key);
+            }
+            return Cardbuff.m_static_map[key];
+        };
+        Cardbuff.create_Cardbuff = function (key) {
+            if (cardbuff_map.hasOwnProperty(key)) {
+                return new Cardbuff(key);
+            }
+            return null;
+        };
+        Cardbuff.get_cfg_object = function () {
+            return cardbuff_map;
+        };
+        Cardbuff.m_static_map = new Object();
+        return Cardbuff;
+    }(Object));
+    config.Cardbuff = Cardbuff;
+})(config || (config = {}));
+//# sourceMappingURL=cardbuff.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
     var cards_map = null;
     function cards_map_init(config_obj) {
         cards_map = config_obj["cards_map"];
@@ -376,6 +430,114 @@ var config;
     config.Cards = Cards;
 })(config || (config = {}));
 //# sourceMappingURL=cards.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var cardskill_map = null;
+    function cardskill_map_init(config_obj) {
+        cardskill_map = config_obj["cardskill_map"];
+    }
+    config.cardskill_map_init = cardskill_map_init;
+    var Cardskill = /** @class */ (function (_super) {
+        __extends(Cardskill, _super);
+        function Cardskill(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = cardskill_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Cardskill.get_Cardskill = function (key) {
+            if (Cardskill.m_static_map.hasOwnProperty(key) == false) {
+                Cardskill.m_static_map[key] = Cardskill.create_Cardskill(key);
+            }
+            return Cardskill.m_static_map[key];
+        };
+        Cardskill.create_Cardskill = function (key) {
+            if (cardskill_map.hasOwnProperty(key)) {
+                return new Cardskill(key);
+            }
+            return null;
+        };
+        Cardskill.get_cfg_object = function () {
+            return cardskill_map;
+        };
+        Cardskill.m_static_map = new Object();
+        return Cardskill;
+    }(Object));
+    config.Cardskill = Cardskill;
+})(config || (config = {}));
+//# sourceMappingURL=cardskill.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var cardskillpassive_map = null;
+    function cardskillpassive_map_init(config_obj) {
+        cardskillpassive_map = config_obj["cardskillpassive_map"];
+    }
+    config.cardskillpassive_map_init = cardskillpassive_map_init;
+    var Cardskillpassive = /** @class */ (function (_super) {
+        __extends(Cardskillpassive, _super);
+        function Cardskillpassive(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = cardskillpassive_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Cardskillpassive.get_Cardskillpassive = function (key) {
+            if (Cardskillpassive.m_static_map.hasOwnProperty(key) == false) {
+                Cardskillpassive.m_static_map[key] = Cardskillpassive.create_Cardskillpassive(key);
+            }
+            return Cardskillpassive.m_static_map[key];
+        };
+        Cardskillpassive.create_Cardskillpassive = function (key) {
+            if (cardskillpassive_map.hasOwnProperty(key)) {
+                return new Cardskillpassive(key);
+            }
+            return null;
+        };
+        Cardskillpassive.get_cfg_object = function () {
+            return cardskillpassive_map;
+        };
+        Cardskillpassive.m_static_map = new Object();
+        return Cardskillpassive;
+    }(Object));
+    config.Cardskillpassive = Cardskillpassive;
+})(config || (config = {}));
+//# sourceMappingURL=cardskillpassive.js.map
 /*
 Author:
 Data:
@@ -651,9 +813,9 @@ var config;
     function config_init(config_obj) {
         config.assist_info_map_init(config_obj);
         config.randomname_map_init(config_obj);
-        config.buff_map_init(config_obj);
-        config.skill_map_init(config_obj);
-        config.skillpassive_map_init(config_obj);
+        config.cardbuff_map_init(config_obj);
+        config.cardskill_map_init(config_obj);
+        config.cardskillpassive_map_init(config_obj);
         config.item_map_init(config_obj);
         config.itemmerge_map_init(config_obj);
         config.player_exp_map_init(config_obj);
@@ -689,6 +851,16 @@ var config;
         config.cards_dungeon_map_init(config_obj);
         config.cards_initcards_map_init(config_obj);
         config.cards_exp_map_init(config_obj);
+        config.fightskill_map_init(config_obj);
+        config.fightskillpassive_map_init(config_obj);
+        config.fightbuff_map_init(config_obj);
+        config.fightbuffeffect_map_init(config_obj);
+        config.fighteffect_map_init(config_obj);
+        config.fightprop_map_init(config_obj);
+        config.fighteffecttime_map_init(config_obj);
+        config.sys_preview_cfg_map_init(config_obj);
+        config.sys_open_map_init(config_obj);
+        config.sys_open_activity_map_init(config_obj);
     }
     config.config_init = config_init;
 })(config || (config = {}));
@@ -801,6 +973,384 @@ var config;
     config.Fairyinfo = Fairyinfo;
 })(config || (config = {}));
 //# sourceMappingURL=fairyinfo.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fightbuff_map = null;
+    function fightbuff_map_init(config_obj) {
+        fightbuff_map = config_obj["fightbuff_map"];
+    }
+    config.fightbuff_map_init = fightbuff_map_init;
+    var Fightbuff = /** @class */ (function (_super) {
+        __extends(Fightbuff, _super);
+        function Fightbuff(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fightbuff_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fightbuff.get_Fightbuff = function (key) {
+            if (Fightbuff.m_static_map.hasOwnProperty(key) == false) {
+                Fightbuff.m_static_map[key] = Fightbuff.create_Fightbuff(key);
+            }
+            return Fightbuff.m_static_map[key];
+        };
+        Fightbuff.create_Fightbuff = function (key) {
+            if (fightbuff_map.hasOwnProperty(key)) {
+                return new Fightbuff(key);
+            }
+            return null;
+        };
+        Fightbuff.get_cfg_object = function () {
+            return fightbuff_map;
+        };
+        Fightbuff.m_static_map = new Object();
+        return Fightbuff;
+    }(Object));
+    config.Fightbuff = Fightbuff;
+})(config || (config = {}));
+//# sourceMappingURL=fightbuff.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fightbuffeffect_map = null;
+    function fightbuffeffect_map_init(config_obj) {
+        fightbuffeffect_map = config_obj["fightbuffeffect_map"];
+    }
+    config.fightbuffeffect_map_init = fightbuffeffect_map_init;
+    var Fightbuffeffect = /** @class */ (function (_super) {
+        __extends(Fightbuffeffect, _super);
+        function Fightbuffeffect(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fightbuffeffect_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fightbuffeffect.get_Fightbuffeffect = function (key) {
+            if (Fightbuffeffect.m_static_map.hasOwnProperty(key) == false) {
+                Fightbuffeffect.m_static_map[key] = Fightbuffeffect.create_Fightbuffeffect(key);
+            }
+            return Fightbuffeffect.m_static_map[key];
+        };
+        Fightbuffeffect.create_Fightbuffeffect = function (key) {
+            if (fightbuffeffect_map.hasOwnProperty(key)) {
+                return new Fightbuffeffect(key);
+            }
+            return null;
+        };
+        Fightbuffeffect.get_cfg_object = function () {
+            return fightbuffeffect_map;
+        };
+        Fightbuffeffect.m_static_map = new Object();
+        return Fightbuffeffect;
+    }(Object));
+    config.Fightbuffeffect = Fightbuffeffect;
+})(config || (config = {}));
+//# sourceMappingURL=fightbuffeffect.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fighteffect_map = null;
+    function fighteffect_map_init(config_obj) {
+        fighteffect_map = config_obj["fighteffect_map"];
+    }
+    config.fighteffect_map_init = fighteffect_map_init;
+    var Fighteffect = /** @class */ (function (_super) {
+        __extends(Fighteffect, _super);
+        function Fighteffect(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fighteffect_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fighteffect.get_Fighteffect = function (key) {
+            if (Fighteffect.m_static_map.hasOwnProperty(key) == false) {
+                Fighteffect.m_static_map[key] = Fighteffect.create_Fighteffect(key);
+            }
+            return Fighteffect.m_static_map[key];
+        };
+        Fighteffect.create_Fighteffect = function (key) {
+            if (fighteffect_map.hasOwnProperty(key)) {
+                return new Fighteffect(key);
+            }
+            return null;
+        };
+        Fighteffect.get_cfg_object = function () {
+            return fighteffect_map;
+        };
+        Fighteffect.m_static_map = new Object();
+        return Fighteffect;
+    }(Object));
+    config.Fighteffect = Fighteffect;
+})(config || (config = {}));
+//# sourceMappingURL=fighteffect.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fighteffecttime_map = null;
+    function fighteffecttime_map_init(config_obj) {
+        fighteffecttime_map = config_obj["fighteffecttime_map"];
+    }
+    config.fighteffecttime_map_init = fighteffecttime_map_init;
+    var Fighteffecttime = /** @class */ (function (_super) {
+        __extends(Fighteffecttime, _super);
+        function Fighteffecttime(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fighteffecttime_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fighteffecttime.get_Fighteffecttime = function (key) {
+            if (Fighteffecttime.m_static_map.hasOwnProperty(key) == false) {
+                Fighteffecttime.m_static_map[key] = Fighteffecttime.create_Fighteffecttime(key);
+            }
+            return Fighteffecttime.m_static_map[key];
+        };
+        Fighteffecttime.create_Fighteffecttime = function (key) {
+            if (fighteffecttime_map.hasOwnProperty(key)) {
+                return new Fighteffecttime(key);
+            }
+            return null;
+        };
+        Fighteffecttime.get_cfg_object = function () {
+            return fighteffecttime_map;
+        };
+        Fighteffecttime.m_static_map = new Object();
+        return Fighteffecttime;
+    }(Object));
+    config.Fighteffecttime = Fighteffecttime;
+})(config || (config = {}));
+//# sourceMappingURL=fighteffecttime.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fightprop_map = null;
+    function fightprop_map_init(config_obj) {
+        fightprop_map = config_obj["fightprop_map"];
+    }
+    config.fightprop_map_init = fightprop_map_init;
+    var Fightprop = /** @class */ (function (_super) {
+        __extends(Fightprop, _super);
+        function Fightprop(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fightprop_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fightprop.get_Fightprop = function (key) {
+            if (Fightprop.m_static_map.hasOwnProperty(key) == false) {
+                Fightprop.m_static_map[key] = Fightprop.create_Fightprop(key);
+            }
+            return Fightprop.m_static_map[key];
+        };
+        Fightprop.create_Fightprop = function (key) {
+            if (fightprop_map.hasOwnProperty(key)) {
+                return new Fightprop(key);
+            }
+            return null;
+        };
+        Fightprop.get_cfg_object = function () {
+            return fightprop_map;
+        };
+        Fightprop.m_static_map = new Object();
+        return Fightprop;
+    }(Object));
+    config.Fightprop = Fightprop;
+})(config || (config = {}));
+//# sourceMappingURL=fightprop.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fightskill_map = null;
+    function fightskill_map_init(config_obj) {
+        fightskill_map = config_obj["fightskill_map"];
+    }
+    config.fightskill_map_init = fightskill_map_init;
+    var Fightskill = /** @class */ (function (_super) {
+        __extends(Fightskill, _super);
+        function Fightskill(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fightskill_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fightskill.get_Fightskill = function (key) {
+            if (Fightskill.m_static_map.hasOwnProperty(key) == false) {
+                Fightskill.m_static_map[key] = Fightskill.create_Fightskill(key);
+            }
+            return Fightskill.m_static_map[key];
+        };
+        Fightskill.create_Fightskill = function (key) {
+            if (fightskill_map.hasOwnProperty(key)) {
+                return new Fightskill(key);
+            }
+            return null;
+        };
+        Fightskill.get_cfg_object = function () {
+            return fightskill_map;
+        };
+        Fightskill.m_static_map = new Object();
+        return Fightskill;
+    }(Object));
+    config.Fightskill = Fightskill;
+})(config || (config = {}));
+//# sourceMappingURL=fightskill.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var fightskillpassive_map = null;
+    function fightskillpassive_map_init(config_obj) {
+        fightskillpassive_map = config_obj["fightskillpassive_map"];
+    }
+    config.fightskillpassive_map_init = fightskillpassive_map_init;
+    var Fightskillpassive = /** @class */ (function (_super) {
+        __extends(Fightskillpassive, _super);
+        function Fightskillpassive(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = fightskillpassive_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Fightskillpassive.get_Fightskillpassive = function (key) {
+            if (Fightskillpassive.m_static_map.hasOwnProperty(key) == false) {
+                Fightskillpassive.m_static_map[key] = Fightskillpassive.create_Fightskillpassive(key);
+            }
+            return Fightskillpassive.m_static_map[key];
+        };
+        Fightskillpassive.create_Fightskillpassive = function (key) {
+            if (fightskillpassive_map.hasOwnProperty(key)) {
+                return new Fightskillpassive(key);
+            }
+            return null;
+        };
+        Fightskillpassive.get_cfg_object = function () {
+            return fightskillpassive_map;
+        };
+        Fightskillpassive.m_static_map = new Object();
+        return Fightskillpassive;
+    }(Object));
+    config.Fightskillpassive = Fightskillpassive;
+})(config || (config = {}));
+//# sourceMappingURL=fightskillpassive.js.map
 /*
 Author:
 Data:
@@ -2043,6 +2593,168 @@ var config;
     config.Specialskill4 = Specialskill4;
 })(config || (config = {}));
 //# sourceMappingURL=specialskill4.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var sys_open_map = null;
+    function sys_open_map_init(config_obj) {
+        sys_open_map = config_obj["sys_open_map"];
+    }
+    config.sys_open_map_init = sys_open_map_init;
+    var Sys_open = /** @class */ (function (_super) {
+        __extends(Sys_open, _super);
+        function Sys_open(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = sys_open_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Sys_open.get_Sys_open = function (key) {
+            if (Sys_open.m_static_map.hasOwnProperty(key) == false) {
+                Sys_open.m_static_map[key] = Sys_open.create_Sys_open(key);
+            }
+            return Sys_open.m_static_map[key];
+        };
+        Sys_open.create_Sys_open = function (key) {
+            if (sys_open_map.hasOwnProperty(key)) {
+                return new Sys_open(key);
+            }
+            return null;
+        };
+        Sys_open.get_cfg_object = function () {
+            return sys_open_map;
+        };
+        Sys_open.m_static_map = new Object();
+        return Sys_open;
+    }(Object));
+    config.Sys_open = Sys_open;
+})(config || (config = {}));
+//# sourceMappingURL=sys_open.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var sys_open_activity_map = null;
+    function sys_open_activity_map_init(config_obj) {
+        sys_open_activity_map = config_obj["sys_open_activity_map"];
+    }
+    config.sys_open_activity_map_init = sys_open_activity_map_init;
+    var Sys_open_activity = /** @class */ (function (_super) {
+        __extends(Sys_open_activity, _super);
+        function Sys_open_activity(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = sys_open_activity_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Sys_open_activity.get_Sys_open_activity = function (key) {
+            if (Sys_open_activity.m_static_map.hasOwnProperty(key) == false) {
+                Sys_open_activity.m_static_map[key] = Sys_open_activity.create_Sys_open_activity(key);
+            }
+            return Sys_open_activity.m_static_map[key];
+        };
+        Sys_open_activity.create_Sys_open_activity = function (key) {
+            if (sys_open_activity_map.hasOwnProperty(key)) {
+                return new Sys_open_activity(key);
+            }
+            return null;
+        };
+        Sys_open_activity.get_cfg_object = function () {
+            return sys_open_activity_map;
+        };
+        Sys_open_activity.m_static_map = new Object();
+        return Sys_open_activity;
+    }(Object));
+    config.Sys_open_activity = Sys_open_activity;
+})(config || (config = {}));
+//# sourceMappingURL=sys_open_activity.js.map
+/*
+Author:
+Data:
+Desc: local data config
+NOTE: Don't modify this file, it's build by xml-to-python!!!
+*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var config;
+(function (config) {
+    var sys_preview_cfg_map = null;
+    function sys_preview_cfg_map_init(config_obj) {
+        sys_preview_cfg_map = config_obj["sys_preview_cfg_map"];
+    }
+    config.sys_preview_cfg_map_init = sys_preview_cfg_map_init;
+    var Sys_preview_cfg = /** @class */ (function (_super) {
+        __extends(Sys_preview_cfg, _super);
+        function Sys_preview_cfg(key) {
+            var _this = _super.call(this) || this;
+            _this.m_config = sys_preview_cfg_map[key];
+            for (var i in _this.m_config) {
+                _this[i] = _this.m_config[i];
+            }
+            return _this;
+        }
+        Sys_preview_cfg.get_Sys_preview_cfg = function (key) {
+            if (Sys_preview_cfg.m_static_map.hasOwnProperty(key) == false) {
+                Sys_preview_cfg.m_static_map[key] = Sys_preview_cfg.create_Sys_preview_cfg(key);
+            }
+            return Sys_preview_cfg.m_static_map[key];
+        };
+        Sys_preview_cfg.create_Sys_preview_cfg = function (key) {
+            if (sys_preview_cfg_map.hasOwnProperty(key)) {
+                return new Sys_preview_cfg(key);
+            }
+            return null;
+        };
+        Sys_preview_cfg.get_cfg_object = function () {
+            return sys_preview_cfg_map;
+        };
+        Sys_preview_cfg.m_static_map = new Object();
+        return Sys_preview_cfg;
+    }(Object));
+    config.Sys_preview_cfg = Sys_preview_cfg;
+})(config || (config = {}));
+//# sourceMappingURL=sys_preview_cfg.js.map
 /*
 Author:
 Data:

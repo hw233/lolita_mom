@@ -40,8 +40,8 @@ module widget {
             let exp:number = ud[0];
             let expmax:number = ud[1];
             let rate:number = exp/expmax;
-            this.UIins.exp_progress.value = rate;
-            this.UIins.exp_label.changeText((rate*100).toFixed(2)+"%");
+            //this.UIins.exp_progress.value = rate;
+            //this.UIins.exp_label.changeText((rate*100).toFixed(2)+"%");
         }
         public on_battle(ud: any = null): void {
             this.fire_event_next_frame(game_event.EVENT_CARD_REQ_START);

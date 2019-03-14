@@ -529,5 +529,358 @@ var helper;
         return flag;
     }
     helper.is_cross_server_scene = is_cross_server_scene;
+    function mine() {
+        return utils.data_ins().get_data(data_enum.DATA_PLAYER);
+    }
+    helper.mine = mine;
+    //desc
+    /*
+    0字节 = 角色皮肤
+    1字节 = 保留
+    2字节 = 武器 高等级后神兵系统可以更换武器
+    3字节 = 保留
+    4字节 = 坐骑，坐骑皮肤
+    5字节 = 保留
+    6字节 = 翅膀、翅膀皮肤
+    7字节 = 保留
+    8字节 = 精灵，精灵皮肤
+    9字节 = 保留
+    10字节 = 光环
+    11字节 = 称号，头衔（两个表现是一样的）
+    12字节 = 保留
+    13字节 = 保留
+    14字节 = 保留
+    */
+    //
+    //
+    function init_empty_desc() {
+        var ret = new Laya.Byte(15);
+        ret.pos = 0;
+        for (var i = 0; i < 15; ++i) {
+            ret.writeUint8(0);
+        }
+        return ret;
+    }
+    helper.init_empty_desc = init_empty_desc;
+    function deepcopy_desc(src) {
+        if (src.length < 15) {
+            src = init_empty_desc();
+        }
+        src.pos = 0;
+        var ret = new Laya.Byte(15);
+        for (var i = 0; i < 15; ++i) {
+            ret.writeUint8(src.getUint8());
+        }
+        return ret;
+    }
+    helper.deepcopy_desc = deepcopy_desc;
+    function set_skin_fdesc(desc, v) {
+        desc.pos = 0;
+        desc.writeUint8(v);
+    }
+    helper.set_skin_fdesc = set_skin_fdesc;
+    function set_weapon_fdesc(desc, v) {
+        desc.pos = 2;
+        desc.writeUint8(v);
+    }
+    helper.set_weapon_fdesc = set_weapon_fdesc;
+    function set_ride_fdesc(desc, v) {
+        desc.pos = 4;
+        desc.writeUint8(v);
+    }
+    helper.set_ride_fdesc = set_ride_fdesc;
+    function set_wing_fdesc(desc, v) {
+        desc.pos = 6;
+        desc.writeUint8(v);
+    }
+    helper.set_wing_fdesc = set_wing_fdesc;
+    function set_fairy_fdesc(desc, v) {
+        desc.pos = 8;
+        desc.writeUint8(v);
+    }
+    helper.set_fairy_fdesc = set_fairy_fdesc;
+    function set_aura_fdesc(desc, v) {
+        desc.pos = 10;
+        desc.writeUint8(v);
+    }
+    helper.set_aura_fdesc = set_aura_fdesc;
+    function set_title_fdesc(desc, v) {
+        desc.pos = 11;
+        desc.writeUint8(v);
+    }
+    helper.set_title_fdesc = set_title_fdesc;
+    ///////////////
+    function get_skin_fdesc(desc) {
+        desc.pos = 0;
+        return desc.getUint8();
+    }
+    helper.get_skin_fdesc = get_skin_fdesc;
+    function get_weapon_fdesc(desc) {
+        desc.pos = 2;
+        return desc.getUint8();
+    }
+    helper.get_weapon_fdesc = get_weapon_fdesc;
+    function get_ride_fdesc(desc) {
+        desc.pos = 4;
+        return desc.getUint8();
+    }
+    helper.get_ride_fdesc = get_ride_fdesc;
+    function get_wing_fdesc(desc) {
+        desc.pos = 6;
+        return desc.getUint8();
+    }
+    helper.get_wing_fdesc = get_wing_fdesc;
+    function get_fairy_fdesc(desc) {
+        desc.pos = 8;
+        return desc.getUint8();
+    }
+    helper.get_fairy_fdesc = get_fairy_fdesc;
+    function get_aura_fdesc(desc) {
+        desc.pos = 10;
+        return desc.getUint8();
+    }
+    helper.get_aura_fdesc = get_aura_fdesc;
+    function get_title_fdesc(desc) {
+        desc.pos = 11;
+        return desc.getUint8();
+    }
+    helper.get_title_fdesc = get_title_fdesc;
+    ///////////////
+    //获取头衔的动画资源路径
+    function get_title_ani_res(t_id) {
+        if (config.Titleresinfo.get_Titleresinfo(t_id) != null) {
+            var e_id = config.Titleresinfo.get_Titleresinfo(t_id).aid;
+            var e_cfg = config.Effectinfo.get_Effectinfo(e_id);
+            if (e_cfg != null)
+                return e_cfg.path;
+        }
+        return "";
+    }
+    helper.get_title_ani_res = get_title_ani_res;
+    //获取头衔的动画资源路径
+    function get_title_atlas_res(t_id) {
+        if (config.Titleresinfo.get_Titleresinfo(t_id) != null) {
+            var e_id = config.Titleresinfo.get_Titleresinfo(t_id).aid;
+            var e_cfg = config.Effectinfo.get_Effectinfo(e_id);
+            if (e_cfg != null)
+                return e_cfg.res;
+        }
+        return "";
+    }
+    helper.get_title_atlas_res = get_title_atlas_res;
+    // 主角皮肤id加值
+    function _get_post_value_by_shape(shape, aid) {
+        return aid + (shape - base.HUMAN_MALE);
+    }
+    helper._get_post_value_by_shape = _get_post_value_by_shape;
+    ///////////////
+    function parse_avatar_desc(desc, rd, pid, shape) {
+        if (rd == null || pid == 0 || shape == 0) {
+            return 0;
+        }
+        var ra = rd.getunit(pid);
+        if (ra == null) {
+            return 0;
+        }
+        if (desc == null || desc.length < 15) {
+            return 0;
+        }
+        var skin = get_skin_fdesc(desc);
+        var weapon = get_weapon_fdesc(desc);
+        var ride = get_ride_fdesc(desc);
+        var wing = get_wing_fdesc(desc);
+        var fairy = get_fairy_fdesc(desc);
+        var aura = get_aura_fdesc(desc);
+        var title = get_title_fdesc(desc);
+        var aid = 0;
+        if (skin != 0) {
+            if (config.Skininfo.get_Skininfo(skin) != null) {
+                aid = config.Skininfo.get_Skininfo(skin).aid;
+                ra.change_shape(_get_post_value_by_shape(shape, aid));
+            }
+        }
+        if (aura != 0) {
+            if (config.Auraresinfo.get_Auraresinfo(aura) != null) {
+                aid = config.Auraresinfo.get_Auraresinfo(aura).aid;
+                ra.change_aura(aid);
+            }
+        }
+        else {
+            ra.change_aura(0);
+        }
+        if (title != 0) {
+            if (config.Titleresinfo.get_Titleresinfo(title) != null) {
+                aid = config.Titleresinfo.get_Titleresinfo(title).aid;
+                ra.change_title(aid);
+            }
+        }
+        else {
+            ra.change_title(0);
+        }
+        if (weapon != 0) {
+            if (config.Weaponinfo.get_Weaponinfo(weapon) != null) {
+                aid = config.Weaponinfo.get_Weaponinfo(weapon).aid;
+                ra.change_weapon(aid, true);
+            }
+        }
+        else {
+            ra.change_weapon(0, true);
+        }
+        if (ride != 0) {
+            if (config.Rideinfo.get_Rideinfo(ride) != null) {
+                aid = config.Rideinfo.get_Rideinfo(ride).faid;
+                var baid = config.Rideinfo.get_Rideinfo(ride).baid;
+                ra.change_ride(aid, baid);
+                ra.set_ride_h(30);
+            }
+        }
+        else {
+            ra.change_ride(0, 0);
+            ra.set_ride_h(30);
+        }
+        if (wing != 0) {
+            if (config.Winginfo.get_Winginfo(wing) != null) {
+                aid = config.Winginfo.get_Winginfo(wing).aid;
+                ra.change_wing(aid);
+            }
+        }
+        else {
+            ra.change_wing(0);
+        }
+        if (fairy != 0) {
+            rd.clear_all_follow(pid);
+            if (config.Fairyinfo.get_Fairyinfo(fairy) != null) {
+                aid = config.Fairyinfo.get_Fairyinfo(fairy).aid;
+                var f_id = rd.addunit("", aid, 0, 0);
+                rd.set_follow_id(f_id, pid);
+                var chase_role = rd.getunit(f_id);
+                chase_role.set_dxy(0, -100);
+                chase_role.show_shadow(false);
+                chase_role.change_dir(3); // 精灵默认3方向，适应战斗中的站位
+                return f_id;
+            }
+        }
+        else {
+            //todo
+            rd.clear_all_follow(pid);
+        }
+        return 0;
+    }
+    helper.parse_avatar_desc = parse_avatar_desc;
+    function get_avatar_atlas(cfg, action) {
+        if (cfg != null) {
+            for (var _i = 0, _a = cfg["info_data"]; _i < _a.length; _i++) {
+                var i = _a[_i];
+                if (i["aid"] == action) {
+                    return { url: "avatar/" + i["path"], type: Laya.Loader.ATLAS };
+                }
+            }
+        }
+        return null;
+    }
+    function get_avatar_res(desc, shape, action) {
+        var ret = [];
+        var skin = get_skin_fdesc(desc);
+        var weapon = get_weapon_fdesc(desc);
+        var ride = get_ride_fdesc(desc);
+        var wing = get_wing_fdesc(desc);
+        var aid = 0;
+        var a_path = null;
+        if (skin != 0) {
+            if (config.Skininfo.get_Skininfo(skin) != null) {
+                aid = config.Skininfo.get_Skininfo(skin).aid;
+                a_path = get_avatar_atlas(config.Avatarinfo.get_Avatarinfo(aid), action);
+                if (a_path != null) {
+                    ret.push(a_path);
+                }
+            }
+        }
+        else {
+            if (config.Avatarinfo.get_Avatarinfo(shape) != null) {
+                a_path = get_avatar_atlas(config.Avatarinfo.get_Avatarinfo(shape), action);
+                if (a_path != null) {
+                    ret.push(a_path);
+                }
+            }
+        }
+        if (weapon != 0) {
+            if (config.Weaponinfo.get_Weaponinfo(weapon) != null) {
+                aid = config.Weaponinfo.get_Weaponinfo(weapon).aid;
+                a_path = get_avatar_atlas(config.Avatarinfo.get_Avatarinfo(aid), action);
+                if (a_path != null) {
+                    ret.push(a_path);
+                }
+            }
+        }
+        if (wing != 0) {
+            if (config.Winginfo.get_Winginfo(wing) != null) {
+                aid = config.Winginfo.get_Winginfo(wing).aid;
+                a_path = get_avatar_atlas(config.Avatarinfo.get_Avatarinfo(aid), action);
+                if (a_path != null) {
+                    ret.push(a_path);
+                }
+            }
+        }
+        if (ride != 0) {
+            if (config.Rideinfo.get_Rideinfo(ride) != null) {
+                aid = config.Rideinfo.get_Rideinfo(ride).faid;
+                var baid = config.Rideinfo.get_Rideinfo(ride).baid;
+                a_path = get_avatar_atlas(config.Avatarinfo.get_Avatarinfo(aid), action);
+                if (a_path != null) {
+                    ret.push(a_path);
+                }
+                a_path = get_avatar_atlas(config.Avatarinfo.get_Avatarinfo(baid), action);
+                if (a_path != null) {
+                    ret.push(a_path);
+                }
+            }
+        }
+        return ret;
+    }
+    helper.get_avatar_res = get_avatar_res;
+    function get_map_res(sid) {
+        var ret = [];
+        var sobj = config.Mapinfo.get_Mapinfo(sid);
+        var w = sobj["w"];
+        var h = sobj["h"];
+        var wnum = w / 128;
+        var hnum = h / 128;
+        for (var i = 0; i < wnum; ++i) {
+            for (var j = 0; j < hnum; ++j) {
+                var p = "map/city/" + sid.toString() + "/" + sid.toString() + "_tile/" + j.toString() + "_" + i.toString() + ".png";
+                ret.push({ url: p, type: Laya.Loader.IMAGE });
+            }
+        }
+        return ret;
+    }
+    helper.get_map_res = get_map_res;
+    /**
+     * 数据中转：保存一份数据
+     * @param key_str 数据键值，这个名字要尽可能复杂
+     * @param user_data 用户数据
+     */
+    function set_transfer_data(key_str, user_data) {
+        var tf_data = data.get_data(data_enum.DATA_TRANSFER);
+        tf_data.add_transfer_data(key_str, user_data);
+    }
+    helper.set_transfer_data = set_transfer_data;
+    /**
+     * 数据中转：根据键值获取一份数据。建议在获取后紧接着用remove_transfer_data清掉数据
+     * @param key_str 数据键值
+     */
+    function get_transfer_data(key_str) {
+        var tf_data = data.get_data(data_enum.DATA_TRANSFER);
+        return tf_data.get_transfer_data(key_str);
+    }
+    helper.get_transfer_data = get_transfer_data;
+    /**
+     * 数据中转：根据键值清除数据
+     * @param key_str 数据键值
+     */
+    function remove_transfer_data(key_str) {
+        var tf_data = data.get_data(data_enum.DATA_TRANSFER);
+        tf_data.remove_transfer_data(key_str);
+    }
+    helper.remove_transfer_data = remove_transfer_data;
 })(helper || (helper = {}));
 //# sourceMappingURL=helper.js.map

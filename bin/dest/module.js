@@ -226,6 +226,85 @@ var game;
     game.card_main = card_main;
 })(game || (game = {}));
 //# sourceMappingURL=card_main.js.map
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var game;
+(function (game) {
+    var chat_msg = /** @class */ (function (_super) {
+        __extends(chat_msg, _super);
+        function chat_msg() {
+            var _this = _super.call(this) || this;
+            _this.m_btn_y = 800;
+            return _this;
+        }
+        chat_msg.prototype.start = function () {
+            _super.prototype.start.call(this);
+            this.register_net_event(protocol_def.S2C_CHAT, this.on_net_chat);
+            this.register_net_event(protocol_def.S2C_CHAT_SYSTEM, this.on_sys_msg);
+            this.register_event(game_event.EVENT_CHATWND_SIZE, this.on_chatwnd_size);
+            this.register_event(game_event.EVENT_CHATWND_SYSMSG, this.on_sys_msg);
+            this.register_event(game_event.EVENT_CHAT_HYPERLINK, this.onPlayerInfo);
+            utils.widget_ins().show_widget(widget_enum.WIDGET_CHAT_BOX, true);
+        };
+        chat_msg.prototype.on_chatwnd_size = function (ud) {
+            if (ud === void 0) { ud = null; }
+            this.m_btn_y = ud;
+        };
+        chat_msg.prototype.on_net_chat = function (user_data) {
+            var ch = user_data["ch"];
+            var svrid = user_data['srvid'];
+            var pid = user_data["pid"];
+            var shape = user_data["shape"];
+            var vip = user_data["vip"];
+            var name = user_data["name"];
+            var msg = user_data["msg"];
+            this.chat(ch, pid, shape, vip, name, msg, svrid);
+        };
+        chat_msg.prototype.chat = function (ch, pid, shape, vip, name, msg, svrid) {
+            var c_data = data.get_data(data_enum.DATA_CHAT);
+            c_data.set_chat_msg(ch, pid, shape, vip, name, msg, svrid);
+            this.fire_event(game_event.EVENT_CHAT, c_data.get_new_chat());
+        };
+        chat_msg.prototype.on_sys_msg = function (user_data) {
+            var ch = user_data['ch'];
+            var msg = user_data['msg'];
+            this.chat(ch, 0, 0, 0, "", msg, 0);
+        };
+        chat_msg.prototype.send_msg = function (content, channel) {
+            if (channel === void 0) { channel = base.CHANNEL_WORLD; }
+            net.net_ins().send(protocol_def.C2S_CHAT, { "ch": channel, "msg": content });
+        };
+        chat_msg.prototype.onPlayerInfo = function (ud) {
+            if (ud === void 0) { ud = null; }
+            if (ud != null) {
+                if (ud["hyperlink_type"] == base.HYPERLINK_TYPE.TYPE_OPEN_PLAYER_INFO) {
+                    var pid = ud["u1"];
+                    var pdata = utils.data_ins().get_data(data_enum.DATA_PLAYER);
+                    if (pdata.m_pid == pid) {
+                        utils.widget_ins().show_widget(widget_enum.WIDGET_MAINPLAYER_INFO, true);
+                    }
+                    else {
+                        net.net_ins().send(protocol_def.C2S_ROLE_INFO, { "id": pid });
+                    }
+                }
+            }
+        };
+        chat_msg.prototype.dispose = function () {
+            _super.prototype.dispose.call(this);
+        };
+        return chat_msg;
+    }(utils.game_module));
+    game.chat_msg = chat_msg;
+})(game || (game = {}));
+//# sourceMappingURL=chat_msg.js.map
 var game_event;
 (function (game_event) {
     game_event.EVENT_TEST = "test";
@@ -254,6 +333,27 @@ var game_event;
     game_event.EVENT_CARD_OPENCARD = "card_open";
     game_event.EVENT_CARD_PLAYERINFO = "card_playerinfo";
     game_event.EVENT_CARD_END = "card_end";
+    // chat
+    game_event.EVENT_CHAT = "chat";
+    game_event.EVENT_CHAT_HYPERLINK = "chat_hyperlink"; // 超链接点击，userdata：{"text":data_arr[0], "hyperlink_type":data_arr[1], "u2":data_arr[2], "u3":data_arr[3], "u4":data_arr[4]}
+    game_event.EVENT_CHATWND_SIZE = "chatwnd_size";
+    game_event.EVENT_CHATWND_SYSMSG = "chatwnd_sysmsg";
+    // export const EVENT_CHAT_VISIBLE: string = "chat_visible";
+    // chat end
+    game_event.EVENT_CHANGE_INPUT_LIMIT = "cancel_input_limit";
+    game_event.EVENT_SELECT_EMOTION = "select_emotion";
+    game_event.EVENT_SELECT_EMOTION_FCHAT = "select_emotion_fchat";
+    game_event.EVENT_KEYBOARD_SHOW = "keyboard_show";
+    //键盘消失
+    game_event.EVENT_KEYBOARD_HIDDEN = "keyboard_hidden";
+    game_event.EVENT_KEYBOARD_HEIGHT_CHANGE = "keyboard_height_change";
+    game_event.EVENT_CHAT_INPUT_MSG = "chat_input_msg";
+    game_event.EVENT_CHAT_INPUT_SEND = "chat_input_send";
+    game_event.EVENT_CHAT_CLEAR = "chat_clear";
+    game_event.EVENT_SOUND_OPEN = "sound_open";
+    game_event.EVENT_SOUND_CLOSE = "sound_close";
+    game_event.EVENT_BUTTON_CLICK = "button_click";
+    game_event.EVENT_TAB_SHOW = "tab_show";
 })(game_event || (game_event = {}));
 //# sourceMappingURL=game_event_def.js.map
 var __extends = (this && this.__extends) || (function () {
@@ -330,9 +430,11 @@ var game;
             this.register_event(game_event.EVENT_TEST2, this.on_testfunc2);
             this.register_event(game_event.EVENT_TEST3, this.on_testfunc3);
             timer.timer_ins().add_timer(1000, this, this.on_1s_tick);
+            game.get_module(module_enum.MODULE_SOUND).start();
             game.get_module(module_enum.MODULE_PLAYER).start();
             game.get_module(module_enum.MODULE_CARD).start();
             game.get_module(module_enum.MODULE_SCENE).start();
+            game.get_module(module_enum.MODULE_CHAT_MSG).start();
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI, true);
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINTOPUI, true);
             net.net_ins().connect("129.204.91.54", 11009);
@@ -362,12 +464,14 @@ var game;
             core.net_errlog("on_net_error");
             this.m_b_logining = false;
             this.m_b_req_guestaccount = false;
+            helper.show_msgbox("net error");
         };
         game_main.prototype.on_net_closed = function (ud) {
             if (ud === void 0) { ud = null; }
             core.net_errlog("on_net_closed");
             this.m_b_logining = false;
             this.m_b_req_guestaccount = false;
+            helper.show_msgbox("net closed");
         };
         game_main.prototype.on_net_connected = function (ud) {
             if (ud === void 0) { ud = null; }
@@ -582,6 +686,8 @@ var game;
         utils.module_ins().register_module(module_enum.MODULE_TIPS, game.tips_mgr);
         utils.module_ins().register_module(module_enum.MODULE_SYS_MSG, game.sys_msg);
         utils.module_ins().register_module(module_enum.MODULE_SCENE, game.scene);
+        utils.module_ins().register_module(module_enum.MODULE_CHAT_MSG, game.chat_msg);
+        utils.module_ins().register_module(module_enum.MODULE_SOUND, game.soundmgr);
     }
     game.init_game_module = init_game_module;
     function get_module(module_name) {
@@ -598,6 +704,8 @@ var module_enum;
     module_enum.MODULE_TIPS = "tips_main";
     module_enum.MODULE_SYS_MSG = "sys_msgbox";
     module_enum.MODULE_SCENE = "scene";
+    module_enum.MODULE_CHAT_MSG = "chat_msg";
+    module_enum.MODULE_SOUND = "sound";
 })(module_enum || (module_enum = {}));
 //# sourceMappingURL=module_enum.js.map
 var __extends = (this && this.__extends) || (function () {
@@ -1179,6 +1287,165 @@ var game;
     game.scene = scene;
 })(game || (game = {}));
 //# sourceMappingURL=scene.js.map
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var game;
+(function (game) {
+    var soundmgr = /** @class */ (function (_super) {
+        __extends(soundmgr, _super);
+        function soundmgr() {
+            var _this = _super.call(this) || this;
+            _this.m_state = -1;
+            _this.m_b_stop = false;
+            _this.m_sound_savekey = "xiaomi_game_sound";
+            _this.m_cur_musicurl = "";
+            _this.m_cur_soundurl = "";
+            _this.b_stop_music = false;
+            return _this;
+        }
+        soundmgr.prototype.start = function () {
+            _super.prototype.start.call(this);
+            this.register_event(game_event.EVENT_SOUND_OPEN, this.on_sound_open);
+            this.register_event(game_event.EVENT_SOUND_CLOSE, this.on_sound_close);
+            this.register_event(game_event.EVENT_BUTTON_CLICK, this.on_button_click);
+            var open_str = helper.get_local(this.m_sound_savekey);
+            if (open_str == null || open_str.length <= 0) {
+                this.m_b_stop = false;
+            }
+            else {
+                var flag = parseInt(open_str);
+                if (flag == 0) {
+                    this.m_b_stop = true;
+                }
+                else {
+                    this.m_b_stop = false;
+                }
+            }
+            Laya.SoundManager.autoReleaseSound = false;
+        };
+        soundmgr.prototype._stopmusic = function () {
+            if (this.m_cur_musicurl.length > 0) {
+                Laya.SoundManager.stopMusic();
+                if (this.b_stop_music == true) {
+                    Laya.SoundManager.destroySound(this.m_cur_musicurl);
+                }
+                this.m_cur_musicurl = "";
+            }
+        };
+        soundmgr.prototype._stopsound = function () {
+            if (this.m_cur_soundurl.length > 0) {
+                Laya.SoundManager.stopSound(this.m_cur_soundurl);
+                if (this.b_stop_music == true) {
+                    Laya.SoundManager.destroySound(this.m_cur_soundurl);
+                }
+                this.m_cur_soundurl = "";
+            }
+        };
+        soundmgr.prototype.on_sound_close = function (ud) {
+            if (ud === void 0) { ud = null; }
+            this.m_b_stop = true;
+            helper.set_local(this.m_sound_savekey, "0");
+            Laya.SoundManager.stopAll();
+            this._stopmusic();
+            this._stopsound();
+        };
+        soundmgr.prototype.is_open = function () {
+            return this.m_b_stop;
+        };
+        soundmgr.prototype.on_sound_open = function (ud) {
+            if (ud === void 0) { ud = null; }
+            this.m_b_stop = false;
+            helper.set_local(this.m_sound_savekey, "1");
+            if (this.m_state == 1) {
+                this.m_state = -1;
+                //this.enter_game();
+            }
+            else if (this.m_state == 2) {
+                this.m_state = -1;
+                this.enter_scene();
+            }
+            else if (this.m_state == 3) {
+                this.m_state = -1;
+                this.enter_boss();
+            }
+        };
+        soundmgr.prototype.on_button_click = function (ud) {
+            if (ud === void 0) { ud = null; }
+            if (this.m_b_stop == true) {
+                return;
+            }
+            this.m_cur_soundurl = "sound/mousedown_btn.wav";
+            Laya.SoundManager.playSound(this.m_cur_soundurl);
+        };
+        soundmgr.prototype.enter_game = function () {
+            if (this.m_state == 1) {
+                return;
+            }
+            this.m_state = 1;
+            if (this.m_b_stop) {
+                return;
+            }
+            this._stopmusic();
+            this.m_cur_musicurl = "sound/login.mp3";
+            Laya.SoundManager.playMusic(this.m_cur_musicurl);
+        };
+        soundmgr.prototype.enter_scene = function () {
+            if (this.m_state == 2) {
+                return;
+            }
+            this.m_state = 2;
+            if (this.m_b_stop) {
+                return;
+            }
+            this._stopmusic();
+            this.m_cur_musicurl = "sound/normal.mp3";
+            Laya.SoundManager.playMusic(this.m_cur_musicurl);
+        };
+        soundmgr.prototype.enter_boss = function () {
+            if (this.m_state == 3) {
+                return;
+            }
+            this.m_state = 3;
+            if (this.m_b_stop) {
+                return;
+            }
+            this._stopmusic();
+            this.m_cur_musicurl = "sound/boss.mp3";
+            Laya.SoundManager.playMusic(this.m_cur_musicurl);
+        };
+        soundmgr.prototype.play_sound = function (url) {
+            if (this.m_b_stop) {
+                return;
+            }
+            this._stopsound();
+            this.m_cur_soundurl = url;
+            Laya.SoundManager.playSound(this.m_cur_soundurl);
+        };
+        soundmgr.prototype.stop_sound = function (url) {
+            Laya.SoundManager.stopSound(url);
+            if (this.b_stop_music == true) {
+                Laya.SoundManager.destroySound(url);
+            }
+            if (this.m_cur_soundurl == url) {
+                this.m_cur_soundurl = "";
+            }
+        };
+        soundmgr.prototype.dispose = function () {
+            _super.prototype.dispose.call(this);
+        };
+        return soundmgr;
+    }(utils.game_module));
+    game.soundmgr = soundmgr;
+})(game || (game = {}));
+//# sourceMappingURL=soundmgr.js.map
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
