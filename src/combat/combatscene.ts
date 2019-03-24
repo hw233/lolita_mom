@@ -248,15 +248,15 @@ module combat{
         private m_camera_x:number = 0;
         private m_camera_y:number = 0;
         private m_pos_centerx:number = 0;
-        private m_pos_centerdx:number = 40;
-        private m_pos_centerdy:number = -60;
+        private m_pos_centerdx:number = 0;//40;
+        private m_pos_centerdy:number = 0;//-60;
         private m_pos_centery:number = 0;
         private m_view_w:number = 0;
         private m_view_h:number = 0;
         public m_pos_dx:number = 92;
         public m_pos_dy:number = 52;
-        private m_pos_c2dx:number = 0+this.m_pos_dx;
-        private m_pos_c2dy:number = 120+this.m_pos_dy;
+        private m_pos_c2dx:number = this.m_pos_dx*3;//0+this.m_pos_dx;
+        private m_pos_c2dy:number = this.m_pos_dy*2;//120+this.m_pos_dy;
         private m_numpic_list:Array<combat_number> = new Array<combat_number>();
         private m_tempnumpic_list:Array<combat_number> = new Array<combat_number>();
         private m_cryout_list:Array<combat_cryout> = new Array<combat_cryout>();
@@ -718,8 +718,13 @@ module combat{
             wdata.roleid = this._add_warrior_ins(wdata,pos.x,pos.y);
             //
             this.m_warrior_map[wdata.id] = wdata;
-
-            this.on_warriorready({"src":wdata.id});
+            if(wdata.b_dead){
+                this.on_warriordead({"src":wdata.id});
+            }
+            else{
+                this.on_warriorready({"src":wdata.id});
+            }
+            
             //let ra:core.renderavatar = this.m_render.getunit(wdata.roleid);
         }
         private on_delninja(user_data:any):void{
