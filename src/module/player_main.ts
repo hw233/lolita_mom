@@ -57,7 +57,7 @@ module game{
                 pdata.m_expmax = expmax;
             }
 
-            this.fire_event_next_frame(game_event.EVENT_PLAYERDATA_UPDATED);
+            this.fire_event_next_frame(game_event.EVENT_UI_MAINTOPUPDATE);
         }
         public dispose()
         {

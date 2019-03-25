@@ -107,6 +107,9 @@ var GameMain = /** @class */ (function () {
         assets.push({ url: "avatar/link_data_txt.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "avatar/skillperform.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "kjlinxin.ttf", type: Laya.Loader.BUFFER });
+        assets.push({ url: "sound/normal.mp3", type: Laya.Loader.SOUND });
+        assets.push({ url: "sound/boss.mp3", type: Laya.Loader.SOUND });
+        assets.push({ url: "sound/mousedown_btn.wav", type: Laya.Loader.SOUND });
         //
         for (var _i = 0, assets_2 = assets; _i < assets_2.length; _i++) {
             var i = assets_2[_i];

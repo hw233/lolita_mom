@@ -44,10 +44,12 @@ var widget;
         };
         maintop_ui.prototype.on_update_data = function (ud) {
             if (ud === void 0) { ud = null; }
-            var gold = ud[0];
-            var stamnia = ud[1];
+            var mp = data.get_data(data_enum.DATA_PLAYER);
+            var gold = mp.m_gold;
+            var stamnia = mp.m_stamina;
             this.UIins.num_gold.text = gold.toString();
             this.UIins.num_slv.text = stamnia.toString();
+            this.UIins.level_label.text = mp.m_lv.toString();
         };
         maintop_ui.prototype.on_dispose = function () {
         };

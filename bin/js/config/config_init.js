@@ -3,9 +3,9 @@ var config;
     function config_init(config_obj) {
         config.assist_info_map_init(config_obj);
         config.randomname_map_init(config_obj);
-        config.cardbuff_map_init(config_obj);
-        config.cardskill_map_init(config_obj);
-        config.cardskillpassive_map_init(config_obj);
+        config.simplebuff_map_init(config_obj);
+        config.simpleskill_map_init(config_obj);
+        config.simpleskillpassive_map_init(config_obj);
         config.item_map_init(config_obj);
         config.itemmerge_map_init(config_obj);
         config.player_exp_map_init(config_obj);

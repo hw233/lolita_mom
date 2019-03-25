@@ -32,10 +32,12 @@ module widget {
             this.UIins.name_label.text = mp.m_name + " ("+x.toString()+","+y.toString()+")";
         }
         private on_update_data(ud:any = null):void{
-            let gold:number = ud[0];
-            let stamnia:number = ud[1];
+            let mp:data.player_data = data.get_data(data_enum.DATA_PLAYER) as data.player_data;
+            let gold:number = mp.m_gold;
+            let stamnia:number = mp.m_stamina;
             this.UIins.num_gold.text = gold.toString();
             this.UIins.num_slv.text = stamnia.toString();
+            this.UIins.level_label.text = mp.m_lv.toString();
         }
         public on_dispose(): void {
         }

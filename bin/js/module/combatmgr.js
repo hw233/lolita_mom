@@ -252,12 +252,14 @@ var game;
                 if (cmd == protocol_def.S2C_WAR_ADD) {
                     var shape = ud['shape'];
                     var desc = ud['desc'];
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 1 /* ACTION_RUN */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 0 /* ACTION_STAND */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 3 /* ACTION_ATTACK */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 4 /* ACTION_ATTACKED */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 7 /* ACTION_SKILL */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 5 /* ACTION_DEAD */));
+                    if (desc.length > 0) {
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 1 /* ACTION_RUN */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 0 /* ACTION_STAND */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 3 /* ACTION_ATTACK */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 4 /* ACTION_ATTACKED */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 7 /* ACTION_SKILL */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 5 /* ACTION_DEAD */));
+                    }
                 }
                 else if (cmd == protocol_def.S2C_WAR_PERFORM) {
                     var skillid = ud['skillid'];
@@ -301,12 +303,14 @@ var game;
                 if (cmd == protocol_def.S2C_WAR_ADD) {
                     var shape = ud_1['shape'];
                     var desc = ud_1['desc'];
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 1 /* ACTION_RUN */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 0 /* ACTION_STAND */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 3 /* ACTION_ATTACK */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 4 /* ACTION_ATTACKED */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 7 /* ACTION_SKILL */));
-                    assets = assets.concat(helper.get_avatar_res(desc, shape, 5 /* ACTION_DEAD */));
+                    if (desc.length > 0) {
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 1 /* ACTION_RUN */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 0 /* ACTION_STAND */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 3 /* ACTION_ATTACK */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 4 /* ACTION_ATTACKED */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 7 /* ACTION_SKILL */));
+                        assets = assets.concat(helper.get_avatar_res(desc, shape, 5 /* ACTION_DEAD */));
+                    }
                 }
                 else if (cmd == protocol_def.S2C_WAR_PERFORM) {
                     var skillid = ud_1['skillid'];

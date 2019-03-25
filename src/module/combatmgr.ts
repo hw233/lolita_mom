@@ -249,12 +249,15 @@ module game{
                 if(cmd == protocol_def.S2C_WAR_ADD){
                     let shape:number = ud['shape'];
                     let desc:Laya.Byte = ud['desc'];
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_RUN));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_STAND));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACK));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACKED));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_SKILL));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_DEAD));
+                    if(desc.length > 0){
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_RUN));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_STAND));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACK));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACKED));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_SKILL));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_DEAD));
+                    }
+                    
                 }
                 else if(cmd == protocol_def.S2C_WAR_PERFORM){
                     let skillid:number = ud['skillid'];
@@ -297,12 +300,15 @@ module game{
                 if(cmd == protocol_def.S2C_WAR_ADD){
                     let shape:number = ud['shape'];
                     let desc:Laya.Byte = ud['desc'];
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_RUN));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_STAND));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACK));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACKED));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_SKILL));
-                    assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_DEAD));
+                    if(desc.length > 0){
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_RUN));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_STAND));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACK));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_ATTACKED));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_SKILL));
+                        assets = assets.concat(helper.get_avatar_res(desc,shape,core.AVATAR_ACTON.ACTION_DEAD));
+                    }
+                    
                 }
                 else if(cmd == protocol_def.S2C_WAR_PERFORM){
                     let skillid:number = ud['skillid'];

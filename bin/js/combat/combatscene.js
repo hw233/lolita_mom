@@ -706,7 +706,12 @@ var combat;
             wdata.roleid = this._add_warrior_ins(wdata, pos.x, pos.y);
             //
             this.m_warrior_map[wdata.id] = wdata;
-            this.on_warriorready({ "src": wdata.id });
+            if (wdata.b_dead) {
+                this.on_warriordead({ "src": wdata.id });
+            }
+            else {
+                this.on_warriorready({ "src": wdata.id });
+            }
             //let ra:core.renderavatar = this.m_render.getunit(wdata.roleid);
         };
         combatscene.prototype.on_delninja = function (user_data) {

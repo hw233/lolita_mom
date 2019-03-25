@@ -104,6 +104,9 @@ class GameMain{
         assets.push({ url: "avatar/link_data_txt.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "avatar/skillperform.bin", type: Laya.Loader.BUFFER });
         assets.push({ url: "kjlinxin.ttf", type: Laya.Loader.BUFFER });
+        assets.push({ url: "sound/normal.mp3", type: Laya.Loader.SOUND });
+        assets.push({ url: "sound/boss.mp3", type: Laya.Loader.SOUND });
+        assets.push({ url: "sound/mousedown_btn.wav", type: Laya.Loader.SOUND });
         //
         for(let i of assets){
             utils.widget_ins().add_preload_res(i["url"]);
