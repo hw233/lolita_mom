@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 113,
+                "idx": 0,
+                "w": 97,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 236,
+                "y": 194
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 118,
+                "idx": 0,
+                "w": 116,
+                "x": 0,
+                "y": 114
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 232,
+                "y": 216
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 112,
+                "idx": 0,
+                "w": 120,
+                "x": 98,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 160,
+                "y": 181
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 104,
+                "idx": 0,
+                "w": 133,
+                "x": 117,
+                "y": 113
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 148,
+                "y": 192
+            }
+        }
+    },
+    "meta": {
+        "image": "attacked.png",
+        "prefix": "zhuque/attacked/"
+    }
+}

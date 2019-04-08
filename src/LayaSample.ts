@@ -67,6 +67,16 @@ class GameMain{
         Laya.timer.frameLoop(1,this,this.onframeloop);
         core.set_log_module(core.log_module_enum.MODULE_ALL);
         core.set_log_level(core.log_level_enum.LOG_TIPS);
+
+        if (!laya.renders.Render.isConchApp) {
+            laya.net.ResourceVersion.enable("version.json", laya.utils.Handler.create(this, this.on_load_versionfile), laya.net.ResourceVersion.FILENAME_VERSION);
+            return;
+        }
+        
+        this.load_loadingres();
+    }
+    private on_load_versionfile(): void {
+        core.game_tiplog("on_load_versionfile");
         this.load_loadingres();
     }
     private load_loadingres():void{

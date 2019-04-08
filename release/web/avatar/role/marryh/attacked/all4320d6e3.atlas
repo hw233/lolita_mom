@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 111,
+                "idx": 0,
+                "w": 71,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 233,
+                "y": 167
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 87,
+                "idx": 0,
+                "w": 72,
+                "x": 0,
+                "y": 112
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 231,
+                "y": 190
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 71,
+                "x": 73,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 208,
+                "y": 164
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 122,
+                "idx": 0,
+                "w": 72,
+                "x": 145,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 209,
+                "y": 158
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/marryh/attacked/all/"
+    }
+}

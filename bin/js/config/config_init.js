@@ -55,6 +55,15 @@ var config;
         config.cli_round_detail_cfg_map_init(config_obj);
         config.skillperform_map_init(config_obj);
         config.skillperformconfig_map_init(config_obj);
+        config.fightgroup_map_init(config_obj);
+        config.fightdata_map_init(config_obj);
+        config.fightconfig_map_init(config_obj);
+        config.fightaidefine_map_init(config_obj);
+        config.fightai_map_init(config_obj);
+        config.fightcombatai_map_init(config_obj);
+        config.fightdialog_map_init(config_obj);
+        config.fightdungeon_map_init(config_obj);
+        config.fightarray_map_init(config_obj);
     }
     config.config_init = config_init;
 })(config || (config = {}));

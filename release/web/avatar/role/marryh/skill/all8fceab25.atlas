@@ -1,0 +1,246 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 104,
+                "idx": 0,
+                "w": 71,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 231,
+                "y": 172
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 69,
+                "x": 0,
+                "y": 105
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 231,
+                "y": 172
+            }
+        },
+        "30002.png": {
+            "frame": {
+                "h": 96,
+                "idx": 0,
+                "w": 70,
+                "x": 72,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 231,
+                "y": 182
+            }
+        },
+        "30003.png": {
+            "frame": {
+                "h": 96,
+                "idx": 0,
+                "w": 72,
+                "x": 143,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 229,
+                "y": 183
+            }
+        },
+        "30004.png": {
+            "frame": {
+                "h": 112,
+                "idx": 0,
+                "w": 73,
+                "x": 216,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 225,
+                "y": 170
+            }
+        },
+        "30005.png": {
+            "frame": {
+                "h": 116,
+                "idx": 0,
+                "w": 77,
+                "x": 290,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 223,
+                "y": 167
+            }
+        },
+        "30006.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 73,
+                "x": 368,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 223,
+                "y": 163
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 115,
+                "idx": 0,
+                "w": 71,
+                "x": 70,
+                "y": 105
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 210,
+                "y": 163
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 124,
+                "idx": 0,
+                "w": 69,
+                "x": 442,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 155
+            }
+        },
+        "70002.png": {
+            "frame": {
+                "h": 124,
+                "idx": 0,
+                "w": 70,
+                "x": 142,
+                "y": 97
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 211,
+                "y": 156
+            }
+        },
+        "70003.png": {
+            "frame": {
+                "h": 121,
+                "idx": 0,
+                "w": 72,
+                "x": 213,
+                "y": 113
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 211,
+                "y": 159
+            }
+        },
+        "70004.png": {
+            "frame": {
+                "h": 109,
+                "idx": 0,
+                "w": 73,
+                "x": 286,
+                "y": 117
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 171
+            }
+        },
+        "70005.png": {
+            "frame": {
+                "h": 109,
+                "idx": 0,
+                "w": 77,
+                "x": 360,
+                "y": 118
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 171
+            }
+        },
+        "70006.png": {
+            "frame": {
+                "h": 116,
+                "idx": 0,
+                "w": 73,
+                "x": 438,
+                "y": 125
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 216,
+                "y": 163
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/marryh/skill/all/"
+    }
+}

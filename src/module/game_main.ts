@@ -265,6 +265,7 @@ module game{
         }
         private on_notifyfloat(ud:any = null):void{
             console.log("on_notifyfloat ",ud);
+            helper.show_text_tips(ud['msg']);
         }
         private on_relogin(ud:any = null):void
         {

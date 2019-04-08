@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 89,
+                "idx": 0,
+                "w": 77,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 211,
+                "y": 210
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 87,
+                "idx": 0,
+                "w": 109,
+                "x": 78,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 212
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 85,
+                "x": 0,
+                "y": 90
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 223,
+                "y": 208
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 79,
+                "idx": 0,
+                "w": 110,
+                "x": 86,
+                "y": 88
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 198,
+                "y": 205
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/shixie/attacked/all/"
+    }
+}

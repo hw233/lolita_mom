@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 124,
+                "idx": 0,
+                "w": 89,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 205,
+                "y": 167
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 109,
+                "idx": 0,
+                "w": 142,
+                "x": 90,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 195,
+                "y": 187
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 134,
+                "idx": 0,
+                "w": 89,
+                "x": 0,
+                "y": 125
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 218,
+                "y": 178
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 124,
+                "idx": 0,
+                "w": 142,
+                "x": 90,
+                "y": 110
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 175,
+                "y": 167
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/nezha/attacked/all/"
+    }
+}

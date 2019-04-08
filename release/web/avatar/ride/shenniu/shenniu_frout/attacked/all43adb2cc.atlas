@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 124,
+                "idx": 0,
+                "w": 116,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 244,
+                "y": 210
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 111,
+                "idx": 0,
+                "w": 107,
+                "x": 0,
+                "y": 125
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 249,
+                "y": 214
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 115,
+                "idx": 0,
+                "w": 120,
+                "x": 108,
+                "y": 125
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 148,
+                "y": 175
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 118,
+                "idx": 0,
+                "w": 109,
+                "x": 117,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 153,
+                "y": 172
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/shenniu/shenniu_frout/attacked/all/"
+    }
+}

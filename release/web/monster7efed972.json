@@ -1,0 +1,79 @@
+{
+  "version": "0.3.0",
+  "scope": "tree",
+  "id": "9f57abbf-4575-43b5-bc78-e15561414dc5",
+  "title": "A behavior tree",
+  "description": "",
+  "root": "a81b2ecd-30b3-45f1-8e82-6e7ced455792",
+  "properties": {},
+  "nodes": {
+    "a81b2ecd-30b3-45f1-8e82-6e7ced455792": {
+      "id": "a81b2ecd-30b3-45f1-8e82-6e7ced455792",
+      "name": "Sequence",
+      "title": "monster",
+      "description": "",
+      "properties": {},
+      "display": {
+        "x": 60,
+        "y": 0
+      },
+      "children": [
+        "f00fe700-fa9a-4887-9e98-53c35751ed21",
+        "50f00a49-b58d-4288-806a-c116aa8ce84c"
+      ]
+    },
+    "f00fe700-fa9a-4887-9e98-53c35751ed21": {
+      "id": "f00fe700-fa9a-4887-9e98-53c35751ed21",
+      "name": "isdead",
+      "title": "isdead",
+      "description": "",
+      "properties": {
+        "hp": 0
+      },
+      "display": {
+        "x": 252,
+        "y": -108
+      }
+    },
+    "50f00a49-b58d-4288-806a-c116aa8ce84c": {
+      "id": "50f00a49-b58d-4288-806a-c116aa8ce84c",
+      "name": "run",
+      "title": "run",
+      "description": "",
+      "properties": {},
+      "display": {
+        "x": 240,
+        "y": 84
+      }
+    }
+  },
+  "display": {
+    "camera_x": 492,
+    "camera_y": 381,
+    "camera_z": 1,
+    "x": -96,
+    "y": 0
+  },
+  "custom_nodes": [
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "isdead",
+      "category": "condition",
+      "title": "isdead",
+      "description": null,
+      "properties": {
+        "hp": 0
+      }
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "run",
+      "category": "action",
+      "title": "run",
+      "description": null,
+      "properties": {}
+    }
+  ]
+}

@@ -325,11 +325,17 @@ module core {
                     let c_id:number = parseInt(k);
                     let f_id:number = this.m_render.m_scene.m_follow_list[c_id];
                     let f_role:renderavatar = this.getunit(f_id);
-                    if(f_role != null){
+                    let c_role:renderavatar = this.getunit(c_id);
+                    if(f_role != null && c_role != null){
                         pt.x = f_role.x;
                         pt.y = f_role.y;
                         pt = this._gen_back_pos(pt,f_role.m_dir);
-                        this.unit_walk2(c_id,pt.x,pt.y,true);
+                        if(pt.x != c_role.x || pt.y != c_role.y){
+                            this.unit_walk2(c_id,pt.x,pt.y,true,true);
+                        }
+                        else{
+                            c_role.change_dir(f_role.m_dir);
+                        }
                     }
                 }
             }

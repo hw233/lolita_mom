@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 128,
+                "idx": 0,
+                "w": 166,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 187,
+                "y": 203
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 137,
+                "idx": 0,
+                "w": 160,
+                "x": 167,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 193,
+                "y": 194
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 157,
+                "idx": 0,
+                "w": 167,
+                "x": 0,
+                "y": 138
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 157,
+                "y": 175
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 147,
+                "idx": 0,
+                "w": 162,
+                "x": 168,
+                "y": 138
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 157,
+                "y": 169
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/hulu/hulu_back/attacked/all/"
+    }
+}

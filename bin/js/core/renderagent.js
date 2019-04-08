@@ -323,11 +323,17 @@ var core;
                     var c_id = parseInt(k);
                     var f_id = this.m_render.m_scene.m_follow_list[c_id];
                     var f_role = this.getunit(f_id);
-                    if (f_role != null) {
+                    var c_role = this.getunit(c_id);
+                    if (f_role != null && c_role != null) {
                         pt.x = f_role.x;
                         pt.y = f_role.y;
                         pt = this._gen_back_pos(pt, f_role.m_dir);
-                        this.unit_walk2(c_id, pt.x, pt.y, true);
+                        if (pt.x != c_role.x || pt.y != c_role.y) {
+                            this.unit_walk2(c_id, pt.x, pt.y, true, true);
+                        }
+                        else {
+                            c_role.change_dir(f_role.m_dir);
+                        }
                     }
                 }
             }

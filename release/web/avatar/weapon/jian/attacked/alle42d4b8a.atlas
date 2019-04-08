@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 14,
+                "idx": 0,
+                "w": 16,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 273,
+                "y": 234
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 23,
+                "idx": 0,
+                "w": 60,
+                "x": 17,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 264,
+                "y": 237
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 81,
+                "idx": 0,
+                "w": 20,
+                "x": 78,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 223,
+                "y": 223
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 65,
+                "idx": 0,
+                "w": 59,
+                "x": 0,
+                "y": 24
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 188,
+                "y": 230
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "weapon/jian/attacked/all/"
+    }
+}

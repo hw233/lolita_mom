@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 120,
+                "idx": 0,
+                "w": 114,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 202,
+                "y": 184
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 119,
+                "idx": 0,
+                "w": 113,
+                "x": 115,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 210,
+                "y": 187
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 84,
+                "idx": 0,
+                "w": 96,
+                "x": 115,
+                "y": 120
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 196,
+                "y": 223
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 69,
+                "idx": 0,
+                "w": 100,
+                "x": 0,
+                "y": 121
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 189,
+                "y": 232
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/wangcai/wangcai_back/attacked/all/"
+    }
+}

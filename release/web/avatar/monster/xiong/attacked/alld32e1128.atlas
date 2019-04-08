@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 104,
+                "idx": 0,
+                "w": 116,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 194,
+                "y": 213
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 108,
+                "idx": 0,
+                "w": 114,
+                "x": 117,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 200,
+                "y": 209
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 114,
+                "x": 0,
+                "y": 105
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 201,
+                "y": 220
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 107,
+                "idx": 0,
+                "w": 112,
+                "x": 115,
+                "y": 109
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 196,
+                "y": 217
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/xiong/attacked/all/"
+    }
+}

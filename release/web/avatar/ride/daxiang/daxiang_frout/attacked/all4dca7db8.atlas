@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 107,
+                "idx": 0,
+                "w": 136,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 207,
+                "y": 181
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 103,
+                "idx": 0,
+                "w": 140,
+                "x": 0,
+                "y": 108
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 210,
+                "y": 192
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 131,
+                "idx": 0,
+                "w": 107,
+                "x": 141,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 190
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 122,
+                "idx": 0,
+                "w": 108,
+                "x": 141,
+                "y": 132
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 218,
+                "y": 173
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/daxiang/daxiang_frout/attacked/all/"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 187,
+                "idx": 0,
+                "w": 105,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 209,
+                "y": 134
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 165,
+                "idx": 0,
+                "w": 127,
+                "x": 106,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 146
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 161,
+                "idx": 0,
+                "w": 104,
+                "x": 234,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 198,
+                "y": 179
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 178,
+                "idx": 0,
+                "w": 128,
+                "x": 339,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 170,
+                "y": 165
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/wukong/attacked/all/"
+    }
+}

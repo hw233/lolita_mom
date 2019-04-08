@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 118,
+                "idx": 0,
+                "w": 87,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 216,
+                "y": 183
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 83,
+                "x": 0,
+                "y": 119
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 236,
+                "y": 209
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 111,
+                "idx": 0,
+                "w": 87,
+                "x": 84,
+                "y": 119
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 209,
+                "y": 183
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 134,
+                "idx": 0,
+                "w": 83,
+                "x": 172,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 193,
+                "y": 163
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/mamian/attacked/all/"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 151,
+                "idx": 0,
+                "w": 205,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 186
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 167,
+                "idx": 0,
+                "w": 208,
+                "x": 0,
+                "y": 152
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 208,
+                "y": 182
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 131,
+                "idx": 0,
+                "w": 169,
+                "x": 206,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 166,
+                "y": 153
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 142,
+                "idx": 0,
+                "w": 140,
+                "x": 209,
+                "y": 132
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 166,
+                "y": 135
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/huli/huli_frout/attacked/all/"
+    }
+}

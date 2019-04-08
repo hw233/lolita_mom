@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 166,
+                "idx": 0,
+                "w": 65,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 229,
+                "y": 131
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 160,
+                "idx": 0,
+                "w": 82,
+                "x": 66,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 240,
+                "y": 141
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 137,
+                "idx": 0,
+                "w": 66,
+                "x": 149,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 215,
+                "y": 161
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 147,
+                "idx": 0,
+                "w": 85,
+                "x": 216,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 187,
+                "y": 146
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/tangseng/attacked/all/"
+    }
+}

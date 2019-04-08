@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 196,
+                "idx": 0,
+                "w": 174,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 160,
+                "y": 29
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 185,
+                "idx": 0,
+                "w": 192,
+                "x": 0,
+                "y": 197
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 137,
+                "y": 38
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 191,
+                "idx": 0,
+                "w": 174,
+                "x": 175,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 152,
+                "y": 33
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 197,
+                "idx": 0,
+                "w": 176,
+                "x": 193,
+                "y": 192
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 157,
+                "y": 28
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/w1/attacked/all/"
+    }
+}

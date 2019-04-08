@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 33,
+                "idx": 0,
+                "w": 28,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 248,
+                "y": 242
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 33,
+                "idx": 0,
+                "w": 28,
+                "x": 0,
+                "y": 34
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 254,
+                "y": 245
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 135,
+                "idx": 0,
+                "w": 142,
+                "x": 0,
+                "y": 68
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 183,
+                "y": 196
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 130,
+                "idx": 0,
+                "w": 135,
+                "x": 143,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 193,
+                "y": 194
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/laohu/laohu_back/attacked/all/"
+    }
+}

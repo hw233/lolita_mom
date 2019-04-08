@@ -1,0 +1,246 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 38,
+                "idx": 0,
+                "w": 36,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 262,
+                "y": 218
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 85,
+                "idx": 0,
+                "w": 130,
+                "x": 37,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 211,
+                "y": 165
+            }
+        },
+        "30002.png": {
+            "frame": {
+                "h": 120,
+                "idx": 0,
+                "w": 185,
+                "x": 168,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 185,
+                "y": 151
+            }
+        },
+        "30003.png": {
+            "frame": {
+                "h": 174,
+                "idx": 0,
+                "w": 58,
+                "x": 0,
+                "y": 86
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 120
+            }
+        },
+        "30004.png": {
+            "frame": {
+                "h": 123,
+                "idx": 0,
+                "w": 100,
+                "x": 59,
+                "y": 86
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 181
+            }
+        },
+        "30005.png": {
+            "frame": {
+                "h": 167,
+                "idx": 0,
+                "w": 156,
+                "x": 354,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 200,
+                "y": 162
+            }
+        },
+        "30006.png": {
+            "frame": {
+                "h": 145,
+                "idx": 0,
+                "w": 152,
+                "x": 160,
+                "y": 121
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 200,
+                "y": 176
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 190,
+                "idx": 0,
+                "w": 50,
+                "x": 0,
+                "y": 261
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 144
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 188,
+                "idx": 0,
+                "w": 130,
+                "x": 51,
+                "y": 267
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 171,
+                "y": 125
+            }
+        },
+        "70002.png": {
+            "frame": {
+                "h": 56,
+                "idx": 0,
+                "w": 185,
+                "x": 313,
+                "y": 168
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 142,
+                "y": 183
+            }
+        },
+        "70003.png": {
+            "frame": {
+                "h": 206,
+                "idx": 0,
+                "w": 58,
+                "x": 182,
+                "y": 267
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 240,
+                "y": 124
+            }
+        },
+        "70004.png": {
+            "frame": {
+                "h": 205,
+                "idx": 0,
+                "w": 100,
+                "x": 241,
+                "y": 267
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 182,
+                "y": 139
+            }
+        },
+        "70005.png": {
+            "frame": {
+                "h": 112,
+                "idx": 0,
+                "w": 156,
+                "x": 342,
+                "y": 225
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 156,
+                "y": 183
+            }
+        },
+        "70006.png": {
+            "frame": {
+                "h": 148,
+                "idx": 0,
+                "w": 153,
+                "x": 342,
+                "y": 338
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 159,
+                "y": 163
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "weapon/jiblue/skill/all/"
+    }
+}

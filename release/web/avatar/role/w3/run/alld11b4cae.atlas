@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 108,
+                "idx": 0,
+                "w": 107,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 93,
+                "y": 36
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 109,
+                "x": 0,
+                "y": 109
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 93,
+                "y": 36
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 107,
+                "idx": 0,
+                "w": 109,
+                "x": 108,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 93,
+                "y": 34
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 108,
+                "x": 110,
+                "y": 108
+            },
+            "sourceSize": {
+                "h": 147,
+                "w": 240
+            },
+            "spriteSourceSize": {
+                "x": 93,
+                "y": 36
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/w3/run/all/"
+    }
+}

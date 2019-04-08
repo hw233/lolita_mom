@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 149,
+                "idx": 0,
+                "w": 90,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 214,
+                "y": 155
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 109,
+                "idx": 0,
+                "w": 103,
+                "x": 91,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 196
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 131,
+                "idx": 0,
+                "w": 90,
+                "x": 195,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 208,
+                "y": 168
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 143,
+                "idx": 0,
+                "w": 103,
+                "x": 91,
+                "y": 110
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 197,
+                "y": 154
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/yanluo/attacked/all/"
+    }
+}

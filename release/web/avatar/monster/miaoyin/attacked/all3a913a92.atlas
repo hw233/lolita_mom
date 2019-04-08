@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 119,
+                "idx": 0,
+                "w": 84,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 203,
+                "y": 173
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 101,
+                "idx": 0,
+                "w": 90,
+                "x": 85,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 209,
+                "y": 192
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 117,
+                "idx": 0,
+                "w": 83,
+                "x": 0,
+                "y": 120
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 225,
+                "y": 171
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 129,
+                "idx": 0,
+                "w": 90,
+                "x": 85,
+                "y": 102
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 213,
+                "y": 155
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/miaoyin/attacked/all/"
+    }
+}

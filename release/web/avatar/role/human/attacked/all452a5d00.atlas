@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 56,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 233,
+                "y": 177
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 86,
+                "idx": 0,
+                "w": 58,
+                "x": 57,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 232,
+                "y": 190
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 114,
+                "idx": 0,
+                "w": 56,
+                "x": 116,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 223,
+                "y": 163
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 111,
+                "idx": 0,
+                "w": 58,
+                "x": 173,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 222,
+                "y": 167
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/human/attacked/all/"
+    }
+}

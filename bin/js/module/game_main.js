@@ -263,6 +263,7 @@ var game;
         game_main.prototype.on_notifyfloat = function (ud) {
             if (ud === void 0) { ud = null; }
             console.log("on_notifyfloat ", ud);
+            helper.show_text_tips(ud['msg']);
         };
         game_main.prototype.on_relogin = function (ud) {
             if (ud === void 0) { ud = null; }

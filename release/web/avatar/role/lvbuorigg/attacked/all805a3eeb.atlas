@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 105,
+                "idx": 0,
+                "w": 81,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 236,
+                "y": 174
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 88,
+                "idx": 0,
+                "w": 149,
+                "x": 82,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 233,
+                "y": 195
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 139,
+                "idx": 0,
+                "w": 81,
+                "x": 0,
+                "y": 106
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 195,
+                "y": 137
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 128,
+                "idx": 0,
+                "w": 149,
+                "x": 82,
+                "y": 89
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 130,
+                "y": 149
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/lvbuorigg/attacked/all/"
+    }
+}

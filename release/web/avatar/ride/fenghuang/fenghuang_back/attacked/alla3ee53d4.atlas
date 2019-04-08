@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 265,
+                "idx": 0,
+                "w": 298,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 107,
+                "y": 111
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 267,
+                "idx": 0,
+                "w": 301,
+                "x": 299,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 93,
+                "y": 123
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 217,
+                "idx": 0,
+                "w": 297,
+                "x": 0,
+                "y": 266
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 107,
+                "y": 120
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 220,
+                "idx": 0,
+                "w": 276,
+                "x": 298,
+                "y": 268
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 127,
+                "y": 143
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/fenghuang/fenghuang_back/attacked/all/"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 57,
+                "idx": 0,
+                "w": 70,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 246,
+                "y": 213
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 71,
+                "idx": 0,
+                "w": 132,
+                "x": 71,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 244,
+                "y": 215
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 161,
+                "idx": 0,
+                "w": 77,
+                "x": 0,
+                "y": 72
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 190,
+                "y": 203
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 143,
+                "idx": 0,
+                "w": 131,
+                "x": 78,
+                "y": 72
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 136,
+                "y": 207
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "weapon/dao10/attacked/all/"
+    }
+}

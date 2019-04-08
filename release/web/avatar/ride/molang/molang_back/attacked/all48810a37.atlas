@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 196,
+                "idx": 0,
+                "w": 208,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 175,
+                "y": 160
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 166,
+                "idx": 0,
+                "w": 192,
+                "x": 0,
+                "y": 197
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 193,
+                "y": 162
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 112,
+                "idx": 0,
+                "w": 133,
+                "x": 193,
+                "y": 197
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 129,
+                "y": 181
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 153,
+                "idx": 0,
+                "w": 122,
+                "x": 209,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 127,
+                "y": 141
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/molang/molang_back/attacked/all/"
+    }
+}

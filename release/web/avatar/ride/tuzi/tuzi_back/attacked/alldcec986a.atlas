@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 137,
+                "idx": 0,
+                "w": 167,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 199,
+                "y": 191
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 149,
+                "idx": 0,
+                "w": 186,
+                "x": 168,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 193,
+                "y": 182
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 131,
+                "idx": 0,
+                "w": 182,
+                "x": 0,
+                "y": 150
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 142,
+                "y": 176
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 135,
+                "idx": 0,
+                "w": 185,
+                "x": 183,
+                "y": 150
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 134,
+                "y": 171
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/tuzi/tuzi_back/attacked/all/"
+    }
+}

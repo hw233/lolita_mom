@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 90,
+                "idx": 0,
+                "w": 92,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 213,
+                "y": 215
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 88,
+                "idx": 0,
+                "w": 99,
+                "x": 93,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 217,
+                "y": 216
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 97,
+                "idx": 0,
+                "w": 93,
+                "x": 0,
+                "y": 91
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 210
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 99,
+                "idx": 0,
+                "w": 100,
+                "x": 94,
+                "y": 89
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 195,
+                "y": 206
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/waguai/attacked/all/"
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 51,
+                "idx": 0,
+                "w": 32,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 267,
+                "y": 216
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 62,
+                "idx": 0,
+                "w": 147,
+                "x": 33,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 204,
+                "y": 221
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 205,
+                "idx": 0,
+                "w": 32,
+                "x": 181,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 213,
+                "y": 140
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 172,
+                "idx": 0,
+                "w": 147,
+                "x": 0,
+                "y": 63
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 161,
+                "y": 157
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "weapon/jiorig/attacked/all/"
+    }
+}

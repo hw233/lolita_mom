@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 97,
+                "idx": 0,
+                "w": 69,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 233,
+                "y": 180
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 83,
+                "idx": 0,
+                "w": 80,
+                "x": 0,
+                "y": 98
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 229,
+                "y": 193
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 100,
+                "idx": 0,
+                "w": 69,
+                "x": 81,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 210,
+                "y": 176
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 101,
+                "idx": 0,
+                "w": 80,
+                "x": 81,
+                "y": 101
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 203,
+                "y": 176
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/girl/attacked/all/"
+    }
+}

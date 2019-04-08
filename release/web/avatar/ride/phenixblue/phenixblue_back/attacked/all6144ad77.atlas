@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 356,
+                "idx": 0,
+                "w": 378,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 98,
+                "y": 99
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 316,
+                "idx": 0,
+                "w": 390,
+                "x": 0,
+                "y": 357
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 88,
+                "y": 108
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 243,
+                "idx": 0,
+                "w": 390,
+                "x": 379,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 14,
+                "y": 105
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 260,
+                "idx": 0,
+                "w": 392,
+                "x": 391,
+                "y": 244
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 14,
+                "y": 109
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/phenixblue/phenixblue_back/attacked/all/"
+    }
+}

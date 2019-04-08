@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 174,
+                "idx": 0,
+                "w": 117,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 186,
+                "y": 130
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 172,
+                "idx": 0,
+                "w": 106,
+                "x": 118,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 200,
+                "y": 134
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 83,
+                "idx": 0,
+                "w": 57,
+                "x": 118,
+                "y": 173
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 209,
+                "y": 209
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 81,
+                "idx": 0,
+                "w": 53,
+                "x": 176,
+                "y": 173
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 206,
+                "y": 211
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "ride/chitupurple/chitupurple_back/attacked/all/"
+    }
+}

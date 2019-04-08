@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "20000.png": {
+            "frame": {
+                "h": 146,
+                "idx": 0,
+                "w": 146,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 150,
+                "y": 78
+            }
+        },
+        "20001.png": {
+            "frame": {
+                "h": 145,
+                "idx": 0,
+                "w": 135,
+                "x": 0,
+                "y": 147
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 151,
+                "y": 78
+            }
+        },
+        "20002.png": {
+            "frame": {
+                "h": 143,
+                "idx": 0,
+                "w": 130,
+                "x": 136,
+                "y": 147
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 155,
+                "y": 81
+            }
+        },
+        "20003.png": {
+            "frame": {
+                "h": 145,
+                "idx": 0,
+                "w": 134,
+                "x": 147,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 245,
+                "w": 400
+            },
+            "spriteSourceSize": {
+                "x": 152,
+                "y": 79
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "role/w2/stand/all/"
+    }
+}

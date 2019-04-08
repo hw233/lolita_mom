@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 152,
+                "idx": 0,
+                "w": 130,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 198,
+                "y": 147
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 144,
+                "idx": 0,
+                "w": 105,
+                "x": 0,
+                "y": 153
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 230,
+                "y": 164
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 171,
+                "idx": 0,
+                "w": 143,
+                "x": 131,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 172,
+                "y": 132
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 162,
+                "idx": 0,
+                "w": 131,
+                "x": 106,
+                "y": 172
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 163,
+                "y": 127
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/hudie/attacked/all/"
+    }
+}

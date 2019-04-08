@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 164,
+                "idx": 0,
+                "w": 120,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 216,
+                "y": 172
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 136,
+                "idx": 0,
+                "w": 128,
+                "x": 0,
+                "y": 165
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 217,
+                "y": 193
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 126,
+                "idx": 0,
+                "w": 123,
+                "x": 121,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 171,
+                "y": 175
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 131,
+                "idx": 0,
+                "w": 128,
+                "x": 129,
+                "y": 127
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 166,
+                "y": 164
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/change/attacked/all/"
+    }
+}

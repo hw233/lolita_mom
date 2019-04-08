@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 187,
+                "idx": 0,
+                "w": 150,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 185,
+                "y": 141
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 190,
+                "idx": 0,
+                "w": 197,
+                "x": 151,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 189,
+                "y": 138
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 192,
+                "idx": 0,
+                "w": 143,
+                "x": 0,
+                "y": 188
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 188,
+                "y": 129
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 188,
+                "idx": 0,
+                "w": 204,
+                "x": 144,
+                "y": 191
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 127,
+                "y": 133
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/bingxuemo/attacked/all/"
+    }
+}

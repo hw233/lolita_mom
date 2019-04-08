@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 199,
+                "idx": 0,
+                "w": 98,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 212,
+                "y": 104
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 194,
+                "idx": 0,
+                "w": 145,
+                "x": 99,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 220,
+                "y": 126
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 146,
+                "idx": 0,
+                "w": 98,
+                "x": 245,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 202,
+                "y": 157
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 158,
+                "idx": 0,
+                "w": 145,
+                "x": 344,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 147,
+                "y": 145
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/niumowang/attacked/all/"
+    }
+}

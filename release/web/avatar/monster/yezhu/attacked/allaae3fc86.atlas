@@ -1,0 +1,76 @@
+{
+    "frames": {
+        "30000.png": {
+            "frame": {
+                "h": 76,
+                "idx": 0,
+                "w": 61,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 223,
+                "y": 233
+            }
+        },
+        "30001.png": {
+            "frame": {
+                "h": 69,
+                "idx": 0,
+                "w": 73,
+                "x": 0,
+                "y": 77
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 217,
+                "y": 241
+            }
+        },
+        "70000.png": {
+            "frame": {
+                "h": 72,
+                "idx": 0,
+                "w": 63,
+                "x": 62,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 221,
+                "y": 238
+            }
+        },
+        "70001.png": {
+            "frame": {
+                "h": 73,
+                "idx": 0,
+                "w": 70,
+                "x": 74,
+                "y": 73
+            },
+            "sourceSize": {
+                "h": 512,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 215,
+                "y": 223
+            }
+        }
+    },
+    "meta": {
+        "image": "all.png",
+        "prefix": "monster/yezhu/attacked/all/"
+    }
+}
