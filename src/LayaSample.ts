@@ -48,13 +48,17 @@ class GameMain{
     private m_gamemain_ins:game.game_main = null;
     constructor()
     {
-        Laya.init(1280,720,Laya.WebGL);
+        //Laya.init(1280,720,Laya.WebGL);
+        //Laya.stage.screenMode = Laya.Stage.SCREEN_HORIZONTAL;
+
+        Laya.init(720,1280,Laya.WebGL);
+        Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
         //
         Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
         //让舞台处于屏幕的水平居中
         Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
         //保持原始高宽比的情况下，将舞台铺满屏幕，超出比例的部分会有黑边
-        Laya.stage.screenMode = Laya.Stage.SCREEN_HORIZONTAL;
+        
         Laya.stage.scaleMode = Laya.Stage.SCALE_SHOWALL;
         //自动横屏，游戏的水平方向始终与浏览器屏幕较短边保持垂直
         
@@ -97,6 +101,7 @@ class GameMain{
         Laya.loader.off(Laya.Event.ERROR, this, this.onError);
         
         this.m_game_loading = new ui.game.game_loadingUI();
+        this.m_game_loading.scale(0.5,0.5);
         Laya.stage.addChild(this.m_game_loading);
         this.start_preload();
     }

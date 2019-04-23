@@ -95,7 +95,7 @@ module game{
             let combat_ins:combatmgr = get_module(module_enum.MODULE_COMBAT) as combatmgr;
             combat_ins.start();
             
-            utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI,true);
+            //utils.widget_ins().show_widget(widget_enum.WIDGET_MAINUI,true);
             utils.widget_ins().show_widget(widget_enum.WIDGET_MAINTOPUI,true);
 
 
